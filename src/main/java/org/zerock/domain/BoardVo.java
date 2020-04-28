@@ -14,5 +14,5 @@ public class BoardVo {
 	private int BOARD_HIT;
 	private String BOARD_CONTENT;
 	private int MEM_NO;
-	//æ»≥Á«œººø‰ §æ§æ d
+	//æ»≥Á«œººø‰ §æ§æ daaaa
 }
