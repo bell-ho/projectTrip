@@ -7,5 +7,5 @@ public class UploadFileVo {
 	private int FILE_NO;
 	private int BOARD_NO;
 	private String FILE_NAME;
-	//À¸¾Ç
+	//À¸¾Ç ¾Æ¾Æ
 }
