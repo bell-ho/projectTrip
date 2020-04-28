@@ -7,15 +7,15 @@ import org.zerock.domain.BoardVo;
 
 public interface BoardMapper {
 //	@Select("select * from board where BOARD_NO >0")
-	public List<BoardVo>getList();
+	public List<BoardVo>getList();	//게시글 목록
 	
-	public void insert(BoardVo board);
+	public void insert(BoardVo board);	//게시글 등록
 	
-	public void insertSelectkey(BoardVo board);
+	public void insertSelectkey(BoardVo board); //게시글 등록
 	
-	public BoardVo read(Long BOARD_NO);
+	public BoardVo read(Long BOARD_NO); //게시글 상세
 	
-	public int delete(Long BOARD_NO);
+	public int delete(Long BOARD_NO); //게시글 삭제
 	
-	public int update(BoardVo board);
+	public int update(BoardVo board); //게시글 수정
 }
