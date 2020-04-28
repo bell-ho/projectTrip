@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.BoardMapper">
+
+	<select id="getList" resultType="org.zerock.domain.BoardVo">
+	<![CDATA[
+		select * from board where BOARD_NO > 0
+		]]>
+	</select>
+
+<!-- 	<insert id="insert"> -->
+<!-- 	insert into board( -->
+<!-- 	BOARD_NO, -->
+<!-- 	BOARD_KINDS, -->
+<!-- 	BOARD_TITLE, -->
+<!-- 	BOARD_HIT, -->
+<!-- 	BOARD_CONTENT, -->
+<!-- 	MEM_NO) -->
+<!-- 	values ( -->
+<!-- 	seq_board.nextval, -->
+<!-- 	#{BOARD_KINDS}, -->
+<!-- 	#{BOARD_TITLE}, -->
+<!-- 	#{BOARD_HIT}, -->
+<!-- 	#{BOARD_CONTENT}, -->
+<!-- 	#{MEM_NO}) -->
+<!-- 	</insert> -->
+
+	<insert id="insertSelectkey">
+
+		<selectKey keyProperty="BOARD_NO" order="BEFORE" resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		
+		insert into board(
+		BOARD_NO,
+		BOARD_KINDS,
+		BOARD_TITLE,
+		BOARD_HIT,
+		BOARD_CONTENT,
+		MEM_NO)
+		values (
+		#{BOARD_NO},
+		#{BOARD_KINDS},
+		#{BOARD_TITLE},
+		#{BOARD_HIT},
+		#{BOARD_CONTENT},
+		#{MEM_NO}
+		)
+	</insert>
+	
+	<select id="read" resultType="org.zerock.domain.BoardVo">
+		select * from board where BOARD_NO = #{BOARD_NO}
+	</select>
+	
+	<delete id="delete">
+		delete from board where BOARD_NO = #{BOARD_NO}
+	</delete>
+	
+	<update id="update">
+		update board set
+		BOARD_KINDS = #{BOARD_KINDS},
+		BOARD_TITLE = #{BOARD_TITLE},
+		BOARD_HIT = #{BOARD_HIT},
+		BOARD_CONTENT = #{BOARD_CONTENT},
+		BOARD_UPDATEDATA = sysdate
+		where BOARD_NO = #{BOARD_NO}
+	</update>
+</mapper>

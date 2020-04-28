@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class BoardVo {
-	private int BOARD_NO;
+	private Long BOARD_NO;
 	private int BOARD_KINDS;
 	private String BOARD_TITLE;
-	private Date BOARD_DATE;
+	private Date BOARD_REGDATE;
 	private Date BOARD_UPDATEDATA;
 	private int BOARD_HIT;
 	private String BOARD_CONTENT;
