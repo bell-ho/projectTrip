@@ -4,16 +4,20 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ReplyMapper">
 	<insert id="insert">
-		insert into reply (REPLY_NO , BOARD_NO , MEM_NO , REPLY_CONTENT )
-		values(seq_reply.nextval,#{BOARD_NO},#{MEM_NO},#{REPLY_CONTENT})
+		insert into reply (reply_no , board_no , mem_no , reply_content )
+		values(seq_reply.nextval,#{board_no},#{mem_no},#{reply_content})
 	</insert>
-	<select id="read" resultType="org.zerock.domain.ReplyVo">
-		select * from reply where REPLY_NO = #{REPLY_NO}
+	<select id="get" resultType="org.zerock.domain.ReplyVo">
+		select * from reply where reply_no = #{reply_no}
+	</select>
+	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVo">
+		select reply_no , board_no , mem_no , reply_content , reply_date , reply_updatedate
+		from reply where board_no = #{board_no}
 	</select>
 	<delete id="delete">
-		delete from reply where REPLY_NO = #{REPLY_NO}
+		delete from reply where reply_no = #{reply_no}
 	</delete>
 	<update id="update">
-		update reply set REPLY_CONTENT = #{REPLY_CONTENT} , REPLY_UPDATEDATE = SYSDATE where REPLY_NO = #{REPLY_NO}
+		update reply set reply_content = #{reply_content} , reply_updatedate = sysdate where reply_no = #{reply_no}
 	</update>
 </mapper>

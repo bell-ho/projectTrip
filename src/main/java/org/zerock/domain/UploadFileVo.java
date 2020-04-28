@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UploadFileVo {
-	private int FILE_NO;
-	private Long BOARD_NO;
-	private String FILE_NAME;
+	private int file_no;
+	private Long board_no;
+	private String file_name;
 }
