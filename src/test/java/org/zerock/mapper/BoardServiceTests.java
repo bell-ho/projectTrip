@@ -32,15 +32,15 @@ public class BoardServiceTests {
 		
 		BoardVo board = new BoardVo();
 		
-		board.setBOARD_KINDS(1);
-		board.setBOARD_TITLE("테스트0428");
-		board.setBOARD_HIT(5);
-		board.setBOARD_CONTENT("테스트내용");
-		board.setMEM_NO(1);
+		board.setBoard_kinds(1);
+		board.setBoard_title("테스트0428");
+		board.setBoard_hit(5);
+		board.setBoard_content("테스트내용");
+		board.setMem_no(1);
 		
 		service.register(board);
 		
-		log.info("생성된 게시물 번호"+board.getBOARD_NO());
+		log.info("생성된 게시물 번호"+board.getBoard_no());
 	}
 	
 //	@Test
@@ -65,7 +65,7 @@ public class BoardServiceTests {
 		if(board == null) {
 			return;
 		}
-		board.setBOARD_TITLE("제목수정");
+		board.setBoard_title("제목수정");
 		log.info("modify 결과:"+service.modify(board));
 	}
 }
