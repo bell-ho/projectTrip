@@ -7,7 +7,7 @@
 
 	<select id="getList" resultType="org.zerock.domain.BoardVo">
 	<![CDATA[
-		select * from board where BOARD_NO > 0
+		select * from board where board_no > 0
 		]]>
 	</select>
 
@@ -30,7 +30,7 @@
 
 	<insert id="insertSelectkey">
 
-		<selectKey keyProperty="BOARD_NO" order="BEFORE" resultType="long">
+		<selectKey keyProperty="board_no" order="BEFORE" resultType="long">
 			select seq_board.nextval from dual
 		</selectKey>
 		

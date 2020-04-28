@@ -58,7 +58,7 @@ public class BoardServiceTests {
 		log.info("삭제 결과: "+service.remove(61L));
 	}
 	
-	@Test
+//	@Test
 	public void testUpdate() {
 		BoardVo board = service.get(56L);
 		
