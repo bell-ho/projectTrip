@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ReplyMapper">
+	<insert id="insert">
+		insert into reply (REPLY_NO , BOARD_NO , MEM_NO , REPLY_CONTENT )
+		values(seq_reply.nextval,#{BOARD_NO},#{MEM_NO},#{REPLY_CONTENT})
+	</insert>
+	<select id="read" resultType="org.zerock.domain.ReplyVo">
+		select * from reply where REPLY_NO = #{REPLY_NO}
+	</select>
+	<delete id="delete">
+		delete from reply where REPLY_NO = #{REPLY_NO}
+	</delete>
+	<update id="update">
+		update reply set REPLY_CONTENT = #{REPLY_CONTENT} , REPLY_UPDATEDATE = SYSDATE where REPLY_NO = #{REPLY_NO}
+	</update>
+</mapper>
