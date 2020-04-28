@@ -16,7 +16,7 @@ public class BoardMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 	
-	@Test
+	@Test 
 	public void testGetList() {
 		
 	}
