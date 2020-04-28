@@ -9,5 +9,5 @@ public interface ReplyMapper {
 	
 	public int delete(int reply_no); //´ñ±Û »èÁ¦
 	
-	public int update(ReplyVo vo); //´ñ±Û ¼öÁ¤
+	public int update(ReplyVo vo); //´ñ±Û ¼öÁ¤ 
 }
