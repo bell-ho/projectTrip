@@ -25,11 +25,11 @@ public class BoardMapperTests {
 //	@Test
 	public void testInsert() {
 		BoardVo board = new BoardVo();
-		board.setBOARD_KINDS(1);
-		board.setBOARD_TITLE("테스트0428");
-		board.setBOARD_HIT(5);
-		board.setBOARD_CONTENT("테스트내용");
-		board.setMEM_NO(1);
+		board.setBoard_kinds(1);
+		board.setBoard_title("테스트0428");
+		board.setBoard_hit(5);
+		board.setBoard_content("테스트내용");
+		board.setMem_no(1);
 		
 		mapper.insert(board);
 		
@@ -40,11 +40,11 @@ public class BoardMapperTests {
 	public void testInsertSelectkey() {
 		
 		BoardVo board = new BoardVo();
-		board.setBOARD_KINDS(1);
-		board.setBOARD_TITLE("테스트0428 selectkey");
-		board.setBOARD_HIT(5);
-		board.setBOARD_CONTENT("테스트내용");
-		board.setMEM_NO(1);
+		board.setBoard_kinds(1);
+		board.setBoard_title("테스트0428 selectkey");
+		board.setBoard_hit(5);
+		board.setBoard_content("테스트내용");
+		board.setMem_no(1);
 		
 		mapper.insertSelectkey(board);
 		
@@ -69,10 +69,10 @@ public class BoardMapperTests {
 	public void testUpdate() {
 		BoardVo board = new BoardVo();
 		
-		board.setBOARD_NO(56L);
-		board.setBOARD_KINDS(2);
-		board.setBOARD_TITLE("d수정된 제목");
-		board.setBOARD_CONTENT("수정된 애용");
+		board.setBoard_no(56L);
+		board.setBoard_kinds(2);
+		board.setBoard_title("d수정된 제목");
+		board.setBoard_content("수정된 애용");
 		
 		int count = mapper.update(board);
 		log.info("수정 카운트"+count);

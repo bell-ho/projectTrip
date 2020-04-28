@@ -6,12 +6,12 @@ import lombok.Data;
 
 @Data
 public class MemberVo {
-	private int MEM_NO;
-	private String MEM_ID;
-	private String MEM_PASSWORD;
-	private String MEM_EMAIL;
-	private String MEM_RECEIVE_EMAIL;
-	private String MEM_NICKNAME;
-	private String MEM_IMG;
-	private Date MEM_REGISTER_DATE;
+	private int mem_no;
+	private String mem_id;
+	private String mem_password;
+	private String mem_email;
+	private String mem_receive_email;
+	private String mem_nickname;
+	private String mem_img;
+	private Date mem_register_date;
 }

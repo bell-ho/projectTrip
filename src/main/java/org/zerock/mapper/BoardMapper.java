@@ -13,9 +13,9 @@ public interface BoardMapper {
 	
 	public void insertSelectkey(BoardVo board); //게시글 등록
 	
-	public BoardVo read(Long BOARD_NO); //게시글 상세
+	public BoardVo read(Long board_no); //게시글 상세
 	
-	public int delete(Long BOARD_NO); //게시글 삭제
+	public int delete(Long board_no); //게시글 삭제
 	
 	public int update(BoardVo board); //게시글 수정
 }

@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class ReplyVo {
-	private int REPLY_NO;
-	private Long BOARD_NO;
-	private int MEM_NO;
-	private String REPLY_CONTENT;
-	private Date REPLY_DATE;
-	private Date REPLY_UPDATEDATE;
+	private int reply_no;
+	private Long board_no;
+	private int mem_no;
+	private String reply_content;
+	private Date reply_date;
+	private Date reply_updatedate;
 }

@@ -13,19 +13,19 @@
 
 <!-- 	<insert id="insert"> -->
 <!-- 	insert into board( -->
-<!-- 	BOARD_NO, -->
-<!-- 	BOARD_KINDS, -->
-<!-- 	BOARD_TITLE, -->
-<!-- 	BOARD_HIT, -->
-<!-- 	BOARD_CONTENT, -->
-<!-- 	MEM_NO) -->
+<!-- 	board_no, -->
+<!-- 	board_kinds, -->
+<!-- 	board_title, -->
+<!-- 	board_hit, -->
+<!-- 	board_content, -->
+<!-- 	mem_no) -->
 <!-- 	values ( -->
 <!-- 	seq_board.nextval, -->
-<!-- 	#{BOARD_KINDS}, -->
-<!-- 	#{BOARD_TITLE}, -->
-<!-- 	#{BOARD_HIT}, -->
-<!-- 	#{BOARD_CONTENT}, -->
-<!-- 	#{MEM_NO}) -->
+<!-- 	#{board_kinds}, -->
+<!-- 	#{board_title}, -->
+<!-- 	#{board_hit}, -->
+<!-- 	#{board_content}, -->
+<!-- 	#{mem_no}) -->
 <!-- 	</insert> -->
 
 	<insert id="insertSelectkey">
@@ -35,37 +35,37 @@
 		</selectKey>
 		
 		insert into board(
-		BOARD_NO,
-		BOARD_KINDS,
-		BOARD_TITLE,
-		BOARD_HIT,
-		BOARD_CONTENT,
-		MEM_NO)
+		board_no,
+		board_kinds,
+		board_title,
+		board_hit,
+		board_content,
+		mem_no)
 		values (
-		#{BOARD_NO},
-		#{BOARD_KINDS},
-		#{BOARD_TITLE},
-		#{BOARD_HIT},
-		#{BOARD_CONTENT},
-		#{MEM_NO}
+		#{board_no},
+		#{board_kinds},
+		#{board_title},
+		#{board_hit},
+		#{board_content},
+		#{mem_no}
 		)
 	</insert>
 	
 	<select id="read" resultType="org.zerock.domain.BoardVo">
-		select * from board where BOARD_NO = #{BOARD_NO}
+		select * from board where board_no = #{board_no}
 	</select>
 	
 	<delete id="delete">
-		delete from board where BOARD_NO = #{BOARD_NO}
+		delete from board where board_no = #{board_no}
 	</delete>
 	
 	<update id="update">
 		update board set
-		BOARD_KINDS = #{BOARD_KINDS},
-		BOARD_TITLE = #{BOARD_TITLE},
-		BOARD_HIT = #{BOARD_HIT},
-		BOARD_CONTENT = #{BOARD_CONTENT},
-		BOARD_UPDATEDATA = sysdate
-		where BOARD_NO = #{BOARD_NO}
+		board_kinds = #{board_kinds},
+		board_title = #{board_title},
+		board_hit = #{board_hit},
+		board_content = #{board_content},
+		board_updatedata = sysdate
+		where board_no = #{board_no}
 	</update>
 </mapper>
