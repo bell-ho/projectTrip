@@ -12,6 +12,6 @@ public class ReplyVo {
 	private String REPLY_CONTENT;
 	private Date REPLY_DATE;
 	private Date REPLY_UPDATEDATE;
-	//테스트입니다. r r  r 
+	//테스트입니다. r r  r 마지막
 	private int ia;
 }
