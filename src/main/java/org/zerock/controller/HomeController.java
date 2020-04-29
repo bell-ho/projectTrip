@@ -35,49 +35,57 @@ public class HomeController {
 		
 		return "main";
 	}
-//	@RequestMapping("/login")
-//	public void from() {
-//		
-//	}
-//	@RequestMapping("/naverLogin")
-//	public void fromNaver() {
-//		
-//	}
-//	@RequestMapping("/information")
-//	public void information() {
-//		
-//	}
-//	@RequestMapping("/trip")
-//	public void gallery() {
-//		
-//	}
-//	@RequestMapping("/detail")
-//	public void detail() {
-//		
-//	}
-//	@RequestMapping("/detail1")
-//	public void detail1() {
-//		
-//	}
-//	@RequestMapping("/photo")
-//	public void phto() {
-//		
-//	}
-//	@RequestMapping("/board")
-//	public void board() {
-//		
-//	}
-//	@RequestMapping("/insertMember")
-//	public void insertMember() {
-//		
-//	}
-//	@RequestMapping("/photo1")
-//	public void phto1() {
-//		
-//	}
-//	@RequestMapping("/mypage")
-//	public void mypage() {
-//		
-//	}
+	@RequestMapping("/login")
+	public void from() {
+		
+	}
+	@RequestMapping("/naverLogin")
+	public void fromNaver() {
+		
+	}
+	@RequestMapping("/information")
+	public void information() {
+		
+	}
+	@RequestMapping("/trip")
+	public void gallery() {
+		
+	}
+	@RequestMapping("/detail")
+	public void detail() {
+		
+	}
+	@RequestMapping("/detail1")
+	public void detail1() {
+		
+	}
+	@RequestMapping("/photo")
+	public void phto() {
+		
+	}
+	@RequestMapping("/board")
+	public void board() {
+		
+	}
+	@RequestMapping("/insertMember")
+	public void insertMember() {
+		
+	}
+	@RequestMapping("/photo1")
+	public void phto1() {
+		
+	}
+	@RequestMapping("/mypage")
+	public void mypage() {
+		
+	}
+	@RequestMapping("/test")
+	public void from1() {
+		
+	}
+	@RequestMapping("/test2")
+	public void from2() {
+		
+	}
 	
 }
