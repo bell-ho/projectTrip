@@ -58,7 +58,7 @@
 						src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
-							<a href="/board/list">게시판</a>
+							<a href="/board/listBoard">게시판</a>
 						</h4>
 						<p class="card-text" style="text-align: center;">게시판</p>
 					</div>

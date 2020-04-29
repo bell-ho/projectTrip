@@ -63,7 +63,7 @@ $(document).ready(function($) {
     	"scrollCollapse": true ,
     	"dom" : '<"top"l>rt<"bottom"fpi>'
         });
-        $("#example_length").append($("<a href='#' id='insertBoard'>새글작성</a>"));
+        $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard'>새글작성</a>"));
 } );
 </script>
 

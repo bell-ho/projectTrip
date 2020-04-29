@@ -21,13 +21,16 @@ public class BoardController {
 	@Setter(onMethod_ =@Autowired )
 	private BoardService service;
 	
-	@GetMapping("/list")
+	@GetMapping("/listBoard")
 	public void list0(Model model) {
 		log.info("list");
 		model.addAttribute("list",service.getList());
 	}
+	@GetMapping("/registerBoard")
+	public void register() {
+	}
 	
-	@PostMapping("/register")
+	@PostMapping("/registerBoard")
 	public String register(BoardVo board, RedirectAttributes rttr) {
 		log.info("register: "+board);
 		service.register(board);
