@@ -15,11 +15,11 @@
 <title>MY TRIP</title>
 
 <!-- Bootstrap core CSS -->
-<link href="resources/main/vendor/bootstrap/css/bootstrap.min.css"
+<link href="../resources/main/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="resources/main/css/modern-business.css" rel="stylesheet">
+<link href="../resources/main/css/modern-business.css" rel="stylesheet">
 
 </style>
 </head>
