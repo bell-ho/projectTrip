@@ -36,28 +36,7 @@
 					</tr>
 				</thead>
 				<tbody>
-<<<<<<< HEAD
-				
-=======
-					<tr>
-						<td>1</td>
-						<td>제주도</td>
-						<td>안녕</td>
-						<td>10.04.11</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>가산동</td>
-						<td>나야</td>
-						<td>10.04.11</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>강원도</td>
-						<td>여행</td>
-						<td>10.04.11</td>
-					</tr>
->>>>>>> refs/remotes/origin/seo
+
 				</tbody>
 			</table>
 			<div class='row'>
