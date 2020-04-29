@@ -9,7 +9,7 @@
 	<![CDATA[
 		select board_no , board_title ,  m.mem_id , board_hit , board_regdate from board b , member m
 		where b.mem_no = m.mem_no and board_no > 0
-		]]>
+		]]> 
 	</select>
 
 <!-- 	<insert id="insert"> -->
