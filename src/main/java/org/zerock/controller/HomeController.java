@@ -87,5 +87,9 @@ public class HomeController {
 	public void from2() {
 		
 	}
+	@RequestMapping("/editor")
+	public void editor() {
+		
+	}
 	
 }
