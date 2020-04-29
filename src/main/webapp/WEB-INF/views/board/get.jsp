@@ -98,7 +98,7 @@ color: black;
 			<div class="panel panel-default" id="main">
 				<div class="panel-body">
 					<h2 id='title'>
-						<c:out value="${board.title}" />
+						<c:out value="${board.board_title}" />
 						제주도 좋아
 						<button id="modify"data-oper="modify" class="btn btn-sm btn-primary">수정</button>
 						<button id="delete"data-oper="modify" class="btn btn-sm btn-primary" >삭제</button>
