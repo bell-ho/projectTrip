@@ -91,5 +91,9 @@ public class HomeController {
 	public void editor() {
 		
 	}
+	@RequestMapping("/text")
+	public void text() {
+		
+	}
 	
 }
