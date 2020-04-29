@@ -26,6 +26,7 @@ public class BoardController {
 		log.info("list");
 		model.addAttribute("list",service.getList());
 	}
+	
 	@GetMapping("/registerBoard")
 	public void register() {
 	}
@@ -36,7 +37,7 @@ public class BoardController {
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
 		
-		return "redirect:/board/list";
+		return "redirect:/board/listBoard";
 	}
 	
 	@GetMapping("/get")
@@ -52,7 +53,7 @@ public class BoardController {
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result","succeess");
 		}
-		return "redirect:/board/list";
+		return "redirect:/board/listBoard";
 	}
 	
 	@PostMapping("/remove")
@@ -61,6 +62,6 @@ public class BoardController {
 		if(service.remove(board_no)) {
 			rttr.addFlashAttribute("result","success");
 		}
-		return "redirect:/board/list";
+		return "redirect:/board/listBoard";
 	}
 }

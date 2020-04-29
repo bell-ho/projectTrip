@@ -22,14 +22,13 @@
 		board_no,
 		board_kinds,
 		board_title,
-		board_content,
-		mem_no)
+		board_content
+		)
 		values (
 		#{board_no},
 		#{board_kinds},
 		#{board_title},
-		#{board_content},
-		#{mem_no}
+		#{board_content}
 		)
 	</insert>
 	

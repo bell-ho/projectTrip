@@ -24,19 +24,19 @@ footer {
 		<div class="col-lg-9">
 			<h1 class="mt-4 mb-3">Register Board</h1>
 		
-			<form action="/registerBoard" method="post">
-				게시판 <select name="searchBoard" id="searchBoard">
-				<option>자유게시판</option>
+			<form action="/board/registerBoard" method="post">
+			
+				게시판 <select name="board_kinds">
+				<option value="1">자유게시판</option>
 				<option>후기게시판</option>
-				</select>
-				<br>
-				<br>
-				<input type="text" name="subject"  placeholder="제목을 입력해 주세요." style="width:100%;">
-				<br>
-				<br>
-				<textarea placeholder="내용을 입력해 주세요." rows="18" cols="100%"></textarea>
-				<br>
+				</select><br><br>
+				
+				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
+				
+				<textarea placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%"></textarea><br>
+				
 				<input type="submit" value="확인">
+				
 			</form>
 		</div>
 	</div>

@@ -41,9 +41,8 @@ public class BoardControllerTests {
 		String resultPage = mockMvc.perform(
 				MockMvcRequestBuilders.post("/board/registerBoard")
 				.param("board_kinds", "1")
-				.param("board_title", "게시물 제목")
-				.param("board_content", "게시물 내용")
-				.param("mem_no", "1"))
+				.param("board_title", "게시물넌넌 제목")
+				.param("board_content", "게시물 내용"))
 				.andReturn().getModelAndView().getViewName();
 
 		log.info(resultPage);
