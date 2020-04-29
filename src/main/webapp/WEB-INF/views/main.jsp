@@ -58,10 +58,9 @@
 						src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
-							<a href="/board">게시판</a>
+							<a href="/board/list">게시판</a>
 						</h4>
-						<p class="card-text" style="text-align: center;">관광명소! 관광지!
-							여행스팟! 몰라 여기 게시판의</p>
+						<p class="card-text" style="text-align: center;">게시판</p>
 					</div>
 				</div>
 			</div>
@@ -75,8 +74,7 @@
 						<h4 class="card-title" style="text-align: center;">
 							<a href="#">갤러리</a>
 						</h4>
-						<p class="card-text" style="text-align: center;">관광명소! 관광지!
-							여행스팟! 몰라 여기 게시판의 사진을 모아볼수 있는 공간</p>
+						<p class="card-text" style="text-align: center;">갤러리</p>
 					</div>
 				</div>
 			</div>
@@ -89,10 +87,7 @@
 						<h4 class="card-title">
 							<a href="#">서울특별시</a>
 						</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Amet numquam aspernatur eum quasi sapiente
-							nesciunt? Voluptatibus sit, repellat sequi itaque deserunt,
-							dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+						<p class="card-text">서울</p>
 					</div>
 				</div>
 			</div>
@@ -106,10 +101,7 @@
 						<p></p>
 							<a href="#">강원도</a>
 						</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Amet numquam aspernatur eum quasi sapiente
-							nesciunt? Voluptatibus sit, repellat sequi itaque deserunt,
-							dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+						<p class="card-text">강원</p>
 					</div>
 				</div>
 			</div>
@@ -121,9 +113,7 @@
 						<h4 class="card-title">
 							<a href="#">경기도</a>
 						</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-							urna varius vitae.</p>
+						<p class="card-text">경기</p>
 					</div>
 				</div>
 			</div>
@@ -135,10 +125,7 @@
 						<h4 class="card-title">
 							<a href="#">경상도</a>
 						</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Quos quisquam, error quod sed cumque, odio
-							distinctio velit nostrum temporibus necessitatibus et facere
-							atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+						<p class="card-text">경상</p>
 					</div>
 				</div>
 			</div>
@@ -150,9 +137,7 @@
 						<h4 class="card-title">
 							<a href="#">충정도</a>
 						</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-							urna varius vitae.</p>
+						<p class="card-text">충청</p>
 					</div>
 				</div>
 			</div>
@@ -164,7 +149,7 @@
 						<h4 class="card-title">
 							<a href="#">전라도</a>
 						</h4>
-						<p class="card-text"></p>
+						<p class="card-text">전라</p>
 					</div>
 				</div>
 			</div>
@@ -176,10 +161,7 @@
 						<h4 class="card-title">
 							<a href="/information">제주도</a>
 						</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Itaque earum nostrum suscipit ducimus nihil
-							provident, perferendis rem illo, voluptate atque, sit eius in
-							voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+						<p class="card-text">제주</p>
 					</div>
 				</div>
 			</div>
