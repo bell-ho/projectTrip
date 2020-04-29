@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
+
 <style type="text/css">
 #example_filter {
 	float: left;
@@ -32,6 +33,7 @@
 	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script
 	src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	
 <script>
 var lang_kor = {
         "decimal" : "",
@@ -57,7 +59,9 @@ var lang_kor = {
             "sortDescending" : " :  내림차순 정렬"
         }
     };
+    
 $(document).ready(function($) {
+
     var table = $('#example').DataTable({
     	language : lang_kor ,
     	"scrollCollapse": true ,
@@ -65,6 +69,29 @@ $(document).ready(function($) {
         });
         $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard'>새글작성</a>"));
 } );
+
+$(document).ready(function(){
+	
+	var result = '<c:out value="${result}"/>';
+
+	checkModal(result);
+
+	history.replaceState({}, null, null);
+
+	function checkModal(result) {
+
+		if (result === '' || history.state) {
+			return;
+		}
+
+		if (parseInt(result) > 0) {
+			$(".modal-body").html("게시글" + parseInt(result) + "번이 등록되었습니다");
+		}
+		$("#myModal").modal("show");
+
+	}
+})
+
 </script>
 
 
@@ -75,18 +102,14 @@ $(document).ready(function($) {
 		<div class="col-lg-3">
 			<h1 class="my-4">게시판</h1>
 			<div class="list-group">
-				<a href="/board" class="list-group-item active">게시판</a> <a
-					href="/phto" class="list-group-item">갤러리 </a> <a href="/main"
+				<a href="/board/listBoard" class="list-group-item active">게시판</a> <a
+					href="/phto" class="list-group-item">갤러리 </a> <a href="/"
 					class="list-group-item ">홈</a>
 			</div>
 		</div>
 		<div class="col-lg-9">
 			<br> <br> <br> <br>
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="/main">지역선택</a></li>
-				<li class="breadcrumb-item"><a href="/information">제주도</a></li>
-				<li class="breadcrumb-item active">갤러리</li>
-			</ol>
+			
 			<table id="example" class="table table-bordered table-hover"
 				style="height: 100%; width: 100%;">
 				<thead>
@@ -105,7 +128,7 @@ $(document).ready(function($) {
 							<td><a href="get?board_no=${board.board_no }">${board.board_title }</a></td>
 							<td>${board.mem_id}</td>
 							<td>${board.board_hit}</td>
-							<td>${board.board_regdate }</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -120,4 +143,23 @@ $(document).ready(function($) {
 </script>
 <!-- /.container -->
 
+<!-- modal 추가 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+
+			<div class="modal-body">처리가 완료되었습니다.</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal content -->
+	</div>
+	<!-- /.modal dialog -->
+</div>
+<!-- /.modal -->
 <%@include file="../includes/footer.jsp"%>
