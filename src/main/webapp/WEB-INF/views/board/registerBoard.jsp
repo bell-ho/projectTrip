@@ -33,8 +33,11 @@ footer {
 				
 				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
 				
-				<textarea placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%"></textarea><br>
+<!-- 				<textarea placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br> -->
+				<div id="ta1" contentEditable="true" style="overflow-x:auto; width:500px; height: 300px; border: solid; 1px; margin: 20px; line-height: 20px; background-image: ; ">
+					<img src="https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg">
 				
+				</div>
 				<input type="submit" value="확인">
 				
 			</form>

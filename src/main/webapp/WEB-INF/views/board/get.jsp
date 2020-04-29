@@ -119,7 +119,7 @@ color: black;
 
 					<form id="operForm" action="/board/modify" method="get">
 						<input type="hidden" id="bno" name="bno"
-							value='<c:out value="${board.bno }"/>'> <input
+							value='<c:out value="${board.board_no }"/>'> <input
 							type="hidden" id="pageNum" name="pageNum"
 							value='<c:out value="${cri.pageNum }"/>'> <input
 							type="hidden" id="amount" name="amount"
