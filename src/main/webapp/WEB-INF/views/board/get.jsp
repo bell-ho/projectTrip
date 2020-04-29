@@ -6,7 +6,6 @@
 <style type="text/css">
 footer {
 	bottom: 0;
-	position: absolute;
 	width: 100%;
 	height: 100px;
 }
@@ -99,11 +98,10 @@ color: black;
 				<div class="panel-body">
 					<h2 id='title'>
 						<c:out value="${board.board_title}" />
-						제주도 좋아
 						<button id="modify"data-oper="modify" class="btn btn-sm btn-primary">수정</button>
 						<button id="delete"data-oper="modify" class="btn btn-sm btn-primary" >삭제</button>
 					</h2>
-						<label>작성자 : <c:out value="${board.mem_no}" />
+						<label>작성자 : <c:out value="${board.mem_id}" />
 						</label> <label style="float: right;">작성일 : 20.04.29 <c:out
 								value="${board.board_regdate}" />
 						</label> <br>
@@ -119,7 +117,7 @@ color: black;
 
 					<form id="operForm" action="/board/modify" method="get">
 						<input type="hidden" id="bno" name="bno"
-							value='<c:out value="${board.bno }"/>'> <input
+							value='<c:out value="${board.board_no }"/>'> <input
 							type="hidden" id="pageNum" name="pageNum"
 							value='<c:out value="${cri.pageNum }"/>'> <input
 							type="hidden" id="amount" name="amount"
@@ -143,7 +141,7 @@ color: black;
 							</div>
 						</div>
 						<div class="panel-body insertreply">
-							<textarea rows="2" cols="100%" class="form"></textarea>
+							<textarea rows="2" cols="100%" class="form" s></textarea>
 							<button id='addReplyBtn' class='btn btn-primary'>등록</button>
 						</div>
 						<div class="panel-footer"></div>
