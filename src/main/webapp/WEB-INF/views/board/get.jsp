@@ -103,7 +103,7 @@ color: black;
 						<button id="modify"data-oper="modify" class="btn btn-sm btn-primary">수정</button>
 						<button id="delete"data-oper="modify" class="btn btn-sm btn-primary" >삭제</button>
 					</h2>
-						<label>작성자 : <c:out value="${board.board_no}" />
+						<label>작성자 : <c:out value="${board.mem_no}" />
 						</label> <label style="float: right;">작성일 : 20.04.29 <c:out
 								value="${board.board_regdate}" />
 						</label> <br>
@@ -114,7 +114,7 @@ color: black;
 						<textarea rows="20" cols="3" name="content" class="form-control"
 							readonly="readonly"
 							style="background-color: white; border: none;"><c:out
-								value="${board.content}" /></textarea>
+								value="${board.board_content}" /></textarea>
 					</div>
 
 					<form id="operForm" action="/board/modify" method="get">
