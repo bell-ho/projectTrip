@@ -22,14 +22,12 @@
 		board_no,
 		board_kinds,
 		board_title,
-		board_hit,
 		board_content,
 		mem_no)
 		values (
 		#{board_no},
 		#{board_kinds},
 		#{board_title},
-		#{board_hit},
 		#{board_content},
 		#{mem_no}
 		)
