@@ -102,7 +102,7 @@ $(document).ready(function($) {
 					<c:forEach items="${list }" var="board">
 						<tr>
 							<td>${board.board_no }</td>
-							<td>${board.board_title }</td>
+							<td><a href="get?board_no=${board.board_no }">${board.board_title }</a></td>
 							<td>${board.mem_id}</td>
 							<td>${board.board_hit}</td>
 							<td>${board.board_regdate }</td>
