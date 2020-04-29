@@ -22,7 +22,7 @@ public class BoardController {
 	private BoardService service;
 	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list0(Model model) {
 		log.info("list");
 		model.addAttribute("list",service.getList());
 	}

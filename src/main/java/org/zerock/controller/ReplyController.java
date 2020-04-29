@@ -22,36 +22,40 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RestController
 public class ReplyController {
-	@Setter(onMethod_=@Autowired)
+	@Setter(onMethod_ = @Autowired)
 	private ReplyService service;
-	
+
 //	/reply/insert를post방식으로 요청   요청할떄 받는 타입을 json 으로 제한	
-	@PostMapping(value = "/insert" ,consumes ="application/json")
+	@PostMapping(value = "/insert", consumes = "application/json")
 	public String insert(@RequestBody ReplyVo vo) {
-		log.info("insert Vo = "+vo);
+		
+		log.info("insert Vo = " + vo);
 		int result = service.insert(vo);
-		log.info("결과  = "+result);
-		return  result == 1 ? "success":"error";
+		log.info("결과  = " + result);
+		return result == 1 ? "success" : "error";
 	}
+
 //	/reply/page/board_no/page 를요청하면 json 타입으로 응답 매개변수는 @pathVariable로 받아온다 
-	@GetMapping(value = "/page/{board_no}/{page}",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
-	public List<ReplyVo> getListWithPaging(@PathVariable("page") int page , @PathVariable("board_no") Long board_no){
+	@GetMapping(value = "/page/{board_no}/{page}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public List<ReplyVo> getListWithPaging(@PathVariable("page") int page, @PathVariable("board_no") Long board_no) {
 		log.info("getListWithPaging");
-		Criteria cri = new Criteria(page,10);
+		Criteria cri = new Criteria(page, 10);
 		List<ReplyVo> list = service.getListWithPaging(cri, board_no);
 		log.info(list);
-		return  list;
+		return list;
 	}
-	@GetMapping(value = "/{reply_no}" , produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ReplyVo get(@PathVariable("reply_no")int reply_no) {
-		log.info("get"+reply_no);
+
+	@GetMapping(value = "/{reply_no}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ReplyVo get(@PathVariable("reply_no") int reply_no) {
+		log.info("get" + reply_no);
 		ReplyVo vo = service.get(reply_no);
 		return vo;
 	}
+
 	@DeleteMapping(value = "/{reply_no}")
-	public String delete(@PathVariable("reply_no")int reply_no) {
-		log.info("delete"+reply_no);
+	public String delete(@PathVariable("reply_no") int reply_no) {
+		log.info("delete" + reply_no);
 		int result = service.delete(reply_no);
-		return result ==1 ? "success":"error";
+		return result == 1 ? "success" : "error";
 	}
 }
