@@ -39,9 +39,9 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="/board">게시판</a>
+					<li class="nav-item"><a class="nav-link" href="/board/listBoard">게시판</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="/phto">갤러리</a>
+					<li class="nav-item"><a class="nav-link" href="/photoAll">갤러리</a>
 					</li>
 					<li class="nav-item"><a id="login" class="nav-link" href="#">로그인</a>
 					</li>
