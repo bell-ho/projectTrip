@@ -11,8 +11,8 @@
 		select * from reply where reply_no = #{reply_no}
 	</select>
 	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVo">
-		select reply_no , board_no , mem_no , reply_content , reply_date , reply_updatedate
-		from reply where board_no = #{board_no}
+		select reply_no , board_no , mem_id , reply_content , reply_date , reply_updatedate
+		from reply r , member m where board_no = ${board_no} and m.mem_no = r.mem_no order by reply_no 
 	</select>
 	<delete id="delete">
 		delete from reply where reply_no = #{reply_no}
