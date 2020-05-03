@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
 <style type="text/css">
 footer {
 	bottom: 0;
@@ -33,7 +35,7 @@ footer {
 				
 				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
 				
-				<textarea placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
+				<textarea id='content' placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
 				
 				<input type="submit" value="확인">
 				
@@ -47,4 +49,6 @@ footer {
 </div>
 <!-- /.container -->
 
+
+<script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script>
 <%@include file="../includes/footer.jsp"%>
