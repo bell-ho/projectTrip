@@ -68,11 +68,10 @@
 			<div class="card h-100">
 				<p></p>
 				<p></p>
-				<a href="#"><img class="card-img-top"
-					src="https://image.flaticon.com/icons/svg/856/856293.svg" alt=""></a>
+				<a href="#"><img class="card-img-top" src="https://image.flaticon.com/icons/svg/856/856293.svg" alt=""></a>
 				<div class="card-body">
 					<h4 class="card-title" style="text-align: center;">
-						<a href="#">갤러리</a>
+						<a href="/photoAll">갤러리</a>
 					</h4>
 					<p class="card-text" style="text-align: center;">갤러리</p>
 				</div>
@@ -83,8 +82,7 @@
 				<div class="card h-100">
 					<p></p>
 					<p></p>
-					<a href="#"><img class="card-img-top"
-						src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
+					<a href="#"><img class="card-img-top" src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
 							<a href="information/${info.name}">${info.name }</a>

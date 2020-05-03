@@ -8,14 +8,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<h1 class="my-4">제주도</h1>
-			<div class="list-group">
-				<a href="/information/${key }도" class="list-group-item">기본정보</a> 
-				<a href="/trip/${key }도" class="list-group-item">관광명소 보러가기</a>
-				<a href="/board/listBoard" class="list-group-item">여행 후기 보러가기 </a> 
-				<a href="/photo" class="list-group-item active">갤러리</a> 
-				<a href="/" class="list-group-item">홈으로</a>
-			</div>
 		</div>
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
@@ -171,7 +163,6 @@
 
 </div>
 
-</div>
 <!-- /.container -->
 
 <%@include file="includes/footer.jsp"%>

@@ -92,7 +92,11 @@ public class HomeController {
 	}
 
 	@RequestMapping("/photo")
-	public void phto() {
+	public void photo() {
+
+	}
+	@RequestMapping("/photoAll")
+	public void photoAll() {
 
 	}
 

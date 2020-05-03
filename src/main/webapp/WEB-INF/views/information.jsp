@@ -12,9 +12,9 @@
 			<div class="list-group">
 				<a href="/information" class="list-group-item active">기본정보</a>
 				<a href="/trip/${vo.name }" class="list-group-item">관광명소 보러가기</a> 
-				<a href="/board" class="list-group-item">여행 후기 보러가기 </a>
-				<a href="/phto" class="list-group-item">${vo.name } 갤러리</a>
-				<a href="/main" class="list-group-item">홈으로</a>
+				<a href="/board/listBoard" class="list-group-item">여행 후기 보러가기 </a>
+				<a href="/photo" class="list-group-item">${vo.name } 갤러리</a>
+				<a href="/" class="list-group-item">홈으로</a>
 			</div>
 		</div>
 		<!-- /.col-lg-3 -->
@@ -22,7 +22,7 @@
 			<h1 class="mt-4 mb-3">기본정보</h1>
 
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="/main">지역선택</a></li>
+				<li class="breadcrumb-item"><a href="/">지역선택</a></li>
 				<li class="breadcrumb-item active">${vo.name }</li>
 			</ol>
 			<div class="card mt-4">

@@ -35,7 +35,7 @@ $(document).ready(function(){
 		}})
 	}
 	$("ul li a").on("click",function(){
-		if($(this).html() == 'Next' && $("#end").html() <=count){
+		if($(this).html() == 'Next'){
 			alert("1");
 			
 		}
@@ -53,11 +53,11 @@ $(document).ready(function(){
 		<div class="col-lg-3">
 			<h1 class="my-4">${key }도</h1>
 			<div class="list-group">
-				<a href="/information" class="list-group-item">기본정보</a>
-				<a href="/trip" class="list-group-item active">관광명소 보러가기</a> 
-				<a href="/board" class="list-group-item">여행 후기 보러가기 </a>
-				<a href="/phto" class="list-group-item">${key }도 갤러리</a>
-				<a href="/main" class="list-group-item">홈으로</a>
+				<a href="/information/${key }도" class="list-group-item">기본정보</a>
+				<a href="/trip/${key }도" class="list-group-item active">관광명소 보러가기</a> 
+				<a href="/board/listBoard" class="list-group-item">여행 후기 보러가기 </a>
+				<a href="/photo/${key }도" class="list-group-item">${key }도 갤러리</a>
+				<a href="/" class="list-group-item">홈으로</a>
 			</div>
 		</div>
 		<!-- /.col-lg-3 -->
@@ -77,6 +77,18 @@ $(document).ready(function(){
 				<li class="page-item"><a class="page-link" href="#" id='end'>3</a></li>
 				<li class="page-item"><a class="page-link" href="#" id="Next">Next</a></li>
 			</ul>
+			<form id='searchForm' action="/board/list" = method="get">
+				<select name='type'>
+					<option value=""
+						<c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+					<option value="T"
+						<c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+				</select> 
+				<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword }"/>' /> 
+				<input type='hidden' name='pageNum' value="${pageMaker.cri.pageNum }">
+				<input type='hidden' name='amount' value="${pageMaker.cri.amount }">
+				<button class='btn btn-default'>Search</button>
+			</form>
 		</div>
 	</div>
 	<!-- /.col-lg-9 -->
