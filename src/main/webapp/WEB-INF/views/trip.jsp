@@ -36,12 +36,8 @@ $(document).ready(function(){
 	}
 	$("ul li a").on("click",function(){
 		if($(this).html() == 'Next'){
-<<<<<<< HEAD
 			alert("1");
-=======
-			alert(count);
->>>>>>> refs/remotes/origin/seo
-			
+			alert(count);	
 		}
 		if($(this).html() == 'Previous'){
 			alert("1");
