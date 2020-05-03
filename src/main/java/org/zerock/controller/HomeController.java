@@ -126,17 +126,4 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/editor")
-	public void editor() {
-
-	}
-<<<<<<< HEAD
-	@RequestMapping("/text")
-	public void text() {
-		
-	}
-	
-=======
-
->>>>>>> refs/remotes/origin/seo
 }
