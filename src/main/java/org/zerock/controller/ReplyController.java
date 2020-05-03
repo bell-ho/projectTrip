@@ -20,7 +20,7 @@ import org.zerock.service.ReplyService;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-@RequestMapping("/reply/")
+@RequestMapping("/reply/*")
 @Log4j
 @Controller
 public class ReplyController {
@@ -48,19 +48,27 @@ public class ReplyController {
 		return list;
 	}
 
-	@GetMapping(value = "/{reply_no}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	@GetMapping(value = "/{board_no}/{reply_no}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	@ResponseBody
 	public ReplyVo get(@PathVariable("reply_no") int reply_no) {
 		log.info("get" + reply_no);
 		ReplyVo vo = service.get(reply_no);
+		System.out.println("일단 여기로 온다");
 		return vo;
 	}
-
-	@DeleteMapping(value = "/{reply_no}")
-	@ResponseBody
-	public String delete(@PathVariable("reply_no") int reply_no) {
+	
+	@PostMapping(value = "/{board_no}/{reply_no}")
+	public String delete(@PathVariable("board_no") int board_no , @PathVariable("reply_no") int reply_no) {
 		log.info("delete" + reply_no);
 		int result = service.delete(reply_no);
-		return result == 1 ? "success" : "error";
+		System.out.println(result);
+		return "redirect:/board/get?board_no="+board_no;
+	}
+	@PostMapping(value = "/{board_no}/update")
+	public String update(@PathVariable("board_no") int board_no , ReplyVo vo) {
+		log.info("update" + vo);
+		int result = service.update(vo);
+		System.out.println(result);
+		return "redirect:/board/get?board_no="+board_no;
 	}
 }

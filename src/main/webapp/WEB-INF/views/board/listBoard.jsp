@@ -65,7 +65,8 @@ $(document).ready(function($) {
     var table = $('#example').DataTable({
     	language : lang_kor ,
     	"scrollCollapse": true ,
-    	"dom" : '<"top"l>rt<"bottom"fpi>'
+    	"dom" : '<"top"l>rt<"bottom"fpi>',
+    	order:  [[0,'desc']]
         });
         $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard'>새글작성</a>"));
 } );
