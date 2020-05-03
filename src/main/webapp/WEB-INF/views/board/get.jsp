@@ -124,27 +124,49 @@ function displayTime(timeValue){
 }
 //24시간이 지나면 계산을 통해 날자표현식으로 변경해준다
 $(document).ready(function(){
+	var str;
 	var showReply = function(replyPage){ 
 		$.ajax({url:"/reply/page/"+${board.board_no}+"/"+replyPage,  success:function(reply){
 			$.each(reply,function(idx,item){	
-				var str = '<li class="left clearfix">'
+				str = '<li class="left clearfix">'
 				str += '<div class="header">'
 				str += "<img src='https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg' id='user'>"
 				str += "<strong class='primary-font'>"+item.mem_id+"</strong>"
 				str += "<string class='reply_regdate'>"+displayTime(item.reply_date)
 				if(item.mem_id=='${board.mem_id}'){
 					str +=	"<br><samll class = 'text-muted'>"
-					str += "&emsp;<a id='update'>수정</a>&nbsp;<a id='delete'>삭제</a></samll></string><br>"
+					str += "<form id='replyform' action='../reply/${board.board_no}/"+item.reply_no+"'name ="+item.reply_no+" >&emsp;"+
+					"<button class='btn btn-sm' id='update'>수정</button><button class='btn btn-sm' type='submit' id='delete'>삭제</button></samll></form></string>"
 				}
-				str +="<small class='pull-right text-muted'> &emsp;&emsp;&emsp;"+item.reply_content+"</small>"
+				str +="<small class='pull-right text-muted'>&emsp;&emsp;&emsp;"+item.reply_content+"</small>"
 				str +='</div></li>'
-				$("#chat").append(str);		
+				$("#chat").append(str);
+				$(document).on("click","#delete",function(e){
+					e.preventDefault();
+					$(this).parent().attr("method","post").submit();
+				})
+				
 			})
 		}})
-	}
+			$(document).on("click","#update",function(e){
+				e.preventDefault();
+				var reply_no = $(this).parent().attr("name");
+				alert(reply_no);
+				$.ajax({url:"../reply/${board.board_no}/"+reply_no , success:function(reply){
+					console.log(reply);
+					$("#replyUpdateText").val(reply.reply_content);
+					$('input[name=reply_no]').attr("value",reply_no);
+					$("#replyModfiy").modal("show");
+					$("#btnupdate").click(function(){
+						$("#replyUpdate").submit();		
+					})
+				}})
+			})
+		}
 	showReply(1);
-})	
+})
 </script>
+
 <!-- Page Content -->
 <div class="container">
 	<div class="row">
@@ -205,5 +227,30 @@ $(document).ready(function(){
 </div>
 <!-- /.col-lg-9 -->
 <!-- /.container -->
-
+<div class="modal fade" id="replyModfiy" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					댓글 수정
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<form id="replyUpdate" class="form-signin" method="post" action="/reply/${board.board_no }/update">
+							<input type="hidden" name="reply_no">
+							<input type="hidden" name="mem_no" value="1">
+							<textarea id="replyUpdateText" name="reply_content" rows="3" cols="60%"></textarea>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="btnupdate" class="btn btn-primary">수정</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <%@include file="../includes/footer.jsp"%>

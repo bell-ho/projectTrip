@@ -22,7 +22,7 @@ $(document).ready(function(){
 			'keyword=${key}&_type=json'
 		 , success:function(data){
 			info = data.response.body.items.item
-			count =  data.response.body.totalCount
+			count =  Math.ceil(data.response.body.totalCount/4)
 			$.each(info,function(idx,item){
 					var str = '<div class="col-lg-6 mb-4">'
 					str += '<div class="card h-100">'
@@ -36,7 +36,11 @@ $(document).ready(function(){
 	}
 	$("ul li a").on("click",function(){
 		if($(this).html() == 'Next'){
+<<<<<<< HEAD
 			alert("1");
+=======
+			alert(count);
+>>>>>>> refs/remotes/origin/seo
 			
 		}
 		if($(this).html() == 'Previous'){
@@ -45,6 +49,7 @@ $(document).ready(function(){
 		$("#info").empty();
 		list($(this).html());
 	})
+	
 	list(1);
 })
 </script>
@@ -72,7 +77,7 @@ $(document).ready(function(){
 			
 			<ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link" href="#" id="Previous">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="#" id='start'>1</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
 				<li class="page-item"><a class="page-link" href="#">2</a></li>
 				<li class="page-item"><a class="page-link" href="#" id='end'>3</a></li>
 				<li class="page-item"><a class="page-link" href="#" id="Next">Next</a></li>
