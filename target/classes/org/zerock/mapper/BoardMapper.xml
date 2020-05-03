@@ -33,7 +33,8 @@
 	</insert>
 	
 	<select id="read" resultType="org.zerock.domain.BoardVo">
-		select * from board where board_no = #{board_no}
+		select * from board b , member m where b.mem_no = m.mem_no and board_kinds = 1 
+		and board_no > 0 and board_no = #{board_no}
 	</select>
 	
 	<delete id="delete">

@@ -7,49 +7,78 @@
 .card-img-top {
 	height: 168.57px;
 }
-</style>	
-	<header>
-		<div id="carouselExampleIndicators" class="carousel slide"
-			data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0"
-					class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner" role="listbox">
-				<!-- Slide One - Set the background image for this slide in the line below -->
-				<div class="carousel-item active"
-					style="background-image: url('https://cdn.pixabay.com/photo/2017/11/08/08/07/gyeongbok-palace-2929520_960_720.jpg')">
-					<div class="carousel-caption d-none d-md-block"></div>
-				</div>
-				<!-- Slide Two - Set the background image for this slide in the line below -->
-				<div class="carousel-item"
-					style="background-image: url(https://newsimg.sedaily.com/2018/11/18/1S78LAW6SL_1.jpg)">
-					<div class="carousel-caption d-none d-md-block"></div>
-				</div>
-				<!-- Slide Three - Set the background image for this slide in the line below -->
-				<div class="carousel-item"
-					style="background-image: url('https://www.walkerhillstory.com/wp-content/uploads/2018/11/%EC%84%9C%EC%9A%B8%EC%88%B21.jpg')">
-					<div class="carousel-caption d-none d-md-block"></div>
+</style>
+<header>
+	<div id="carouselExampleIndicators" class="carousel slide"
+		data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<!-- Slide One - Set the background image for this slide in the line below -->
+			<div class="carousel-item active"
+				style="background-image: url('https://cdn.pixabay.com/photo/2017/11/08/08/07/gyeongbok-palace-2929520_960_720.jpg')">
+				<div class="carousel-caption d-none d-md-block"></div>
+			</div>
+			<!-- Slide Two - Set the background image for this slide in the line below -->
+			<div class="carousel-item"
+				style="background-image: url(https://newsimg.sedaily.com/2018/11/18/1S78LAW6SL_1.jpg)">
+				<div class="carousel-caption d-none d-md-block"></div>
+			</div>
+			<!-- Slide Three - Set the background image for this slide in the line below -->
+			<div class="carousel-item"
+				style="background-image: url('https://www.walkerhillstory.com/wp-content/uploads/2018/11/%EC%84%9C%EC%9A%B8%EC%88%B21.jpg')">
+				<div class="carousel-caption d-none d-md-block"></div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+</header>
+<!-- Page Content -->
+<div class="container">
+
+	<h1 class="my-4">Welcome to Modern Business</h1>
+	<div class="row">
+		<div class="col-lg-4 col-sm-6 portfolio-item">
+			<div class="card h-100">
+				<p></p>
+				<p></p>
+				<a href="#"><img class="card-img-top"
+					src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
+				<div class="card-body">
+					<h4 class="card-title" style="text-align: center;">
+						<a href="/board/listBoard">게시판</a>
+					</h4>
+					<p class="card-text" style="text-align: center;">게시판</p>
 				</div>
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
 		</div>
-	</header>
-	<!-- Page Content -->
-	<div class="container">
-
-		<h1 class="my-4">Welcome to Modern Business</h1>
-		<div class="row">
+		<div class="col-lg-4 col-sm-6 portfolio-item">
+			<div class="card h-100">
+				<p></p>
+				<p></p>
+				<a href="#"><img class="card-img-top"
+					src="https://image.flaticon.com/icons/svg/856/856293.svg" alt=""></a>
+				<div class="card-body">
+					<h4 class="card-title" style="text-align: center;">
+						<a href="#">갤러리</a>
+					</h4>
+					<p class="card-text" style="text-align: center;">갤러리</p>
+				</div>
+			</div>
+		</div>
+		<c:forEach items="${list}" var="info">
 			<div class="col-lg-4 col-sm-6 portfolio-item">
 				<div class="card h-100">
 					<p></p>
@@ -58,122 +87,22 @@
 						src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
-							<a href="/board/listBoard">게시판</a>
+							<a href="information/${info.name}">${info.name }</a>
 						</h4>
-						<p class="card-text" style="text-align: center;">게시판</p>
+						<p class="card-text" style="text-align: center;">${info.name }</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-					<p></p>
-					<p></p>
-					<a href="#"><img class="card-img-top"
-						src="https://image.flaticon.com/icons/svg/856/856293.svg" alt=""></a>
-					<div class="card-body">
-						<h4 class="card-title" style="text-align: center;">
-							<a href="#">갤러리</a>
-						</h4>
-						<p class="card-text" style="text-align: center;">갤러리</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-				<p></p><p></p>
-					<a href="#"><img class="card-img-top"
-						src="https://image.flaticon.com/icons/svg/2747/2747327.svg" alt=""></a>
-					<div class="card-body" style="text-align: center;">
-						<h4 class="card-title">
-							<a href="#">서울특별시</a>
-						</h4>
-						<p class="card-text">서울</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-				<p></p><p></p>
-					<a href="#"><img class="card-img-top"
-						src="https://image.flaticon.com/icons/svg/623/623133.svg" alt=""></a>
-					<div class="card-body" style="text-align: center;">
-						<h4 class="card-title">
-						<p></p>
-							<a href="#">강원도</a>
-						</h4>
-						<p class="card-text">강원</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-					<a href="#"><img class="card-img-top"
-						src="http://placehold.it/700x400" alt=""></a>
-					<div class="card-body">
-						<h4 class="card-title">
-							<a href="#">경기도</a>
-						</h4>
-						<p class="card-text">경기</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-					<a href="#"><img class="card-img-top"
-						src="http://placehold.it/700x400" alt=""></a>
-					<div class="card-body">
-						<h4 class="card-title">
-							<a href="#">경상도</a>
-						</h4>
-						<p class="card-text">경상</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-					<a href="#"><img class="card-img-top"
-						src="http://placehold.it/700x400" alt=""></a>
-					<div class="card-body">
-						<h4 class="card-title">
-							<a href="#">충정도</a>
-						</h4>
-						<p class="card-text">충청</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-					<a href="#"><img class="card-img-top"
-						src="http://placehold.it/700x400" alt=""></a>
-					<div class="card-body">
-						<h4 class="card-title">
-							<a href="#">전라도</a>
-						</h4>
-						<p class="card-text">전라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6 portfolio-item">
-				<div class="card h-100">
-					<a href="#"><img class="card-img-top"
-						src="http://placehold.it/700x400" alt=""></a>
-					<div class="card-body">
-						<h4 class="card-title">
-							<a href="/information">제주도</a>
-						</h4>
-						<p class="card-text">제주</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.row -->
-
-		<!-- Features Section -->
-
-		<!-- Call to Action Section -->
-
+		</c:forEach>
 	</div>
-	<!-- /.container -->
-	<!-- modal -->
-	
+	<!-- /.row -->
+
+	<!-- Features Section -->
+
+	<!-- Call to Action Section -->
+
+</div>
+<!-- /.container -->
+<!-- modal -->
+
 <%@include file="includes/footer.jsp"%>
