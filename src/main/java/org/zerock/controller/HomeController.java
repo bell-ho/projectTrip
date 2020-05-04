@@ -4,8 +4,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -14,6 +16,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +32,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 import org.zerock.domain.LocalsubVo;
 import org.zerock.service.LocalsubService;
 
@@ -81,9 +88,11 @@ public class HomeController {
 		return "trip";
 	}
 
-	@RequestMapping("/detail")
-	public void detail() {
-
+	@RequestMapping("/detail/{key}/{contentid}")
+	public String detail(@PathVariable("key")String key , @PathVariable("contentid")int contentid , Model model) {
+		model.addAttribute("contentid", contentid);
+		System.out.println(contentid);
+		return "detail";
 	}
 
 	@RequestMapping("/detail1")

@@ -26,9 +26,9 @@ $(document).ready(function(){
 			$.each(info,function(idx,item){
 					var str = '<div class="col-lg-6 mb-4">'
 					str += '<div class="card h-100">'
-					str += '<a href=""><img class="card-img-top" src="'+item.firstimage+'"></a>'
+					str += '<a href="/detail/${key}/'+item.contentid+'"><img class="card-img-top" src="'+item.firstimage+'"></a>'
 					str += '<div class="card-body">'
-					str += '<h5 class="card-title"><a href="/detail">'+item.title+'</a></h4>'
+					str += '<h5 class="card-title"><a href="/detail/${key}/'+item.contentid+'">'+item.title+'</a></h4>'
 					str += '<p class="card-text"></div></div></div>'
 					$("#info").append(str);
 			})

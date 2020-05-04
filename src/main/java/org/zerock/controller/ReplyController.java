@@ -1,10 +1,13 @@
 package org.zerock.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -69,6 +72,7 @@ public class ReplyController {
 		log.info("update" + vo);
 		int result = service.update(vo);
 		System.out.println(result);
+		
 		return "redirect:/board/get?board_no="+board_no;
 	}
 }
