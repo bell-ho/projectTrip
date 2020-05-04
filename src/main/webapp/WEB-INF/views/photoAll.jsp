@@ -7,7 +7,13 @@
 <!-- Page Content -->
 <div class="container">
 	<div class="row">
-		<div class="col-lg-3">
+<div class="col-lg-3">
+			<h1 class="my-4">매뉴</h1>
+			<div class="list-group">
+				<a href="/" class="list-group-item">홈으로</a>
+				<a href="/board/listBoard" class="list-group-item">여행 후기 보러가기 </a> 
+				<a href="/photo" class="list-group-item active">갤러리</a> 
+			</div>
 		</div>
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
@@ -15,7 +21,6 @@
 
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="/main">지역선택</a></li>
-				<li class="breadcrumb-item"><a href="/information">제주도</a></li>
 				<li class="breadcrumb-item active">갤러리</li>
 			</ol>
 			<div class="row text-center text-lg-left">

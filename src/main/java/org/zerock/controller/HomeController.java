@@ -100,9 +100,10 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/photo")
-	public void photo() {
-
+	@RequestMapping("/photo/{key}")
+	public String photo(@PathVariable("key")String key , Model model) {
+		model.addAttribute("key",key);
+		return "photo";
 	}
 	@RequestMapping("/photoAll")
 	public void photoAll() {
