@@ -82,14 +82,14 @@ public class HomeController {
 		return "information";
 	}
 
-	@RequestMapping("/trip/{key}" )
-	public String trip( @PathVariable("key")String key ,Model model ) {
-		model.addAttribute("key",key.substring(0,2));
+	@RequestMapping("/trip/{key}")
+	public String trip(@PathVariable("key") String key, Model model) {
+		model.addAttribute("key", key.substring(0, 2));
 		return "trip";
 	}
 
 	@RequestMapping("/detail/{key}/{contentid}")
-	public String detail(@PathVariable("key")String key , @PathVariable("contentid")int contentid , Model model) {
+	public String detail(@PathVariable("key") String key, @PathVariable("contentid") int contentid, Model model) {
 		model.addAttribute("contentid", contentid);
 		System.out.println(contentid);
 		return "detail";
@@ -104,6 +104,7 @@ public class HomeController {
 	public void photo() {
 
 	}
+
 	@RequestMapping("/photoAll")
 	public void photoAll() {
 
@@ -138,5 +139,5 @@ public class HomeController {
 	public void from2() {
 
 	}
-	
+
 }

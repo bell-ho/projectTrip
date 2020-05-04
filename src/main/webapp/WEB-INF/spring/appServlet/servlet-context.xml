@@ -16,10 +16,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	
 	
-	
-	 <!-- 	네이버에디터 테스트중 -->
-	<resources location="/smarteditor/" mapping="/smarteditor/**"/>
-	 <!-- 	네이버에디터 테스트중 -->
+	<resources location="/WEB-INF/views/ckeditor/"   mapping="/ckeditor/**"></resources>
 	 
 	 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->

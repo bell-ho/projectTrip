@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 public class APIController {
-	
-	@PostMapping(value = "/{contentid}" , produces ="application/xml;charset=utf-8" )
-	 public static String detail(@PathVariable("contentid")int contentid) throws IOException {
+
+	@PostMapping(value = "/{contentid}", produces = "application/xml;charset=utf-8")
+	public static String detail(@PathVariable("contentid") int contentid) throws IOException {
 		System.out.println("시작함");
-		System.out.println("여기로와야됨"+contentid);
+		System.out.println("여기로와야됨" + contentid);
 	        StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon"); /*URL*/
 	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=ilqxDvc7FBGBNe7wXY4c5AipSyWcUaApekp9a0NKlurwayKHfKGYyKXUKAUcMW/5YF5i97dd355widhAAllD8Q=="); /*Service Key*/
 	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*한 페이지 결과 수*/
@@ -35,27 +34,27 @@ public class APIController {
 	        urlBuilder.append("&" + URLEncoder.encode("addrinfoYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*주소, 상세주소 조회여부*/
 	        urlBuilder.append("&" + URLEncoder.encode("mapinfoYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*좌표 X,Y 조회여부*/
 	        urlBuilder.append("&" + URLEncoder.encode("overviewYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*콘텐츠 개요 조회여부*/
-	        URL url = new URL(urlBuilder.toString());
-	        System.out.println(url);
-	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-	        conn.setRequestMethod("GET");
-	        conn.setRequestProperty("Content-type", "application/json");
-	        System.out.println("Response code: " + conn.getResponseCode());
-	        BufferedReader rd;
-	        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-	            rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
-	        } else {
-	            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-	        }
-	        StringBuilder sb = new StringBuilder();
-	        String line;
-	        while ((line = rd.readLine()) != null) {
-	            sb.append(line);
-	        }
-	        rd.close();
-	        conn.disconnect();
-	        System.out.println(sb.toString());
-			return sb.toString();
-	    }
+		URL url = new URL(urlBuilder.toString());
+		System.out.println(url);
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		System.out.println("Response code: " + conn.getResponseCode());
+		BufferedReader rd;
+		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+		System.out.println(sb.toString());
+		return sb.toString();
+	}
 
 }

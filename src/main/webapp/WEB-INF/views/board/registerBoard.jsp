@@ -8,7 +8,7 @@
 <head>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-
+<script src="/resources/ckeditor/ckeditor.js"></script>
 </head>
 <style type="text/css">
 footer {
@@ -32,7 +32,7 @@ footer {
 		<div class="col-lg-9">
 			<h1 class="mt-4 mb-3">Register Board</h1>
 		
-			<form action="/board/registerBoard" method="post" id="write_form" name="write_form">
+			<form action="/board/registerBoard" method="post" >
 			
 				게시판 <select name="board_kinds">
 				<option value="1">자유게시판</option>
@@ -43,7 +43,18 @@ footer {
 				
 				<textarea id='board_content' name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
 				
-				<button type="button" id="submit_button">등록하기</button>
+				<script>
+				 var ckeditor_config = {
+// 				   resize_enaleb : false,
+// 				   enterMode : CKEDITOR.ENTER_BR,
+// 				   shiftEnterMode : CKEDITOR.ENTER_P,
+				   filebrowserUploadUrl : "/UploadControllerTest"
+				 };
+				 
+				 CKEDITOR.replace("board_content", ckeditor_config);
+				</script>
+				
+				<input type="submit" value="등록">
 				
 			</form>
 		</div>

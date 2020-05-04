@@ -18,52 +18,51 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/board/*")
 public class BoardController {
-	@Setter(onMethod_ =@Autowired )
+	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
-	
+
 	@GetMapping("/listBoard")
 	public void list0(Model model) {
 		log.info("list");
-		model.addAttribute("list",service.getList());
+		model.addAttribute("list", service.getList());
 	}
-	
+
 	@GetMapping("/registerBoard")
 	public void register() {
 	}
-	
+
 	@PostMapping("/registerBoard")
 	public String register(BoardVo board, RedirectAttributes rttr) {
-		log.info("register: "+board);
+		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
-		
+
 		return "redirect:/board/listBoard";
 	}
-	
+
 	@GetMapping("/get")
 	public void get(@RequestParam("board_no") Long board_no, Model model) {
 		log.info("/get");
-		model.addAttribute("board",service.get(board_no));
+		model.addAttribute("board", service.get(board_no));
 	}
-	
+
 	@PostMapping("/modify")
 	public String modify(BoardVo board, RedirectAttributes rttr) {
-		log.info("modify:"+board);
-		
-		if(service.modify(board)) {
-			rttr.addFlashAttribute("result","succeess");
+		log.info("modify:" + board);
+
+		if (service.modify(board)) {
+			rttr.addFlashAttribute("result", "succeess");
 		}
 		return "redirect:/board/listBoard";
 	}
-	
+
 	@PostMapping("/remove")
-	public String remove(@RequestParam("board_no")Long board_no,RedirectAttributes rttr) {
-		log.info("remove...."+board_no);
-		if(service.remove(board_no)) {
-			rttr.addFlashAttribute("result","success");
+	public String remove(@RequestParam("board_no") Long board_no, RedirectAttributes rttr) {
+		log.info("remove...." + board_no);
+		if (service.remove(board_no)) {
+			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/listBoard";
 	}
-	
 
 }
