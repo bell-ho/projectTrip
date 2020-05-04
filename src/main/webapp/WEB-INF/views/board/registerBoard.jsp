@@ -4,7 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
+
+<head>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+</head>
 <style type="text/css">
 footer {
 	bottom: 0;
@@ -13,6 +18,7 @@ footer {
 	height: 100px;
 }
 </style>
+<body>
 <!-- Page Content -->
 <div class="container">
 	<div class="row">
@@ -26,18 +32,18 @@ footer {
 		<div class="col-lg-9">
 			<h1 class="mt-4 mb-3">Register Board</h1>
 		
-			<form action="/board/registerBoard" method="post">
+			<form action="/board/registerBoard" method="post" id="write_form" name="write_form">
 			
 				게시판 <select name="board_kinds">
 				<option value="1">자유게시판</option>
 				<option>후기게시판</option>
 				</select><br><br>
 				
-				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
+				<input type="text" name="board_title" id="contents" style="width:100%;"><br><br>
 				
-				<textarea id='content' placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
+				<textarea id='board_content' name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
 				
-				<input type="submit" value="확인">
+				<button type="button" id="submit_button">등록하기</button>
 				
 			</form>
 		</div>
@@ -48,7 +54,6 @@ footer {
 
 </div>
 <!-- /.container -->
+</body>
 
-
-<script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script>
 <%@include file="../includes/footer.jsp"%>

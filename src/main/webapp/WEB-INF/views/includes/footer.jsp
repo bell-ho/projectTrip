@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <style type="text/css">
 </style>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5790ffcae216e6b5e39c5b5e79de8f5b"></script>
 <script type="text/javascript">

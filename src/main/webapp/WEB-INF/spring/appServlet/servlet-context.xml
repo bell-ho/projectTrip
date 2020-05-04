@@ -14,7 +14,14 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-
+	
+	
+	
+	 <!-- 	네이버에디터 테스트중 -->
+	<resources location="/smarteditor/" mapping="/smarteditor/**"/>
+	 <!-- 	네이버에디터 테스트중 -->
+	 
+	 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -25,6 +32,6 @@
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</beans:bean>
-	
+
 	
 </beans:beans>
