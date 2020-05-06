@@ -3,19 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
-<<<<<<< HEAD
-
-
-<head>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-<script src="/resources/ckeditor/ckeditor.js"></script>
-</head>
-=======
 <script type="text/javascript"src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="../resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
->>>>>>> refs/remotes/origin/seo
 <style type="text/css">
 footer {
 	bottom: 0;
@@ -24,7 +14,6 @@ footer {
 	height: 100px;
 }
 </style>
-<body>
 <!-- Page Content -->
 <div class="container">
 	<div class="row">
@@ -38,46 +27,18 @@ footer {
 		<div class="col-lg-9">
 			<h1 class="mt-4 mb-3">Register Board</h1>
 		
-<<<<<<< HEAD
-			<form action="/board/registerBoard" method="post" >
-=======
 			<form id="form" action="/board/registerBoard" method="post">
->>>>>>> refs/remotes/origin/seo
 			
 				게시판 <select name="board_kinds">
-<<<<<<< HEAD
-				<option value="0">자유게시판</option>
-				<option value="1">후기게시판</option>
-=======
 				<option value="1">자유게시판</option>
 				<option value="0">후기게시판</option>
->>>>>>> refs/remotes/origin/seo
 				</select><br><br>
 				
-				<input type="text" name="board_title" id="contents" style="width:100%;"><br><br>
+				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
 				
-<<<<<<< HEAD
-				<textarea id='board_content' name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
-=======
 				<textarea id="content" placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
->>>>>>> refs/remotes/origin/seo
 				
-<<<<<<< HEAD
-				<script>
-				 var ckeditor_config = {
-// 				   resize_enaleb : false,
-// 				   enterMode : CKEDITOR.ENTER_BR,
-// 				   shiftEnterMode : CKEDITOR.ENTER_P,
-				   filebrowserUploadUrl : "/UploadControllerTest"
-				 };
-				 
-				 CKEDITOR.replace("board_content", ckeditor_config);
-				</script>
-				
-				<input type="submit" value="등록">
-=======
 				<input id="savebutton" type="submit" value="확인">
->>>>>>> refs/remotes/origin/seo
 				
 			</form>
 		</div>
@@ -88,9 +49,6 @@ footer {
 
 </div>
 <!-- /.container -->
-<<<<<<< HEAD
-</body>
-=======
 <script type="text/javascript">
 $(function(){
     //전역변수선언
@@ -121,11 +79,7 @@ $(function(){
         $("#form").submit();
     })
 })
->>>>>>> refs/remotes/origin/seo
 
-<<<<<<< HEAD
-=======
 </script>
 
->>>>>>> refs/remotes/origin/seo
 <%@include file="../includes/footer.jsp"%>
