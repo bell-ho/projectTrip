@@ -3,14 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-
-=======
-
 <link rel="shortcut icon" href="#">
->>>>>>> refs/remotes/origin/seo
 <script type="text/javascript"
 	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
 	charset="utf-8"></script>
