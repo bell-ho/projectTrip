@@ -42,13 +42,10 @@ public class BoardController {
 
 	@GetMapping("/get")
 	public void get(@RequestParam("board_no") Long board_no, Model model) {
-<<<<<<< HEAD
 		log.info("/get");
 		model.addAttribute("board", service.get(board_no));
-=======
 		log.info("/get : "+board_no);
 		model.addAttribute("board",service.get(board_no));
->>>>>>> refs/remotes/origin/seo
 	}
 
 	@PostMapping("/modify")
