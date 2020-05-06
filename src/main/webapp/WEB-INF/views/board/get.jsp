@@ -193,9 +193,9 @@ $(document).ready(function(){
 					<h2 id='title'>
 						<c:out value="${board.board_title}" />
 <!-- 						<button id="modify" data-oper="modifyBoard" class="btn btn-sm btn-primary"><a href="/board/modifyBoard" >수정</a></button> -->
-						<button id="delete" data-oper="removeBoard" class="btn btn-sm btn-primary">삭제</button>
+<!-- 						<button id="delete" data-oper="removeBoard" class="btn btn-sm btn-primary">삭제</button> -->
 						<a href="/board/modifyBoard" >수정</a>
-						<a href="/removeBoard?" >삭제</a>
+						<a href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}" >삭제</a>
 					</h2>
 					<label>작성자 : <c:out value="${board.mem_id}" />
 					</label> <label style="float: right;">작성일 : <c:out
