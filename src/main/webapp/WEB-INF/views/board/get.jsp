@@ -105,6 +105,9 @@ footer {
 #content{
 	min-height: 492px;
 }
+img{
+	max-width: 658px;
+}
 </style>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>

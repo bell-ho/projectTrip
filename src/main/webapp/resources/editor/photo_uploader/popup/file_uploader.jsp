@@ -29,12 +29,12 @@ if (ServletFileUpload.isMultipartContent(request)){
             if(item.getSize() > 0) {
                 String ext = item.getName().substring(item.getName().lastIndexOf(".")+1);
                 //파일 기본경로
-                String defaultPath = request.getServletContext().getRealPath("/");
+                String defaultPath = "D:/testspring/spring/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/tripProject/";
+                System.out.println("123 : "+defaultPath);
                 //파일 기본경로 _ 상세경로
-                String path = defaultPath + "upload" + File.separator;
-                 
+                String path = defaultPath +"resources/upload/";
+                System.out.println(path);
                 File file = new File(path);
-                 
                 //디렉토리 존재하지 않을경우 디렉토리 생성
                 if(!file.exists()) {
                     file.mkdirs();
@@ -44,6 +44,7 @@ if (ServletFileUpload.isMultipartContent(request)){
                 ///////////////// 서버에 파일쓰기 /////////////////
                 InputStream is = item.getInputStream();
                 OutputStream os=new FileOutputStream(path + realname);
+                System.out.println(path + realname);
                 int numRead;
                 byte b[] = new byte[(int)item.getSize()];
                 while((numRead = is.read(b,0,b.length)) != -1){
@@ -53,7 +54,8 @@ if (ServletFileUpload.isMultipartContent(request)){
                 os.flush();
                 os.close();
                 ///////////////// 서버에 파일쓰기 /////////////////
-                return3 += "&bNewLine=true&sFileName="+name+"&sFileURL=/upload/"+realname;
+                return3 += "&bNewLine=true&sFileName="+name+"&sFileURL=http://localhost:8080/resources/upload/"+realname;
+                System.out.println(realname);
             }else {
                 return3 += "&errstr=error";
             }
