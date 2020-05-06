@@ -11,7 +11,7 @@
 			<h1 class="my-4">매뉴</h1>
 			<div class="list-group">
 				<a href="/" class="list-group-item">홈으로</a>
-				<a href="/board/listBoard" class="list-group-item">여행 후기 보러가기 </a> 
+				<a href="/board/listTripBoard" class="list-group-item">여행 후기 보러가기 </a> 
 				<a href="/photo" class="list-group-item active">갤러리</a> 
 			</div>
 		</div>

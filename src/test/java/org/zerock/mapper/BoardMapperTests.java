@@ -17,9 +17,14 @@ public class BoardMapperTests {
 	@Setter(onMethod_ =@Autowired )
 	private BoardMapper mapper;
 	
-	@Test
-	public void testGetList() {
-		mapper.getList().forEach(board->log.info(board));
+//	@Test
+	public void testGetListFree() {
+		mapper.getFreeList().forEach(board->log.info(board));
+	}
+	
+//	@Test
+	public void testGetListTrip() {
+		mapper.getTripList().forEach(board->log.info(board));
 	}
 	
 //	@Test
@@ -36,7 +41,7 @@ public class BoardMapperTests {
 		log.info(board);
 	}
 	
-//	@Test
+	@Test
 	public void testInsertSelectkey() {
 		
 		BoardVo board = new BoardVo();
@@ -52,9 +57,16 @@ public class BoardMapperTests {
 	}
 	
 //	@Test
-	public void testRead() {
+	public void testReadFree() {
 		
-		BoardVo board = mapper.read(55L);
+		BoardVo board = mapper.readFree(55L);
+		
+		log.info(board);
+	}
+//	@Test
+	public void testReadTrip() {
+		
+		BoardVo board = mapper.readTrip(55L);
 		
 		log.info(board);
 	}

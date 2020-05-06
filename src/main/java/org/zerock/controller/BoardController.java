@@ -21,50 +21,77 @@ public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
 
-	@GetMapping("/listBoard")
-	public void list0(Model model) {
+	@GetMapping("/listFreeBoard") // 자유게시판
+	public void Freelist(Model model) {
 		log.info("list");
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getFreeList());
+	}
+
+	@GetMapping("/listTripBoard") // 여행후기게시판
+	public void Triplist(Model model) {
+		log.info("list");
+		model.addAttribute("list", service.getTripList());
 	}
 
 	@GetMapping("/registerBoard")
 	public void register() {
 	}
 
-	@PostMapping("/registerBoard")
-	public String register(BoardVo board, RedirectAttributes rttr) {
+	@PostMapping("/registerBoard") // 게시판 등록
+	public String registerFree(BoardVo board, RedirectAttributes rttr) {
 		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
 
-		return "redirect:/board/listBoard";
+		if (board.getBoard_kinds() == 1) { // 1이 자유
+			return "redirect:/board/listFreeBoard";
+		} else {
+			return "redirect:/board/listTripBoard";
+		}
 	}
 
 	@GetMapping("/get")
 	public void get(@RequestParam("board_no") Long board_no, Model model) {
+
 		log.info("/get");
+		log.info("/get : " + board_no);
 		model.addAttribute("board", service.get(board_no));
-		log.info("/get : "+board_no);
-		model.addAttribute("board",service.get(board_no));
+		
+		
+//		if (board.getBoard_kinds() == 1) { // 1이 자유
+//			model.addAttribute("board", service.getFree(board_no));
+//		} else {
+//			model.addAttribute("board", service.getTrip(board_no));
+//		}
 	}
 
-	@PostMapping("/modify")
+	@PostMapping("/modifyBoard")
 	public String modify(BoardVo board, RedirectAttributes rttr) {
 		log.info("modify:" + board);
 
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "succeess");
 		}
-		return "redirect:/board/listBoard";
+
+		if (board.getBoard_kinds() == 1) { // 1이 자유
+			return "redirect:/board/listFreeBoard";
+		} else {
+			return "redirect:/board/listTripBoard";
+		}
 	}
 
-	@PostMapping("/remove")
-	public String remove(@RequestParam("board_no") Long board_no, RedirectAttributes rttr) {
+	@PostMapping("/removeBoard")
+	public String remove(BoardVo board, @RequestParam("board_no") Long board_no, RedirectAttributes rttr) {
 		log.info("remove...." + board_no);
 		if (service.remove(board_no)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/board/listBoard";
+		
+		if (board.getBoard_kinds() == 1) { // 1이 자유
+			return "redirect:/board/listFreeBoard";
+		} else {
+			return "redirect:/board/listTripBoard";
+		}
 	}
 
 }
