@@ -102,6 +102,9 @@ footer {
 .reply_regdate {
 	float: right;
 }
+#content{
+	min-height: 492px;
+}
 </style>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
@@ -196,10 +199,7 @@ $(document).ready(function(){
 					</label> <br>
 					<hr>
 					<div class="form-group">
-						<textarea rows="20" cols="3" name="content" class="form-control"
-							readonly="readonly"
-							style="background-color: white; border: none;"><c:out
-								value="${board.board_content}" /></textarea>
+							<div id="content">${board.board_content }</div>
 					</div>
 					<div class="panel panel-default reply">
 						<div class="col-lg-12">
