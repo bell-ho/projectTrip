@@ -84,12 +84,20 @@
 			<version>1.18.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<!-- AspectJ -->
 		<dependency>
-			<groupId>org.aspectj</groupId>
+			<groupId>aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>${org.aspectj-version}</version>
+			<version>1.5.3</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		
 		<!-- gson -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
