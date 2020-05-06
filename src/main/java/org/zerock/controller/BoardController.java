@@ -46,7 +46,7 @@ public class BoardController {
 		model.addAttribute("board",service.get(board_no));
 	}
 	
-	@PostMapping("/modify")
+	@PostMapping("/modify") 
 	public String modify(BoardVo board, RedirectAttributes rttr) {
 		log.info("modify:"+board);
 		
