@@ -131,7 +131,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/test")
+	@RequestMapping(value = "/test" ,  method = {RequestMethod.GET, RequestMethod.POST})
 	public void from1() {
 
 	}

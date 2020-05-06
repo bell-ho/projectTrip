@@ -36,7 +36,7 @@ footer {
 				
 				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
 				
-				<textarea id='ir1' placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
+				<textarea id='ir1' name="board_content" placeholder="내용을 입력해 주세요."  rows="18" cols="100%" style="width:100%";></textarea><br>
 				
 				<input type="submit" value="확인">
 				

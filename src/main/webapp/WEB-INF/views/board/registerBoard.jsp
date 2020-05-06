@@ -35,8 +35,8 @@ footer {
 			<form action="/board/registerBoard" method="post" >
 			
 				게시판 <select name="board_kinds">
-				<option value="1">자유게시판</option>
-				<option>후기게시판</option>
+				<option value="0">자유게시판</option>
+				<option value="1">후기게시판</option>
 				</select><br><br>
 				
 				<input type="text" name="board_title" id="contents" style="width:100%;"><br><br>
