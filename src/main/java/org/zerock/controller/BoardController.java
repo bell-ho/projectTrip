@@ -80,18 +80,21 @@ public class BoardController {
 		}
 	}
 
-	@PostMapping("/removeBoard")
-	public String remove(BoardVo board, @RequestParam("board_no") Long board_no, RedirectAttributes rttr) {
+	@RequestMapping("/removeBoard")
+	public String remove(@RequestParam("board_kinds")  int board_kinds, @RequestParam("board_no") Long board_no, RedirectAttributes rttr) {
 		log.info("remove...." + board_no);
-		if (service.remove(board_no)) {
+		if (service.remove(board_no) && board_kinds == 1) {
 			rttr.addFlashAttribute("result", "success");
-		}
-		
-		if (board.getBoard_kinds() == 1) { // 1이 자유
 			return "redirect:/board/listFreeBoard";
-		} else {
+		}else {
 			return "redirect:/board/listTripBoard";
 		}
+		
+//		if (bb == 1) { // 1이 자유
+//			return "redirect:/board/listFreeBoard";
+//		} else {
+//			return "redirect:/board/listTripBoard";
+//		}
 	}
 
 }
