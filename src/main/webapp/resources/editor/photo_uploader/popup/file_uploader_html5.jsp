@@ -1,11 +1,10 @@
 <%@page import="java.io.*"%>
-
 <%@page import="java.util.UUID"%>
-
 <%@page import="java.text.SimpleDateFormat"%>
 
 
 <%
+
 	String sFileInfo = "";
 //파일명 - 싱글파일업로드와 다르게 멀티파일업로드는 HEADER로 넘어옴
 String name = request.getHeader("file-name");

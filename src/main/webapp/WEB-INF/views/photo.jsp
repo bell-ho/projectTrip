@@ -12,7 +12,7 @@
 			<div class="list-group">
 				<a href="/information/${key }" class="list-group-item">기본정보</a> 
 				<a href="/trip/${key }" class="list-group-item">관광명소 보러가기</a>
-				<a href="/board/listBoard" class="list-group-item">여행 후기 보러가기 </a> 
+				<a href="/board/listTripBoard" class="list-group-item">여행 후기 보러가기 </a> 
 				<a href="/photo" class="list-group-item active">${key } 갤러리</a> 
 				<a href="/" class="list-group-item">홈으로</a>
 			</div>

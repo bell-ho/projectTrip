@@ -44,13 +44,23 @@ public class BoardServiceTests {
 	}
 	
 //	@Test
-	public void testGetList() {
-		service.getList().forEach(board->log.info(board));
+	public void testGetListFree() {
+		service.getFreeList().forEach(board->log.info(board));
 	}
 	
 //	@Test
-	public void testGet() {
-		log.info(service.get(61L));
+	public void testGetListTrip() {
+		service.getTripList().forEach(board->log.info(board));
+	}
+	
+//	@Test
+	public void testGetFree() {
+		log.info(service.getFree(61L));
+	}
+	
+//	@Test
+	public void testGetTrip() {
+		log.info(service.getTrip(61L));
 	}
 	
 //	@Test
@@ -59,13 +69,13 @@ public class BoardServiceTests {
 	}
 	
 //	@Test
-	public void testUpdate() {
-		BoardVo board = service.get(56L);
+//	public void testUpdate() {
+//		BoardVo board = service.get(56L);
 		
-		if(board == null) {
-			return;
-		}
-		board.setBoard_title("제목수정");
-		log.info("modify 결과:"+service.modify(board));
-	}
+//		if(board == null) {
+//			return;
+//		}
+//		board.setBoard_title("제목수정");
+//		log.info("modify 결과:"+service.modify(board));
+//	}
 }

@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <link rel="shortcut icon" href="#">
 <script type="text/javascript"
 	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
@@ -41,12 +42,9 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="/board/listBoard">게시판</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="/photoAll">갤러리</a>
-					</li>
-					<li class="nav-item"><a id="login" class="nav-link" href="#">로그인</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" href="/board/listFreeBoard">게시판</a></li>
+					<li class="nav-item"><a class="nav-link" href="/photoAll">갤러리</a></li>
+					<li class="nav-item"><a id="login" class="nav-link" href="#">로그인</a></li>
 					<li class="nav-item"><a class="nav-link" href="/insertMember">회원가입</a></li>
 				</ul>
 			</div>

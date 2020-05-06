@@ -23,13 +23,22 @@ public class BoardServiceImpl implements BoardService{
 		log.info("등록..."+board);
 		mapper.insertSelectkey(board);
 	}
-
-	@Override
+	
+	//자유
+	@Override 
 	public BoardVo get(Long BOARD_NO) {
 		// TODO Auto-generated method stub
 		log.info("get....."+BOARD_NO);
 		return mapper.read(BOARD_NO);
 	}
+	
+	//후기
+//	@Override
+//	public BoardVo getTrip(Long BOARD_NO) {
+//		// TODO Auto-generated method stub
+//		log.info("get....."+BOARD_NO);
+//		return mapper.readTrip(BOARD_NO);
+//	}
 
 	@Override
 	public boolean modify(BoardVo board) {
@@ -46,11 +55,19 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardVo> getList() {
+	public List<BoardVo> getFreeList() {
 		// TODO Auto-generated method stub
 		log.info("getList.......");
 		
-		return mapper.getList();
+		return mapper.getFreeList();
+	}
+	
+	@Override
+	public List<BoardVo> getTripList() {
+		// TODO Auto-generated method stub
+		log.info("getList.......");
+		
+		return mapper.getTripList();
 	}
 	
 	
