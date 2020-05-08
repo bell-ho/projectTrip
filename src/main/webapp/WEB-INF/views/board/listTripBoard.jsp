@@ -23,7 +23,7 @@
 	margin-left: 10px;
 	margin-top: 10px;
 }
-#insertBoard{
+#registerBoard{
 	float:right;
 }
 </style>
@@ -69,6 +69,9 @@ $(document).ready(function($) {
     	order:  [[0,'desc']]
         });
         $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard'>새글작성</a>"));
+        $("#example_length").append("개씩 보기");
+        table.search('${title}').draw();
+      
 } );
 
 $(document).ready(function(){
@@ -91,6 +94,7 @@ $(document).ready(function(){
 		$("#myModal").modal("show");
 
 	}
+	 
 })
 
 </script>
@@ -103,10 +107,10 @@ $(document).ready(function(){
 		<div class="col-lg-3">
 			<h1 class="my-4">후기 게시판</h1>
 			<div class="list-group">
+				<a href="/" class="list-group-item">홈으로</a>
 				<a href="/board/listFreeBoard" class="list-group-item">자유게시판</a> 
 				<a href="/board/listTripBoard" class="list-group-item active">후기게시판</a> 
-				<a href="/photoAll" class="list-group-item">갤러리</a>
-				<a href="/" class="list-group-item ">홈</a>
+				<a href="/photoAll?pageNum=1&amount=16&keyword=" class="list-group-item">갤러리</a> 
 			</div>
 		</div>
 		<div class="col-lg-9">
@@ -121,6 +125,7 @@ $(document).ready(function(){
 						<th>작성자</th>
 						<th>조회수</th>
 						<th>작성일</th>
+						<th style="display:none;">본문</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -131,6 +136,7 @@ $(document).ready(function(){
 							<td>${board.mem_id}</td>
 							<td>${board.board_hit}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></td>
+							<td style="display:none;">${board.board_content } </td>
 						</tr>
 					</c:forEach>
 				</tbody>

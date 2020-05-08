@@ -1,5 +1,10 @@
 package org.zerock.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVo;
+import org.zerock.domain.UploadFileVo;
 import org.zerock.service.BoardService;
+import org.zerock.service.UploadFileService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import oracle.net.aso.t;
 
 @Controller
 @Log4j
@@ -21,6 +29,10 @@ public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
 
+	@Setter(onMethod_ = @Autowired)
+	private UploadFileService uploadFileService;
+	
+	
 	@GetMapping("/listFreeBoard") // 자유게시판
 	public void Freelist(Model model) {
 		log.info("list");
@@ -28,9 +40,10 @@ public class BoardController {
 	}
 
 	@GetMapping("/listTripBoard") // 여행후기게시판
-	public void Triplist(Model model) {
+	public void Triplist(Model model , String title) {
 		log.info("list");
 		model.addAttribute("list", service.getTripList());
+		model.addAttribute("title", title.split(" ")[0]);
 	}
 
 	@GetMapping("/registerBoard")
@@ -42,7 +55,19 @@ public class BoardController {
 		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
-
+		//파일 처리
+		List<String> fname = new ArrayList<String>();
+		Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
+		while (matcher.find()) {
+  			fname.add(matcher.group(1));
+  		}
+		for (String fileName : fname) {
+			UploadFileVo uploadVo = new UploadFileVo();
+			uploadVo.setBoard_no(board.getBoard_no());
+			uploadVo.setFile_name(fileName);
+			uploadFileService.insert(uploadVo);
+		}
 		if (board.getBoard_kinds() == 1) { // 1이 자유
 			return "redirect:/board/listFreeBoard";
 		} else {

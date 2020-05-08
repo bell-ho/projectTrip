@@ -21,14 +21,14 @@ img{
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<h1 class="my-4">               </h1>
+			<h1 class="my-4">메뉴</h1>
 			<div class="list-group">
 				<a href="/" class="list-group-item">홈으로</a>
 			</div>
 		</div>
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
-			<h1 class="mt-4 mb-3">Register Board</h1>
+			<h1 class="mt-4 mb-3">게시글 작성</h1>
 		
 			<form id="form" action="/board/registerBoard" method="post">
 			

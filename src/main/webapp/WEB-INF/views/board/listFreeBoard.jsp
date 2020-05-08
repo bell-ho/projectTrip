@@ -23,7 +23,7 @@
 	margin-left: 10px;
 	margin-top: 10px;
 }
-#insertBoard{
+#registerBoard{
 	float:right;
 }
 </style>
@@ -68,7 +68,8 @@ $(document).ready(function($) {
     	"dom" : '<"top"l>rt<"bottom"fpi>',
     	order:  [[0,'desc']]
         });
-        $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard'>새글작성</a>"));
+        $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard' >새글작성</a>"));
+        $("#example_length").append("개씩 보기");
 } );
 
 $(document).ready(function(){
@@ -103,10 +104,10 @@ $(document).ready(function(){
 		<div class="col-lg-3">
 			<h1 class="my-4">자유 게시판</h1>
 			<div class="list-group">
+					<a href="/" class="list-group-item">홈으로</a>
 				<a href="/board/listFreeBoard" class="list-group-item active">자유게시판</a> 
 				<a href="/board/listTripBoard" class="list-group-item">후기게시판</a> 
-				<a href="/photoAll" class="list-group-item">갤러리</a>
-				<a href="/" class="list-group-item ">홈</a>
+				<a href="/photoAll?pageNum=1&amount=16&keyword=" class="list-group-item">갤러리</a> 
 			</div>
 		</div>
 		<div class="col-lg-9">

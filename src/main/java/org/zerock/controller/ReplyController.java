@@ -56,7 +56,6 @@ public class ReplyController {
 	public ReplyVo get(@PathVariable("reply_no") int reply_no) {
 		log.info("get" + reply_no);
 		ReplyVo vo = service.get(reply_no);
-		System.out.println("일단 여기로 온다");
 		return vo;
 	}
 	

@@ -12,8 +12,6 @@ $(document).ready(function(){
 	$.ajax({url:"/${contentid}", type: 'POST'  ,success:function(data){
 		x =$(data).find("mapx").text();
 		y =$(data).find("mapy").text();
-// 		alert(x);
-// 		alert(y);
 		$(".title").html($(data).find("title").html());
 		$(".card-img-top").attr("src",$(data).find("firstimage").html())
 		$("#addr").append($(data).find("addr1").html())
@@ -24,9 +22,12 @@ $(document).ready(function(){
 		var a = homepage.substring(end,start)
 		if(a !=''){
 			$("#homepage").attr("href",a);
+			$("#homepage").prepend($(data).find("title").text()+" ");
 		}
-		$("#homepage").remove();
+		$("#moveBoard").attr("href","/board/listTripBoard?title="+$(data).find("title").text())
 	}})
+	
+	
 	$("#addr").on("click", function(e) {
 			e.preventDefault();
 			$("#komap").modal("show");
@@ -61,7 +62,7 @@ $(document).ready(function(){
 			<div class="list-group">
 				<a href="/information/${key }도" class="list-group-item">기본정보</a> 
 				<a href="/trip/${key }도" class="list-group-item active">관광명소 보러가기</a> 
-					<a href="/board/listTripBoard" class="list-group-item">여행 후기 보러가기 </a> 
+					<a id='moveBoard' class="list-group-item">여행 후기 보러가기 </a> 
 					<a href="/photo" class="list-group-item">${key}도 갤러리</a> 
 					<a href="/" class="list-group-item">홈으로</a>
 			</div>
@@ -83,11 +84,10 @@ $(document).ready(function(){
 					<a href="#" id='addr'>주소 : </a>
 					<p class="card-text">
 					</p>
-					<a class='btn btn-primary' id='homepage'>홈페이지로 이동</a>
+					
 				</div>
 				<div class="card-footer text-muted">
-					1, 2017 견의 후기가 있습니다. 
-					<a href="/board/listTripBoard">후기 바로보러가기</a>
+					<a id='homepage'>홈페이지로 이동</a>
 				</div>
 			</div>
 		</div>

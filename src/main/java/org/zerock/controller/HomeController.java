@@ -1,24 +1,10 @@
 package org.zerock.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.text.DateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,16 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 import org.zerock.domain.LocalsubVo;
 import org.zerock.service.LocalsubService;
-
-import com.google.gson.Gson;
+import org.zerock.service.UploadFileService;
 
 import lombok.Setter;
 
@@ -50,6 +29,8 @@ public class HomeController {
 	private LocalsubService service;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+	private static final String String = null;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -100,16 +81,6 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/photo/{key}")
-	public String photo(@PathVariable("key")String key , Model model) {
-		model.addAttribute("key",key);
-		return "photo";
-	}
-
-	@RequestMapping("/photoAll")
-	public void photoAll() {
-
-	}
 
 	@RequestMapping("/board")
 	public void board() {
