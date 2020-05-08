@@ -16,18 +16,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVo;
 import org.zerock.domain.UploadFileVo;
 import org.zerock.service.BoardService;
+import org.zerock.service.ReplyService;
 import org.zerock.service.UploadFileService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import oracle.net.aso.t;
 
 @Controller
 @Log4j
 @RequestMapping("/board/*")
+
 public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
+	
+	@Setter(onMethod_ =@Autowired )
+	private ReplyService reservice;
 
 	@Setter(onMethod_ = @Autowired)
 	private UploadFileService uploadFileService;
