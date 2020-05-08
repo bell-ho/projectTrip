@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.UploadFileMapper">
+	<insert id="insert">
+		insert into uploadfile values(seq_uploadfile.nextval
+		, #{board_no} , #{file_name} )
+	</insert>
+	
+	<select id="getTripList"
+		resultType="org.zerock.domain.UploadFileVo">
+		<![CDATA[
+		select file_no , board_no , file_name
+		from(
+		select /*+ index_desc(uploadfile pk_file)*/
+		rownum rn , f.file_no , f.board_no , f.file_name
+		from uploadfile f , board b where
+		(b.board_no = f.board_no and b.board_content like '%'|| #{key} ||'%' 
+		]]>
+		<if test="keyword !=''">
+		and b.board_content like '%'||#{keyword}||'%' 
+		</if>
+		<![CDATA[
+		)
+		and rownum <= #{pageNum} * #{amount}
+		)
+		uploadfile where rn > (#{pageNum} -1 ) * #{amount}  order by file_no desc
+		]]>
+	</select>
+	
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.UploadFileVo">
+		<![CDATA[
+			select file_no , board_no , file_name 
+			from(
+				select /*+ index_desc(uploadfile pk_file)*/ 
+				rownum rn , f.file_no , f.board_no , f.file_name 
+				from uploadfile f 
+		]]>
+		<if test="keyword !=''">
+			, board b where (b.board_no = f.board_no
+			and b.board_content like '%' || #{keyword} || '%') and
+		</if>
+		<if test="keyword ==''">
+			where
+		</if>
+			<![CDATA[
+    			 rownum <= #{pageNum} * #{amount}
+				)
+			uploadfile where rn > (#{pageNum} -1 ) * #{amount} order by file_no desc
+		]]>
+	</select>
+	<select id="totalAll" resultType="int">
+		select count(*)from uploadfile f , board b 
+		where b.board_no = f.board_no
+		<if test="keyword != ''">
+			and b.board_content like '%'||#{keyword}||'%' 
+		</if>
+		order by file_no desc
+	</select>
+	<select id="totalTrip" resultType="int">
+		select count(*)from uploadfile f , board b 
+		where b.board_no = f.board_no and 
+		b.board_content like '%'||#{key}||'%' and b.board_title like '%'||#{key}||'%'
+		<if test="keyword != ''">
+			and b.board_content like '%'||#{keyword}||'%' 
+		</if>
+		order by file_no desc
+	</select>
+</mapper>

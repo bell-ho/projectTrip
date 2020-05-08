@@ -11,30 +11,19 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Criteria {
-	private int pagenum;
+	private int pageNum;
 	private int amount;
-	private String type;
+	private String key;
 	private String keyword;
 	
 	public Criteria() {
-		this(1,10);
+		this(1,16);
 	}
 
-	public Criteria(int pagenum, int amount) {
-		this.pagenum = pagenum;
+	public Criteria(int pageNum, int amount) {
+		this.pageNum = pageNum;
 		this.amount = amount;
 	}
-	public String[] getTypeArr() {
-		return type == null ? new String[] {}: type.split("");
-	}
-	public String getlistLink() {
-		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
-		.queryParam("pagenum", this.pagenum)
-		.queryParam("amount", this.amount)
-		.queryParam("type", this.type)
-		.queryParam("keyword", this.keyword);
-		return builder.toUriString();
-	
-	}
+
 
 }

@@ -180,7 +180,7 @@ $(document).ready(function(){
 			<h1 class="my-4">게시판</h1>
 			<div class="list-group">
 				<a href="/board/listFreeBoard" class="list-group-item">자유게시판</a> 
-				<a href="/board/listTripBoard" class="list-group-item">후기게시판</a> 
+				<a href="/board/listTripBoard?title=" class="list-group-item">후기게시판</a> 
 				<a href="/photoAll" class="list-group-item">갤러리 </a> 
 					<a href="/" class="list-group-item ">홈</a>
 			</div>

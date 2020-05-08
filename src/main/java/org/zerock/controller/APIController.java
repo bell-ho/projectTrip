@@ -18,8 +18,6 @@ public class APIController {
 
 	@PostMapping(value = "/{contentid}", produces = "application/xml;charset=utf-8")
 	public static String detail(@PathVariable("contentid") int contentid) throws IOException {
-		System.out.println("시작함");
-		System.out.println("여기로와야됨" + contentid);
 	        StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon"); /*URL*/
 	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=ilqxDvc7FBGBNe7wXY4c5AipSyWcUaApekp9a0NKlurwayKHfKGYyKXUKAUcMW/5YF5i97dd355widhAAllD8Q=="); /*Service Key*/
 	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*한 페이지 결과 수*/
