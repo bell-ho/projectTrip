@@ -56,6 +56,7 @@ public class BoardController {
 
 	@PostMapping("/registerBoard") // 게시판 등록
 	public String registerFree(BoardVo board, RedirectAttributes rttr) {
+		System.out.println(board.getBoard_content());
 		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
@@ -97,9 +98,22 @@ public class BoardController {
 	@PostMapping("/modifyBoard")
 	public String modify(BoardVo board, RedirectAttributes rttr) {
 		log.info("modify:" + board);
-		if (service.modify(board)) {
+		if (service.modify(board)) {	
 			rttr.addFlashAttribute("result", "succeess");
-			uploadFileService.
+			if(uploadFileService.deleteFileAll(board.getBoard_no()) >= 1) {
+				List<String> fname = new ArrayList<String>();
+				Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");//설정
+				Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
+				while (matcher.find()) {
+		  			fname.add(matcher.group(1));
+		  		}
+				for (String fileName : fname) {
+					UploadFileVo uploadVo = new UploadFileVo();
+					uploadVo.setBoard_no(board.getBoard_no());
+					uploadVo.setFile_name(fileName);
+					uploadFileService.insert(uploadVo);
+				}
+			}
 		}
 		if (board.getBoard_kinds() == 1) { // 1이 자유
 			return "redirect:/board/listFreeBoard";
