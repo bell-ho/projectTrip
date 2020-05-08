@@ -85,13 +85,7 @@ public class BoardController {
 		log.info("/get");
 		log.info("/get : " + board_no);
 		model.addAttribute("board", service.get(board_no));
-		
-		
-//		if (board.getBoard_kinds() == 1) { // 1이 자유
-//			model.addAttribute("board", service.getFree(board_no));
-//		} else {
-//			model.addAttribute("board", service.getTrip(board_no));
-//		}
+
 	}
 
 	@PostMapping("/modifyBoard")
@@ -121,11 +115,7 @@ public class BoardController {
 			return "redirect:/board/listTripBoard";
 		}
 		
-//		if (bb == 1) { // 1이 자유
-//			return "redirect:/board/listFreeBoard";
-//		} else {
-//			return "redirect:/board/listTripBoard";
-//		}
+		
 	}
 	
 
