@@ -16,5 +16,6 @@ public interface UploadFileMapper {
 	public int totalAll(Criteria cri);
 	
 	public int totalTrip(Criteria cri);
-
+	
+	public int deleteFileAll(Long board_no);
 }

@@ -9,6 +9,7 @@ import org.zerock.domain.BoardVo;
 import org.zerock.domain.ReplyVo;
 import org.zerock.mapper.BoardMapper;
 import org.zerock.mapper.ReplyMapper;
+import org.zerock.mapper.UploadFileMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -21,6 +22,8 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;
 	@Setter(onMethod_ =@Autowired )
 	private ReplyMapper replyMapper;
+	@Setter(onMethod_ =@Autowired )
+	private UploadFileMapper uploadMapper;
 	
 	@Override
 	public void register(BoardVo board) {
@@ -50,8 +53,12 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		log.info("remove...."+board_no);
 		
-		replyMapper.deleteReplyAll(board_no);
-		return mapper.delete(board_no)==1;
+		if(uploadMapper.deleteFileAll(board_no) !=1 || replyMapper.deleteReplyAll(board_no) !=1) {
+			
+			System.out.println("삭제오류입니다");
+			
+		}
+			return mapper.delete(board_no)==1;
 	}
 	
 	@Override
