@@ -21,7 +21,6 @@ import org.zerock.service.UploadFileService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import oracle.net.aso.t;
 
 @Controller
 @Log4j
