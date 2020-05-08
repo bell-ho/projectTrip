@@ -125,18 +125,19 @@ $(document).ready(function(){
 						<th>작성자</th>
 						<th>조회수</th>
 						<th>작성일</th>
-						<th style="display:none;">본문</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list }" var="board">
 						<tr>
 							<td>${board.board_no }</td>
-							<td><a href="get?board_no=${board.board_no }">${board.board_title }</a></td>
-							<td>${board.mem_id}</td>
-							<td>${board.board_hit}</td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></td>
-							<td style="display:none;">${board.board_content } </td>
+		                     <td>
+			                     <a href="get?board_no=${board.board_no }">${board.board_title }</a>
+			                     <b>[<c:out value="${board.board_replycnt }"/>]</b>
+		                     </td>
+		                     <td>${board.mem_id}</td>
+		                     <td>${board.board_hit}</td>
+		                     <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>

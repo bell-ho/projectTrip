@@ -17,4 +17,6 @@ public interface UploadFileService {
 	public int totalTrip(Criteria cri);
 	
 	public int totalAll(Criteria cri);
+	
+	public int deleteFileAll(long board_no);
 }

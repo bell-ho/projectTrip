@@ -65,7 +65,6 @@ public class ReplyServiceIempl implements ReplyService {
 		return mapper.getListWithPaging(cri, board_no);
 	}
 	
-	@Transactional
 	@Override
 	public int deleteReplyAll(Long board_no) {
 		// TODO Auto-generated method stub
