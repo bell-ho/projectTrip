@@ -53,7 +53,6 @@ public class BoardServiceImpl implements BoardService{
 	public boolean remove(Long board_no) {
 		// TODO Auto-generated method stub
 		log.info("remove...."+board_no);
-		
 		if(uploadMapper.deleteFileAll(board_no) !=1 || replyMapper.deleteReplyAll(board_no) !=1) {
 			
 			System.out.println("삭제오류입니다");

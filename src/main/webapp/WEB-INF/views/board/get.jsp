@@ -68,15 +68,13 @@ footer {
 #main>.panel-body {
 	margin: 15px;
 }
-
-#delete {
-	margin-l: 5px;
-}
-
 #delete, #modify {
 	float: right;
 }
-
+#Boarddelete , #Boardmodify{
+	float: right;
+	margin: 5px;
+}
 .reply {
 	background-color: #80808036;
 }
@@ -191,8 +189,10 @@ $(document).ready(function(){
 				<div class="panel-body">
 					<h2 id='title'>
 						<c:out value="${board.board_title}" />
-						<a id="delete" class="btn btn-sm btn-primary" href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
-						<a class="btn btn-sm btn-primary" id="modify" href="/board/modifyBoard" >수정</a> 
+						<a id="Boarddelete" class="btn btn-sm btn-primary" 
+						href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
+						<a class="btn btn-sm btn-primary" id="Boardmodify" 
+						href="/board/modifyBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}" >수정</a> 
 					</h2>
 					<label>작성자 : <c:out value="${board.mem_id}" />
 					</label> <label style="float: right;">작성일 : <c:out
