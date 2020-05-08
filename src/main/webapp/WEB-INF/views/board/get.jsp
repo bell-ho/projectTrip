@@ -200,7 +200,7 @@ $(document).ready(function(){
 					</label> <br>
 					<hr>
 					<div class="form-group">
-							<div id="content">${board.board_content }</div>
+							<div id="content">${board.board_content }<h2>123123<h2></h2></h2></div>
 					</div>
 					<div class="panel panel-default reply">
 						<div class="col-lg-12">

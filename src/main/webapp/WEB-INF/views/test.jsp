@@ -72,6 +72,8 @@
 </script>
  
 <body>
+	<h2>123123123</h2>
+	<textarea rows="3" cols="10"><h2>123123</h2></textarea>
     <div id="paging"></div>
 </body>
 </html>

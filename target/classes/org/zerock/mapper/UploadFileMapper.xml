@@ -78,5 +78,5 @@
 
 	<delete id="deleteFileAll">
 		delete from uploadfile where board_no = #{board_no}
-	</delete>
+	</delete>	
 </mapper>
