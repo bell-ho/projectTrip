@@ -70,11 +70,10 @@ footer {
 }
 
 #delete {
-	float: right;
-	margin-right: 5px;
+	margin-left: 5px;
 }
 
-#modify, #delete {
+#delete, #modify {
 	float: right;
 }
 
@@ -152,7 +151,7 @@ $(document).ready(function(){
 					$(this).parent().attr("method","post").submit();
 				})
 				
-			})
+			}) 
 		}})
 			$(document).on("click","#update",function(e){
 				e.preventDefault();
@@ -192,10 +191,8 @@ $(document).ready(function(){
 				<div class="panel-body">
 					<h2 id='title'>
 						<c:out value="${board.board_title}" />
-<!-- 						<button id="modify" data-oper="modifyBoard" class="btn btn-sm btn-primary"><a href="/board/modifyBoard" >수정</a></button> -->
-<!-- 						<button id="delete" data-oper="removeBoard" class="btn btn-sm btn-primary">삭제</button> -->
-						<a href="/board/modifyBoard" >수정</a>
-						<a href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}" >삭제</a>
+						<a id="Boarddelete" class="btn btn-sm btn-primary" href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
+						<a class="btn btn-sm btn-primary" id="modify" href="/board/modifyBoard" >수정</a>
 					</h2>
 					<label>작성자 : <c:out value="${board.mem_id}" />
 					</label> <label style="float: right;">작성일 : <c:out

@@ -60,7 +60,7 @@ function list(page) {
             }
         }
         
-        if(last <= totalPage)
+        if(last < totalPage)
             str += "<li class='page-item'><a class = 'page-link' href=# id='next'>Next</a></li>";
 
         $("#paging").html(str);    // 페이지 목록 생성
