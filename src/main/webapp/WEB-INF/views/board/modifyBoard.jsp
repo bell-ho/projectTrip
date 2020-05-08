@@ -25,19 +25,20 @@ footer {
 		</div>
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
-			<h1 class="mt-4 mb-3">Register Board</h1>
+			<h1 class="mt-4 mb-3">게시글 수정</h1>
 		
-			<form id="form" action="/board/registerBoard" method="post">
+			<form id="form" action="/board/modifyBoard" method="post">
 			
 				게시판 <select name="board_kinds">
 				<option value="1">자유게시판</option>
 				<option value="0">후기게시판</option>
 				</select><br><br>
+				<input type="hidden" name="board_no" value="${board.board_no }">
+				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요."
+				 style="width:100%;" value="<c:out value="${board.board_title}" />"><br><br>
 				
-				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
-				
-				<textarea id="content" placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
-				
+				<textarea id="content" placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" 
+				style="width:100%"; ><c:out value="${board.board_content}"/></textarea><br>
 				<input id="savebutton" type="submit" value="확인">
 				
 			</form>

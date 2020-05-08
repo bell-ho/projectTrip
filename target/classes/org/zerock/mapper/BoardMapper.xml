@@ -57,7 +57,6 @@
 		update board set
 		board_kinds = #{board_kinds},
 		board_title = #{board_title},
-		board_hit = #{board_hit},
 		board_content = #{board_content},
 		board_updatedata = sysdate
 		where board_no = #{board_no}

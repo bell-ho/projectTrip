@@ -97,16 +97,18 @@ public class BoardController {
 	@PostMapping("/modifyBoard")
 	public String modify(BoardVo board, RedirectAttributes rttr) {
 		log.info("modify:" + board);
-
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "succeess");
 		}
-
 		if (board.getBoard_kinds() == 1) { // 1¿Ã ¿⁄¿Ø
 			return "redirect:/board/listFreeBoard";
 		} else {
 			return "redirect:/board/listTripBoard";
 		}
+	}
+	@GetMapping("/modifyBoard")
+	public void modifyForm(Model model ,@RequestParam("board_kinds")  int board_kinds, @RequestParam("board_no") Long board_no) {
+		model.addAttribute("board",service.get(board_no));
 	}
 
 	@RequestMapping("/removeBoard")
@@ -125,5 +127,6 @@ public class BoardController {
 //			return "redirect:/board/listTripBoard";
 //		}
 	}
+	
 
 }

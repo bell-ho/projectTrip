@@ -130,7 +130,7 @@ $(document).ready(function(){
 				<tbody>
 					<c:forEach items="${list }" var="board">
 						<tr>
-							<td>${board.board_no }</td>
+							 <td>${board.board_no }</td>
 		                     <td>
 			                     <a href="get?board_no=${board.board_no }">${board.board_title }</a>
 			                     <b>[<c:out value="${board.board_replycnt }"/>]</b>
