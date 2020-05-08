@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVo;
 import org.zerock.domain.UploadFileVo;
@@ -51,6 +52,12 @@ public class UploadFileServiceImpl implements UploadFileService {
 		// TODO Auto-generated method stub
 		return mapper.totalTrip(cri);
 	}
-
+	
+	@Override
+	public int deleteFileAll(long board_no) {
+		// TODO Auto-generated method stub
+		return mapper.deleteFileAll(board_no);
+	}
+	
 
 }
