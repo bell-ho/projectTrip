@@ -40,6 +40,7 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.read(BOARD_NO);
 	}
 
+	
 	@Override
 	public boolean modify(BoardVo board) {
 		// TODO Auto-generated method stub
