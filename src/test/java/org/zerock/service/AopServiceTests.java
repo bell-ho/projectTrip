@@ -17,9 +17,14 @@ public class AopServiceTests {
 	@Setter(onMethod_ = @Autowired)
 	private AopService service;
 
-	@Test
+//	@Test
 	public void testClass() {
 		log.info(service);
 		log.info(service.getClass().getName());
+	}
+	
+//	@Test
+	public void testAdd() throws Exception{
+		log.info(service.doAdd("123", "456"));
 	}
 }

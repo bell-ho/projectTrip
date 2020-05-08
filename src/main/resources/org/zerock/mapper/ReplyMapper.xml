@@ -3,21 +3,31 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ReplyMapper">
+
 	<insert id="insert">
 		insert into reply (reply_no , board_no , mem_no , reply_content )
 		values(seq_reply.nextval,#{board_no},#{mem_no},#{reply_content})
 	</insert>
+	
 	<select id="get" resultType="org.zerock.domain.ReplyVo">
 		select * from reply where reply_no = #{reply_no}
 	</select>
+	
 	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVo">
 		select reply_no , board_no , mem_id , reply_content , reply_date , reply_updatedate
 		from reply r , member m where board_no = ${board_no} and m.mem_no = r.mem_no order by reply_no 
 	</select>
+	
 	<delete id="delete">
 		delete from reply where reply_no = #{reply_no}
 	</delete>
+	
 	<update id="update">
 		update reply set reply_content = #{reply_content} , reply_updatedate = sysdate where reply_no = #{reply_no}
 	</update>
+	
+	<delete id="deleteReplyAll">
+		delete from reply where board_no = #{board_no}
+	</delete>
+	
 </mapper>

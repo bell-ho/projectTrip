@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVo;
 import org.zerock.service.BoardService;
+import org.zerock.service.ReplyService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -20,7 +21,10 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
-
+	
+	@Setter(onMethod_ =@Autowired )
+	private ReplyService reservice;
+	
 	@GetMapping("/listFreeBoard") // 자유게시판
 	public void Freelist(Model model) {
 		log.info("list");

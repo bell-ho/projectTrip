@@ -2,6 +2,7 @@ package org.zerock.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.zerock.domain.BoardVo;
 
@@ -17,9 +18,10 @@ public interface BoardMapper {
 	
 	public BoardVo read(Long board_no); //자유게시글 상세
 	
-//	public BoardVo readTrip(Long board_no); //후기게시글 상세
-	
 	public int delete(Long board_no); //게시글 삭제
 	
 	public int update(BoardVo board); //게시글 수정
+	
+	public void updateReplyCnt(@Param("board_no")Long board_no , @Param("amount") int amount);
+	
 }
