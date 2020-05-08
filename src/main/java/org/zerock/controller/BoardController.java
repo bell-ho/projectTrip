@@ -99,6 +99,7 @@ public class BoardController {
 		log.info("modify:" + board);
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "succeess");
+			uploadFileService.
 		}
 		if (board.getBoard_kinds() == 1) { // 1ÀÌ ÀÚÀ¯
 			return "redirect:/board/listFreeBoard";

@@ -17,4 +17,5 @@ public interface UploadFileService {
 	public int totalTrip(Criteria cri);
 	
 	public int totalAll(Criteria cri);
+	
 }

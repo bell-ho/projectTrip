@@ -51,6 +51,6 @@ public class UploadFileServiceImpl implements UploadFileService {
 		// TODO Auto-generated method stub
 		return mapper.totalTrip(cri);
 	}
-	
+
 
 }
