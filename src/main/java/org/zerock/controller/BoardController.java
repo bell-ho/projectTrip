@@ -71,7 +71,7 @@ public class BoardController {
 		if (board.getBoard_kinds() == 1) { // 1ÀÌ ÀÚÀ¯
 			return "redirect:/board/listFreeBoard";
 		} else {
-			return "redirect:/board/listTripBoard";
+			return "redirect:/board/listTripBoard?title=";
 		}
 	}
 

@@ -56,15 +56,17 @@
 		select count(*)from uploadfile f , board b 
 		where b.board_no = f.board_no
 		<if test="keyword != ''">
-			and b.board_content like '%'||#{keyword}||'%'
+			and b.board_content like '%'||#{keyword}||'%' 
 		</if>
+		order by file_no desc
 	</select>
 	<select id="totalTrip" resultType="int">
 		select count(*)from uploadfile f , board b 
 		where b.board_no = f.board_no and 
-		b.board_content like '%'||#{key}||'%'
+		b.board_content like '%'||#{key}||'%' and b.board_title like '%'||#{key}||'%'
 		<if test="keyword != ''">
-			and b.board_content like '%'||#{keyword}||'%'
+			and b.board_content like '%'||#{keyword}||'%' 
 		</if>
+		order by file_no desc
 	</select>
 </mapper>

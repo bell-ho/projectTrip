@@ -106,7 +106,7 @@ $(document).ready(function(){
 			<div class="list-group">
 					<a href="/" class="list-group-item">홈으로</a>
 				<a href="/board/listFreeBoard" class="list-group-item active">자유게시판</a> 
-				<a href="/board/listTripBoard" class="list-group-item">후기게시판</a> 
+				<a href="/board/listTripBoard?title=" class="list-group-item">후기게시판</a> 
 				<a href="/photoAll?pageNum=1&amount=16&keyword=" class="list-group-item">갤러리</a> 
 			</div>
 		</div>
