@@ -21,7 +21,7 @@
 			where
 			(b.board_no = f.board_no and b.board_content like '%'|| #{key} ||'%' 
 		]]>
-		<if test="keyword !=''">
+		<if test="keyword !=''"> 
 			and b.board_content like '%'||#{keyword}||'%'
 		</if>
 		<![CDATA[
