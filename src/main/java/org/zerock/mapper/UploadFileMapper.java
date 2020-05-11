@@ -18,4 +18,6 @@ public interface UploadFileMapper {
 	public int totalTrip(Criteria cri);
 	
 	public int deleteFileAll(Long board_no);
+	
+	public List<UploadFileVo> get();
 }

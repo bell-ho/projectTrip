@@ -17,9 +17,10 @@ public class UploadFileController {
 	private UploadFileService uploadFileService;
 	
 	@RequestMapping("/photo/{key}")
-	public String photo(@PathVariable("key")String key , Criteria cri, Model model) {
+	public String photo(@PathVariable("key") String key , Criteria cri, Model model) {
+		cri.setKeyword(cri.getKeyword().split(" ")[0]);
+		System.out.println(cri);
 		int total = uploadFileService.totalTrip(cri);
-		System.out.println(total);
 		model.addAttribute("key",key);
 		model.addAttribute("list",uploadFileService.getTripList(cri));
 		model.addAttribute("pageMaker",new PageDTO(cri, total));

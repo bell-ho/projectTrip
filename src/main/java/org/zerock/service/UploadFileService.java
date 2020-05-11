@@ -19,5 +19,6 @@ public interface UploadFileService {
 	public int totalAll(Criteria cri);
 	
 	public int deleteFileAll(long board_no);
-
+	
+	public List<UploadFileVo> get();
 }

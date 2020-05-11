@@ -58,6 +58,13 @@ public class UploadFileServiceImpl implements UploadFileService {
 		// TODO Auto-generated method stub
 		return mapper.deleteFileAll(board_no);
 	}
+
+	@Override
+	public List<UploadFileVo> get() {
+		// TODO Auto-generated method stub
+		return mapper.get();
+	}
+
 	
 
 }
