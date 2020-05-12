@@ -63,7 +63,7 @@ $(document).ready(function(){
 				<a href="/information/${key }도" class="list-group-item">기본정보</a> 
 				<a href="/trip/${key }도" class="list-group-item active">관광명소 보러가기</a> 
 					<a id='moveBoard' class="list-group-item">여행 후기 보러가기 </a> 
-					<a href="/photo/#{key }도" class="list-group-item">${key}도 갤러리</a> 
+					<a href="/photo/${key }도" class="list-group-item">${key}도 갤러리</a> 
 					<a href="/" class="list-group-item">홈으로</a>
 			</div>
 		</div>

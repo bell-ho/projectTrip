@@ -48,7 +48,7 @@
 <!-- Page Content -->
 <div class="container">
 
-	<h1 class="my-4">Welcome to Modern Business</h1>
+	<h1 class="my-4">Welcome !!</h1>
 	<div class="row">
 		<div class="col-lg-4 col-sm-6 portfolio-item">
 			<div class="card h-100">

@@ -176,10 +176,10 @@ $(document).ready(function(){
 		<div class="col-lg-3">
 			<h1 class="my-4">게시판</h1>
 			<div class="list-group">
+					<a href="/" class="list-group-item ">홈</a>
 				<a href="/board/listFreeBoard" class="list-group-item">자유게시판</a> 
 				<a href="/board/listTripBoard?title=" class="list-group-item">후기게시판</a> 
 				<a href="/photoAll" class="list-group-item">갤러리 </a> 
-					<a href="/" class="list-group-item ">홈</a>
 			</div>
 		</div>
 		<!-- /.col-lg-3 -->
@@ -189,18 +189,15 @@ $(document).ready(function(){
 				<div class="panel-body">
 					<h2 id='title'>
 						<c:out value="${board.board_title}" />
-						<a id="Boarddelete" class="btn btn-sm btn-primary" 
-						href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
-						<a class="btn btn-sm btn-primary" id="Boardmodify" 
-						href="/board/modifyBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}" >수정</a> 
+						<a id="Boarddelete" class="btn btn-sm btn-primary" href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
+						<a class="btn btn-sm btn-primary" id="Boardmodify" href="/board/modifyBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">수정</a> 
 					</h2>
 					<label>작성자 : <c:out value="${board.mem_id}" />
-					</label> <label style="float: right;">작성일 : <c:out
-							value="${board.board_regdate}" />
-					</label> <br>
+					</label> 
+					<label style="float: right;">작성일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></label> <br>
 					<hr>
 					<div class="form-group">
-							<div id="content">${board.board_content }<h2>123123<h2></h2></h2></div>
+							<div id="content">${board.board_content }</div>
 					</div>
 					<div class="panel panel-default reply">
 						<div class="col-lg-12">
