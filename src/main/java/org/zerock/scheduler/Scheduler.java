@@ -19,8 +19,7 @@ import lombok.extern.log4j.Log4j;
 public class Scheduler {
 	@Setter(onMethod_ = @Autowired)
 	private UploadFileService servce;
-
-	@Scheduled(cron = "* 0/1 * * * * ")
+	@Scheduled(cron = "0 0/1 * * * * ")
 	public void checkFiles() throws Exception {
 		int cnt = 0; // 시작시 카운트는 0
 		String path = this.getClass().getResource("").getPath(); // 현제 클래스의 물리경로 즉 서버의 경로를 알아온다

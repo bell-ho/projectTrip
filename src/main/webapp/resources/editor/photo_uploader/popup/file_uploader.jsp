@@ -1,5 +1,3 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.UUID"%>
@@ -32,13 +30,10 @@ if (ServletFileUpload.isMultipartContent(request)){
                 String ext = item.getName().substring(item.getName().lastIndexOf(".")+1);
                 //파일 기본경로
                 String defaultPath = request.getSession().getServletContext().getRealPath("/");
+                System.out.println("123 : "+defaultPath);
                 //파일 기본경로 _ 상세경로
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        		Date date = new Date();
-        		String str = sdf.format(date);
-        		String folder = str.replace("-", File.separator);
-                String path = defaultPath +"resources/upload/"+folder+"/";
-                String viewPath = "resources/upload/"+folder+"/";
+                String path = defaultPath +"resources/upload/";
+                String viewPath = "resources/upload/";
                 System.out.println(path);
                 File file = new File(path);
                 //디렉토리 존재하지 않을경우 디렉토리 생성
@@ -61,7 +56,7 @@ if (ServletFileUpload.isMultipartContent(request)){
                 os.close();
                 ///////////////// 서버에 파일쓰기 /////////////////
                 return3 += "&bNewLine=true&sFileName="+name+"&sFileURL=http://localhost:8080/"+viewPath+realname;
-                System.out.println(return3);
+                System.out.println(realname);
             }else {
                 return3 += "&errstr=error";
             }

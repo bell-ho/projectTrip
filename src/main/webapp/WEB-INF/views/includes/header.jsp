@@ -62,11 +62,11 @@
 				</div>
 				<div class="modal-body">
 					<div class="container">
-						<form class="form-signin">
+						<form class="form-signin" action="/login" method="post">
 							<h2 class="form-signin-heading" style='text-align: center;'>로
 								그 인</h2>
 							<label for="inputEmail" class="sr-only">Email address</label> <input
-								type="text" id="inputEmail" class="form-control"
+								type="text" id="username" class="form-control"
 								placeholder="Email address" required autofocus> <label
 								for="inputPassword" class="sr-only">Password</label> <input
 								type="password" id="inputPassword" class="form-control"

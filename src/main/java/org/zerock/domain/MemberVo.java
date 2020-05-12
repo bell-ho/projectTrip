@@ -14,4 +14,5 @@ public class MemberVo {
 	private String mem_nickname;
 	private String mem_img;
 	private Date mem_register_date;
+	private String role;
 }
