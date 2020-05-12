@@ -12,7 +12,9 @@ $(document).ready(function(){
 	$.ajax({url:"/${contentid}", type: 'POST'  ,success:function(data){
 		x =$(data).find("mapx").text();
 		y =$(data).find("mapy").text();
-		$(".title").html($(data).find("title").html());
+		title = $(data).find("title").html();
+		$(".title").html(title);
+		$("#photo").attr("href","/photo/${key }도?keyword="+title);
 		$(".card-img-top").attr("src",$(data).find("firstimage").html())
 		$("#addr").append($(data).find("addr1").html())
 		$(".card-text").append($(data).find("overview").text())
@@ -23,6 +25,7 @@ $(document).ready(function(){
 		if(a !=''){
 			$("#homepage").attr("href",a);
 			$("#homepage").prepend($(data).find("title").text()+" ");
+			$("#homepage").attr("target","_blank");
 		}
 		$("#moveBoard").attr("href","/board/listTripBoard?title="+$(data).find("title").text())
 	}})

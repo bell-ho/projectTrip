@@ -208,9 +208,8 @@ $(document).ready(function(){
 						</div>
 						<div class="panel-body insertreply">
 							<form action="../reply/insert" method="post">
-								<input type="hidden" name='board_no'
-									value='<c:out value="${board.board_no }"></c:out>'> <input
-									type="hidden" name='mem_no' value='<c:out value="1"></c:out>'>
+								<input type="hidden" name='board_no' value='<c:out value="${board.board_no }"></c:out>'>
+								<input type="hidden" name='mem_no' value='<c:out value="1"></c:out>'>
 								<textarea rows="2" cols="100%" class="form" name='reply_content'></textarea>
 								<button id='addReplyBtn' class='btn btn-primary'>등록</button>
 							</form>

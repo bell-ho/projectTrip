@@ -58,7 +58,7 @@
 					<p class="card-text">
 						
 					</p>
-					<a href="http://www.visitjeju.net" target="_blank"
+					<a href="#" target="_blank"
 						class="btn btn-primary">내가 작성한 글보기</a>
 				</div>
 				<div class="card-footer text-muted">
