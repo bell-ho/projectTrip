@@ -20,7 +20,7 @@ public class Scheduler {
 	@Setter(onMethod_=@Autowired)
 	private UploadFileService servce;
 	
-	@Scheduled(cron = "* 0/1 * * * * ")
+	@Scheduled(cron = "0 0/1 * * * * ")
 	public void checkFiles() throws Exception {
 		//System.out.println("씨큐리티아아아아아아아아아아ㅏ아ㅑㅓㅐㅑㄴ워후누아ㅓ;ㅜㅎ;ㅁㄱㄴ;");
 		int cnt = 0; // 시작시 카운트는 0 

@@ -3,19 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
-<script type="text/javascript"
-	src="../resources/editor/js/lib/jindo2.all.js" charset="utf-8"></script>
-<script type="text/javascript"
-	src="../resources/editor/js/lib/jindo_component.js" charset="utf-8"></script>
-<script type="text/javascript"
-	src="../resources/editor/js/service/SE2M_Configuration.js"
-	charset="utf-8"></script>
 <!-- 설정 파일 -->
-<script type="text/javascript"
-	src="../resources/editor/js/service/SE2BasicCreator.js" charset="utf-8"></script>
-<script type="text/javascript"
-	src="../resources/editor/js/smarteditor2.js" charset="utf-8"></script>
-
 <style type="text/css">
 footer {
 	bottom: 0;
@@ -200,7 +188,7 @@ $(document).ready(function(){
 					</label> <br>
 					<hr>
 					<div class="form-group">
-							<div id="content">${board.board_content }<h2>123123<h2></h2></h2></div>
+							<div id="content">${board.board_content }</div>
 					</div>
 					<div class="panel panel-default reply">
 						<div class="col-lg-12">
