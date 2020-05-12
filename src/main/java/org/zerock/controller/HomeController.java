@@ -47,7 +47,7 @@ public class HomeController {
 		return "main";
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping("/MytripLogin")
 	public void from() {
 
 	}
@@ -111,5 +111,4 @@ public class HomeController {
 	public void from2() {
 
 	}
-
 }

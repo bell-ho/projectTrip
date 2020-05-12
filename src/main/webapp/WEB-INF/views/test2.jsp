@@ -1,160 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@include file="includes/header.jsp"%>
-<style type="text/css">
-footer {
-	bottom: 0;
-	position: absolute;
-	width: 100%;
-	height: 100px;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-.chat, .timeline {
-	list-style: none
-}
+<head>
 
-.chat-panel .panel-body {
-	height: 350px;
-	overflow-y: scroll;
-}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-.chat {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
+  <title>MY TRIP</title>
+  <!-- Custom fonts for this template-->
+  <link href="/resources/login/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-.chat li {
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-	border-bottom: 1px dotted #999999;
-}
+  <!-- Custom styles for this template-->
+  <link href="/resources/login/css/sb-admin-2.min.css" rel="stylesheet">
 
-.chat li.left .chat-body {
-	margin-left: 60px;
-}
+</head>
 
-.chat li.right .chat-body {
-	margin-right: 60px;
-}
+<body>
 
-.chat li .chat-body p {
-	margin: 0;
-}
+  <div class="container">
 
-.chat-panel .panel-body {
-	height: 350px;
-	overflow-y: scroll;
-}
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
-#main {
-	border: 1px solid black;
-}
+      <div class="col-xl-10 col-lg-12 col-md-9">
 
-#main>.panel-body {
-	margin: 15px;
-}
-#delete {
-	float: right;
-	 margin-right:5px;
-}
-#modify ,#delete {
-	float: right;
-}
-.reply{
-	background-color: #80808036;
-}
-#user{
-	margin-top :3px;
-	width: 32px;
-    height: 32px;
-    border-radius: 50%
-}
-.panel-body.insertreply{
-display:flex;
-padding:1.5rem;
-}
-#addReplyBtn{
-background-color:  #80808036;
-color: black;
-}
-</style>
-<!-- Page Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-3">
-			<h1 class="my-4">게시판</h1>
-			<div class="list-group">
-				<a href="/board" class="list-group-item active">게시판</a> <a
-					href="/phto" class="list-group-item">갤러리 </a> <a href="/main"
-					class="list-group-item ">홈</a>
-			</div>
-		</div>
-		<!-- /.col-lg-3 -->
-		<div class="col-lg-9">
-			<br>
-			<div class="panel panel-default" id="main">
-				<div class="panel-body">
-					<h2 id='title'>
-						<c:out value="${board.title}" />
-						제주도 좋아
-						<button id="modify"data-oper="modify" class="btn btn-sm btn-primary">수정</button>
-						<button id="delete"data-oper="modify" class="btn btn-sm btn-primary" >삭제</button>
-					</h2>
-						<label>작성자 : <c:out value="${board.board_no}" />
-						</label> <label style="float: right;">작성일 : 20.04.29 <c:out
-								value="${board.board_regdate}" />
-						</label> <br>
-						<hr>
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">로그인</h1>
+                  </div>
+                  <form class="user">
+                    <div class="form-group">
+                      <input type="email" class="form-control form-control-user" id="username" placeholder="아이디">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-user" id="password" placeholder="비밀번호">
+                    </div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">아이디 기억하기</label>
+                      </div>
+                    </div>
+                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                      	로그인
+                    </a>
+                    <hr>
+                    <a href="index.html" class="btn btn-google btn-user btn-block">
+                      	구글 로그인
+                    </a>
+                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                      	네이버 로그인
+                    </a>
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="forgot-password.html">비밀번호 찾기</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="insertMember">회원가입</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
 
-					<div class="form-group">
-						<textarea rows="20" cols="3" name="content" class="form-control"
-							readonly="readonly"
-							style="background-color: white; border: none;"><c:out
-								value="${board.content}" /></textarea>
-					</div>
+    </div>
 
-					<form id="operForm" action="/board/modify" method="get">
-						<input type="hidden" id="bno" name="bno"
-							value='<c:out value="${board.bno }"/>'> <input
-							type="hidden" id="pageNum" name="pageNum"
-							value='<c:out value="${cri.pageNum }"/>'> <input
-							type="hidden" id="amount" name="amount"
-							value='<c:out value="${cri.amount }"/>'> <input
-							type="hidden" name="type" value="<c:out value="${cri.type}" />">
-						<input type="hidden" name="keyword"
-							value="<c:out value="${cri.keyword}" />">
-					</form>
-					<div class="panel panel-default reply">
-						<div class="col-lg-12">
-							<div class='panel-heading'>
-								<ul class="chat">
-									<li class="left clearfix" data-rno="'+list[i].rno+'">
-										<div class="header">
-										<img src='https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg'id="user">
-											<strong class="primary-font">'+list[i].replyer+' </strong><br>
-											<small class="pull-right text-muted">&emsp;&emsp;&emsp;'+replyService.displayTime(list[i].replydate)+'</small>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="panel-body insertreply">
-							<textarea rows="2" cols="100%" class="form"></textarea>
-							<button id='addReplyBtn' class='btn btn-primary'>등록</button>
-						</div>
-						<div class="panel-footer"></div>
+  </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- /.col-lg-9 -->
-<!-- /.container -->
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<%@include file="includes/footer.jsp"%>
+  <!-- Core plugin JavaScript-->
+  <script src="/resources/login/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/resources/login/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
