@@ -23,13 +23,13 @@ public class Scheduler {
 	@Scheduled(cron = "0 0/1 * * * * ")
 	public void checkFiles() throws Exception {
 		//System.out.println("씨큐리티아아아아아아아아아아ㅏ아ㅑㅓㅐㅑㄴ워후누아ㅓ;ㅜㅎ;ㅁㄱㄴ;");
-		int cnt = 0; // 시작시 카운트는 0 
 		String path = this.getClass().getResource("").getPath(); //현제 클래스의 물리경로 즉 서버의 경로를 알아온다
 		int idx = path.indexOf("WEB-INF"); //현제 경로에서 WEB-INF의 인댁스의 값을 구해온다 
 		String realPath = path.substring(1,idx)+"resources\\upload"; // 인댁스가 1부터 WEB-INF의 인댁스까지 문자열을 자른후 upload경로를 설정한다
 		File file = new File(realPath); //서버의 경로를 파일로 지정한다 
 		//System.out.println("씨발........");
 		for (File info :FileUtils.listFiles(new File(realPath), TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
+			int cnt = 0; // 시작시 카운트는 0 
 			//반복문을이용해 서버경로의 모든 파일을 구해와 하나씩 info에 담아준다
 				String filepath = info.getPath();//담긴파일의 경로를 알아온다
 				String file_name = info.getName().toString();//담긴파일의 이름을 구해온다 
@@ -42,8 +42,8 @@ public class Scheduler {
 					//이런식이라 이름으로 잘라줘야한다 자르기위해 문자열의 뒤에서부터 /까지의 인댁스를구한다 
 					String DBFileName= list.get(i).getFile_name().substring(vo_index);
 					// 뒤에서부터 가지고온 vo_index를 이용해 문자열을 잘라준다 
-					//System.out.println(DBFileName); //비교할 DB에있는 파일 이름 -> 실시간 파일
-					//System.out.println(file_name); // 비교할 서버에있는 파일이름 -> old 파일
+					//System.out.println("DB에있는 파일 이름 : "+DBFileName); //비교할 DB에있는 파일 이름 -> 실시간 파일
+					//System.out.println("서버에 있는 파일 이름 : "+file_name); // 비교할 서버에있는 파일이름 -> old 파일
 					if(DBFileName.equals(file_name)) {//파일을 돌리면서 파일 이름과 info와 비교한다						
 						cnt++;//같은 이름이 있을경우 카운트를 1로 만든다 
 					}
