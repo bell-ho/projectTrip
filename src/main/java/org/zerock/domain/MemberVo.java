@@ -1,11 +1,15 @@
 package org.zerock.domain;
 
+import java.util.Collection;
 import java.util.Date;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
 
 @Data
-public class MemberVo {
+public class MemberVo   {
 	private int mem_no;
 	private String mem_id;
 	private String mem_password;
@@ -15,4 +19,5 @@ public class MemberVo {
 	private String mem_img;
 	private Date mem_register_date;
 	private String role;
+
 }

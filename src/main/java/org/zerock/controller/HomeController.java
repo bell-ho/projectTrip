@@ -87,10 +87,6 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("/insertMember")
-	public void insertMember() {
-
-	}
 
 	@RequestMapping("/photo1")
 	public void phto1() {
@@ -104,11 +100,11 @@ public class HomeController {
 
 	@RequestMapping(value = "/test" ,  method = {RequestMethod.GET, RequestMethod.POST})
 	public void from1() {
-
+		
 	}
 
 	@RequestMapping("/test2")
 	public void from2() {
-
+		
 	}
 }

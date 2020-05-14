@@ -13,7 +13,6 @@ public class BoardVo {
 	private Date board_updatedata;
 	private int board_hit;
 	private String board_content;
-	private int mem_no;
 	private String mem_id;
 	
 	private int board_replycnt;

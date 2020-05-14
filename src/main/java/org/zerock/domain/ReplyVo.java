@@ -8,7 +8,6 @@ import lombok.Data;
 public class ReplyVo {
 	private int reply_no;
 	private Long board_no;
-	private int mem_no;
 	private String reply_content;
 	private Date reply_date;
 	private Date reply_updatedate;

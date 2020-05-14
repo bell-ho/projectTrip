@@ -2,6 +2,7 @@ package org.zerock.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,9 @@ public class ReplyController {
 
 //	/reply/insert를post방식으로 요청 
 	@PostMapping(value = "/insert")
-	public String insert(ReplyVo vo) {
+	public String insert(ReplyVo vo , Principal principal) {
+		log.info("insert Vo = " + vo);
+		vo.setMem_id(principal.getName());
 		log.info("insert Vo = " + vo);
 		int result = service.insert(vo);
 		log.info("결과  = " + result);
