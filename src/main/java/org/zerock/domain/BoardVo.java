@@ -14,6 +14,6 @@ public class BoardVo {
 	private int board_hit;
 	private String board_content;
 	private String mem_id;
-	
+	private String mem_nickname;
 	private int board_replycnt;
 }

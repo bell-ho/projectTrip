@@ -15,14 +15,12 @@
 }
 
 .profile {
-	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
 </style>
 <div class="container">
-
 	<div class="row">
 		<div class="col-lg-3">
 			<h1 class="my-4">메뉴</h1>
@@ -41,18 +39,18 @@
 				<li class="breadcrumb-item active">마이페이지</li>
 			</ol>
 			<div class="box" style="background: #BDBDBD;">
-				<img class="profile" src="">
+				<img class="profile" src="${member.mem_img }">
 			</div>
 			<br><br>
 			<div class="card mb-4">
 				<div class="card-body">
 					<h2 class="card-title">기본정보</h2>
 					<hr>
-					<h5>아이디 : 사용자</h5>
+					<h5>아이디 : ${member.mem_id }</h5>
 					<hr>
-					<h5>닉네임 : 사용자</h5>
+					<h5>닉네임 : ${member.mem_nickname }</h5>
 					<hr>
-					<h5>이메일 : seodonguk112@gmail.com</h5>
+					<h5>${member.mem_email }</h5>
 					<hr>
 					
 					<p class="card-text">

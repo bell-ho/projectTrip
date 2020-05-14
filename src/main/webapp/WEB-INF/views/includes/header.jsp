@@ -52,7 +52,7 @@
 							<li class="nav-item"><a class="nav-link" href="/insertMember">회원가입</a></li>
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-							<li class="nav-item"><a  class="nav-link" href="/mypage">마이페이지</a></li>							
+							<li class="nav-item"><a id="mypage" class="nav-link" href="">마이페이지</a></li>							
 							<li class="nav-item"><a id="logout" class="nav-link" href="">로그아웃</a></li>													
 						</sec:authorize>
 				</ul>
@@ -95,7 +95,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" id="btnJoin" class="btn btn-primary">회원가입</button>
+					<button type="button" id="/insertMember" class="btn btn-primary">회원가입</button>
 					<button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
 				</div>
 			</div>
@@ -131,5 +131,15 @@
 			$("body").append(form)
 			form.submit();
 		})
+		$("#mypage").on("click",function(e){
+			e.preventDefault();
+			var form = $("<form></from>")
+			form.attr("method","post")
+			form.attr("action","/mypage")
+			form.append('<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />')
+			$("body").append(form)
+			form.submit();
+		})
+		
 	})
 </script>

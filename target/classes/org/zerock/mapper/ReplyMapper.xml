@@ -14,7 +14,7 @@
 	</select>
 	
 	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVo">
-		select r.reply_no , r.board_no , r.mem_id , r.reply_content , r.reply_date , r.reply_updatedate
+		select r.reply_no , r.board_no , r.mem_id , r.reply_content , r.reply_date , r.reply_updatedate , m.mem_nickname , m.mem_img
 		from reply r , member m where board_no = ${board_no} and m.mem_id = r.mem_id order by reply_no 
 	</select>
 	

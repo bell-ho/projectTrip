@@ -12,4 +12,6 @@ public class ReplyVo {
 	private Date reply_date;
 	private Date reply_updatedate;
 	private String mem_id;
+	private String mem_nickname;
+	private String mem_img;
 }

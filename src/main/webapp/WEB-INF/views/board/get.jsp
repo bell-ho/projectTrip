@@ -122,8 +122,12 @@ $(document).ready(function(){
 			$.each(reply,function(idx,item){	
 				str = '<li class="left clearfix">'
 				str += '<div class="header">'
-				str += "<img src='https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg' id='user'>"
-				str += "<strong class='primary-font'>"+item.mem_id+"</strong>"
+				if(item.mem_img == null){
+					str += "<img src='https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg' id='user'>"
+				}else{
+					str += "<img src='"+item.mem_img+"' id='user'>"
+				}
+				str += "<strong class='primary-font'>"+item.mem_nickname+"</strong>"
 				str +="<small class='pull-right text-muted'>&emsp;&emsp;&emsp;"+item.reply_content+"</small>"
 				str += "<string class='reply_regdate'>"+displayTime(item.reply_date)
 				str += '<sec:authorize access="isAuthenticated()">'
@@ -191,7 +195,7 @@ $(document).ready(function(){
 						</c:if>
 						</sec:authorize>
 					</h2>
-					<label>작성자 : <c:out value="${board.mem_id}" />
+					<label>작성자 : <c:out value="${board.mem_nickname}" />
 					</label> 
 					<label style="float: right;">작성일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></label> <br>
 					<hr>

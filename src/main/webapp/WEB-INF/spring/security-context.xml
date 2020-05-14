@@ -4,6 +4,7 @@
 	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
 	<bean id="bcryptPasswordEncoder" 
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 	</bean>
@@ -12,6 +13,7 @@
 		<security:intercept-url pattern="/" access="permitAll"/>		
 		<security:intercept-url pattern="/board/registerBoard" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/board/modifyBoard" access="hasRole('ROLE_MEMBER')"/>
+		<security:intercept-url pattern="/insertMember" access="permitAll"/>
 		<security:form-login login-page="/MytripLogin" />
 		<security:logout logout-url="/logout" logout-success-url="/" invalidate-session="true"/>
 		<security:headers>
