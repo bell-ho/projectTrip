@@ -78,6 +78,7 @@
 <div class="container">
 
 	<h1 class="my-4">Welcome !!</h1>
+	
 	<div class="row">
 		<div class="col-lg-4 col-sm-6 portfolio-item">
 			<div class="card h-100">
@@ -111,7 +112,7 @@
 				<div class="card h-100">
 					<p></p>
 					<p></p>
-					<a href="#"><img class="card-img-top" src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
+					<a href="information/${info.name} "><img class="card-img-top" src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
 							<a href="information/${info.name}">${info.name }</a>

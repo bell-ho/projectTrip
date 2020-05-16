@@ -58,7 +58,7 @@
 		board_kinds = #{board_kinds},
 		board_title = #{board_title},
 		board_content = #{board_content},
-		board_updatedata = sysdate
+		board_updatedate = sysdate
 		where board_no = #{board_no}
 	</update>
 

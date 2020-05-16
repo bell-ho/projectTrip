@@ -29,14 +29,13 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private BoardService service;
-	
-	@Setter(onMethod_ =@Autowired )
+
+	@Setter(onMethod_ = @Autowired)
 	private ReplyService reservice;
 
 	@Setter(onMethod_ = @Autowired)
 	private UploadFileService uploadFileService;
-	
-	
+
 	@GetMapping("/listFreeBoard") // 자유게시판
 	public void Freelist(Model model) {
 		log.info("list");
@@ -44,7 +43,7 @@ public class BoardController {
 	}
 
 	@GetMapping("/listTripBoard") // 여행후기게시판
-	public void Triplist(Model model , String title) {
+	public void Triplist(Model model, String title) {
 		log.info("list");
 		model.addAttribute("list", service.getTripList());
 		model.addAttribute("title", title.split(" ")[0]);
@@ -60,13 +59,13 @@ public class BoardController {
 		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
-		//파일 처리
+		// 파일 처리
 		List<String> fname = new ArrayList<String>();
 		Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
 		while (matcher.find()) {
-  			fname.add(matcher.group(1));
-  		}
+			fname.add(matcher.group(1));
+		}
 		for (String fileName : fname) {
 			UploadFileVo uploadVo = new UploadFileVo();
 			uploadVo.setBoard_no(board.getBoard_no());
@@ -88,24 +87,25 @@ public class BoardController {
 		model.addAttribute("board", service.get(board_no));
 
 	}
-	
+
 	@GetMapping("/modifyBoard")
-	public void modifyForm(Model model ,@RequestParam("board_kinds")  int board_kinds, @RequestParam("board_no") Long board_no) {
-		model.addAttribute("board",service.get(board_no));
+	public void modifyForm(Model model, @RequestParam("board_kinds") int board_kinds,
+			@RequestParam("board_no") Long board_no) {
+		model.addAttribute("board", service.get(board_no));
 	}
-	
+
 	@PostMapping("/modifyBoard")
 	public String modify(BoardVo board, RedirectAttributes rttr) {
 		log.info("modify:" + board);
-		if (service.modify(board)) {	
+		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "succeess");
-			if(uploadFileService.deleteFileAll(board.getBoard_no()) >= 1) {
+			if (uploadFileService.deleteFileAll(board.getBoard_no()) >= 1) {
 				List<String> fname = new ArrayList<String>();
-				Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");//설정
+				Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");// 설정
 				Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
 				while (matcher.find()) {
-		  			fname.add(matcher.group(1));
-		  		}
+					fname.add(matcher.group(1));
+				}
 				for (String fileName : fname) {
 					UploadFileVo uploadVo = new UploadFileVo();
 					uploadVo.setBoard_no(board.getBoard_no());
@@ -120,20 +120,18 @@ public class BoardController {
 			return "redirect:/board/listTripBoard";
 		}
 	}
-	
 
 	@RequestMapping("/removeBoard")
-	public String remove(@RequestParam("board_kinds")  int board_kinds, @RequestParam("board_no") Long board_no, RedirectAttributes rttr) {
+	public String remove(@RequestParam("board_kinds") int board_kinds, @RequestParam("board_no") Long board_no,
+			RedirectAttributes rttr) {
 		log.info("remove...." + board_no);
 		if (service.remove(board_no) && board_kinds == 1) {
 			rttr.addFlashAttribute("result", "success");
 			return "redirect:/board/listFreeBoard";
-		}else {
+		} else {
 			return "redirect:/board/listTripBoard";
 		}
-		
-		
+
 	}
-	
 
 }
