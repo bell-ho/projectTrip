@@ -73,4 +73,10 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getTripList();
 	}
 
+	@Override
+	public int deleteMember(String mem_id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(mem_id);
+	}
+
 }

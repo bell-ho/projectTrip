@@ -65,6 +65,12 @@ public class UploadFileServiceImpl implements UploadFileService {
 		return mapper.get();
 	}
 
+	@Override
+	public int deleteMember(String mem_id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(mem_id);
+	}
+
 	
 
 }

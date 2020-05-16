@@ -24,4 +24,5 @@ public interface BoardMapper {
 	
 	public void updateReplyCnt(@Param("board_no")Long board_no , @Param("amount") int amount);
 	
+	public int deleteMember(String mem_id);
 }

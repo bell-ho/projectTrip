@@ -70,6 +70,10 @@
 		#{amount}
 		where board_no = #{board_no}
 	</update>
+	
+	<delete id="deleteMember">
+		delete from board where mem_id = #{mem_id}
+	</delete>
 
 
 </mapper>

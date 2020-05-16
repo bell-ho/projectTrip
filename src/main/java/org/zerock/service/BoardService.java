@@ -18,4 +18,6 @@ public interface BoardService {
 	
 	public List<BoardVo> getTripList();
 	
+	public int deleteMember(String mem_id);
+	
 }

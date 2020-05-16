@@ -10,4 +10,8 @@ public interface MemberMapper {
 	public int insert(MemberVo vo);
 	
 	public List<MemberVo> getAll();
+	
+	public int delete(MemberVo vo);
+	
+	public int update(MemberVo vo);
 }

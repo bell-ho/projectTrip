@@ -19,4 +19,6 @@ public interface ReplyMapper {
 	public ReplyVo get(int reply_no); //댓글 한개가지고 오기
 	
 	public int deleteReplyAll(Long board_no); //게시물에 있는 댓글 다지우기
+	
+	public int deleteMember(String mem_id);
 }

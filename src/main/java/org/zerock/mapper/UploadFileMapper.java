@@ -20,4 +20,6 @@ public interface UploadFileMapper {
 	public int deleteFileAll(Long board_no);
 	
 	public List<UploadFileVo> get();
+	
+	public int deleteMember(String mem_id);
 }

@@ -71,6 +71,7 @@ public class BoardController {
   		}
 		for (String fileName : fname) {
 			UploadFileVo uploadVo = new UploadFileVo();
+			uploadVo.setMem_id(principal.getName());
 			uploadVo.setBoard_no(board.getBoard_no());
 			uploadVo.setFile_name(fileName);
 			uploadFileService.insert(uploadVo);
