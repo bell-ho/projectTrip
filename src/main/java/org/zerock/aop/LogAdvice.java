@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.extern.log4j.Log4j;
 
-@Aspect
+@Aspect 
 @Log4j
 @Component
 public class LogAdvice {

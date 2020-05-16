@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController 
 public class APIController {
 
 	@PostMapping(value = "/ajax/{contentid}", produces = "application/xml;charset=utf-8")

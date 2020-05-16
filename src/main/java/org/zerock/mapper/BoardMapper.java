@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.zerock.domain.BoardVo;
 
-public interface BoardMapper {
+public interface BoardMapper { 
 //	@Select("select * from board where BOARD_NO >0")
 	public List<BoardVo>getFreeList();	// 자유게시글 목록
 	

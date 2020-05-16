@@ -4,7 +4,7 @@ import java.util.Date;
 
 import lombok.Data;
 
-@Data
+@Data 
 public class BoardVo {
 	private Long board_no;
 	private int board_kinds;
