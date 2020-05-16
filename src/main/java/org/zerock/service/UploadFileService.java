@@ -21,4 +21,6 @@ public interface UploadFileService {
 	public int deleteFileAll(long board_no);
 	
 	public List<UploadFileVo> get();
+
+	public int deleteMember(String mem_id);
 }

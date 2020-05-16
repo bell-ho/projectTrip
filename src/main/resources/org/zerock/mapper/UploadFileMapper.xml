@@ -7,7 +7,7 @@
 
 	<insert id="insert">
 		insert into uploadfile
-		values(seq_uploadfile.nextval , #{board_no} , #{file_name} )
+		values(seq_uploadfile.nextval , #{board_no} , #{file_name} , #{mem_id} )
 	</insert>
 
 	<select id="getTripList" resultType="org.zerock.domain.UploadFileVo">
@@ -84,4 +84,8 @@
 	<select id="get" resultType="org.zerock.domain.UploadFileVo">
 		select * from uploadfile
 	</select>
+	<delete id="deleteMember">
+		delete from uploadfile where mem_id = #{mem_id}
+	</delete>
+	
 </mapper>

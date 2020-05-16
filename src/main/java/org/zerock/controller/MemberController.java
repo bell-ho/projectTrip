@@ -8,9 +8,11 @@ import java.io.OutputStream;
 import java.security.Principal;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,9 +68,42 @@ public class MemberController {
 	public void mypage(Principal principal , Model model) {
 		model.addAttribute("member",service.get(principal.getName()));
 	}
-	@GetMapping("/member/delete")
+	
+	
+	@GetMapping("/memberDelete")
 	public void deletefrom(Principal principal , Model model) {
 		model.addAttribute("member",service.get(principal.getName()));
+	}
+	
+	@PostMapping("/memberDelete")
+	public String deleteMember(Principal principal , MemberVo vo , Model model , HttpServletRequest request) {
+		vo.setMem_id(principal.getName());
+		if(service.delete(vo)==1) {
+			Cookie[] cookies = request.getCookies();
+			if(cookies != null){ // 쿠키가 한개라도 있으면 실행
+				for(int i=0; i< cookies.length; i++){ 
+					cookies[i].setMaxAge(0);
+				}
+			}
+		}
+		return"redirect:/";
+	}
+	@GetMapping("/memberUpdatePassword")
+	public void UpdatePasswordForm(Principal principal , Model model) {
+		model.addAttribute("member",service.get(principal.getName()));
+	}
+	@PostMapping("/memberUpdatePassword")
+	public String UpdatePassword(MemberVo vo ,Principal principal , Model model , HttpServletRequest request) {
+		vo.setMem_id(principal.getName());
+		if(service.update(vo)==1) {
+			Cookie[] cookies = request.getCookies();
+			if(cookies != null){ // 쿠키가 한개라도 있으면 실행
+				for(int i=0; i< cookies.length; i++){ 
+					cookies[i].setMaxAge(0);
+				}
+			}
+		}
+		return"redirect:/";
 	}
 	
 }

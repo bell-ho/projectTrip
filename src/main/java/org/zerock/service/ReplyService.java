@@ -18,4 +18,8 @@ public interface ReplyService {
 	public List<ReplyVo> getListWithPaging(Criteria cri , Long board_no); //게시글의 댓글 가지고 오기
 	
 	public int deleteReplyAll(Long board_no);
+	
+	public int deleteMember(String mem_id);
+	
+	
 }

@@ -78,5 +78,11 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return mapper.getMyList(mem_nickname);
 	}
+	
+	@Override
+	public int deleteMember(String mem_id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(mem_id);
+	}
 
 }

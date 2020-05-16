@@ -13,5 +13,6 @@ public class MemberVo   {
 	private String mem_img;
 	private Date mem_register_date;
 	private String role;
+	private String new_mem_password;
 
 }

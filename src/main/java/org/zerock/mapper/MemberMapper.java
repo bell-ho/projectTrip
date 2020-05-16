@@ -11,5 +11,7 @@ public interface MemberMapper {
 	
 	public List<MemberVo> getAll();
 	
-	public int updateMember(String mem_id);
+	public int delete(MemberVo vo);
+	
+	public int update(MemberVo vo);
 }

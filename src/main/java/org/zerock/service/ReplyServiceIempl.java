@@ -70,5 +70,11 @@ public class ReplyServiceIempl implements ReplyService {
 		// TODO Auto-generated method stub
 		return mapper.deleteReplyAll(board_no);
 	}
+
+	@Override
+	public int deleteMember(String mem_id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(mem_id);
+	}
 	
 }

@@ -6,7 +6,7 @@
 <!-- Page Content -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function(){ 
 	var x;
 	var y;
 	$.ajax({url:"/ajax/${contentid}", type: 'POST'  ,success:function(data){

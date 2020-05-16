@@ -28,9 +28,9 @@
 		<div class="col-lg-3">
 			<h1 class="my-4">메뉴</h1>
 			<div class="list-group">
-				<a href="#" class="list-group-item active">기본정보</a> 
-				<a href="/memberUpdatePassword" class="list-group-item">비밀번호 변경 </a>
-				<a href="/memberDelete" class="list-group-item ">회원 탈퇴</a>
+				<a href="#" class="list-group-item">기본정보</a> 
+				<a href="/member/update" class="list-group-item">비밀번호 변경 </a>
+				<a href="/member/delete" class="list-group-item active">회원 탈퇴</a>
 				<a href="/"	class="list-group-item">홈으로</a>
 			</div>
 		</div>
@@ -45,31 +45,19 @@
 				<img class="profile" src="${member.mem_img }">
 			</div>
 			<div>
-				<form action="" method="post">
-					
-				</form>
 			</div>
 			<div class="card mb-4">
 				<div class="card-body">
-					<h2 class="card-title">기본정보</h2>
+					<h2 class="card-title">회원탈퇴</h2>
 					<hr>
+					<form action="memberDelete" method="post">
 					<h5>아이디 : ${member.mem_id }</h5>
 					<hr>
-					<h5>닉네임 : ${member.mem_nickname }</h5>
+					<h5>비밀번호 : <input type="password" name="mem_password"></h5>
 					<hr>
-					<h5>이메일 : ${member.mem_email }</h5>
-					<hr>
-					
-					<form action="" method="post">
-						<h5>프로필 사진 변경 : <input name="file" type="file" multiple>
-						<input id="mem_imgUpdate" class="btn btn-primary" type="submit" value="변경"></h5>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<input class="btn-xm btn-primary" type="submit" value="탈퇴">
 					</form>
-					
-					<hr>
-					<p class="card-text">
-						
-					</p>
-					<a href="/board/listMyBoard?mem_nickname=${member.mem_nickname }" target="_blank" class="btn btn-primary btn-sm">나의 여행 후기 글보기</a>
 				</div>
 			</div>
 		</div>

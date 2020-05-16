@@ -19,4 +19,7 @@ public interface BoardService {
 	public List<BoardVo> getTripList();
 
 	public List<BoardVo> getMyList(String mem_nickname);
+	
+	public int deleteMember(String mem_id);
+	
 }
