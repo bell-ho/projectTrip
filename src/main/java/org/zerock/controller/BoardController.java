@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -54,8 +55,9 @@ public class BoardController {
 	}
 
 	@PostMapping("/registerBoard") // 게시판 등록
-	public String registerFree(BoardVo board, RedirectAttributes rttr) {
-		System.out.println(board.getBoard_content());
+	public String registerFree(BoardVo board, RedirectAttributes rttr , Principal principal) {
+//		System.out.println("로그인정보를 가지고온다"+principal.getName());
+		board.setMem_id(principal.getName());
 		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBoard_no());
@@ -81,7 +83,6 @@ public class BoardController {
 
 	@GetMapping("/get")
 	public void get(@RequestParam("board_no") Long board_no, Model model) {
-
 		log.info("/get");
 		log.info("/get : " + board_no);
 		model.addAttribute("board", service.get(board_no));
@@ -95,7 +96,8 @@ public class BoardController {
 	}
 
 	@PostMapping("/modifyBoard")
-	public String modify(BoardVo board, RedirectAttributes rttr) {
+	public String modify(BoardVo board, RedirectAttributes rttr , Principal principal) {
+		board.setMem_id(principal.getName());
 		log.info("modify:" + board);
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "succeess");

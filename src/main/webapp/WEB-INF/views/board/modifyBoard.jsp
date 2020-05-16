@@ -36,7 +36,7 @@ footer {
 				<input type="hidden" name="board_no" value="${board.board_no }">
 				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요."
 				 style="width:100%;" value="<c:out value="${board.board_title}" />"><br><br>
-				
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<textarea id="content" placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" 
 				style="width:100%"; ><c:out value="${board.board_content}"/></textarea><br>
 				<input id="savebutton" type="submit" value="확인">

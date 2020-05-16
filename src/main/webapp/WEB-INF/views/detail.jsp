@@ -9,7 +9,7 @@
 $(document).ready(function(){
 	var x;
 	var y;
-	$.ajax({url:"/${contentid}", type: 'POST'  ,success:function(data){
+	$.ajax({url:"/ajax/${contentid}", type: 'POST'  ,success:function(data){
 		x =$(data).find("mapx").text();
 		y =$(data).find("mapy").text();
 		title = $(data).find("title").html();

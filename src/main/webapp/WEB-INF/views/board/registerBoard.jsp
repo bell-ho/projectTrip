@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@include file="../includes/header.jsp"%>
 <script type="text/javascript"src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="../resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
@@ -39,9 +40,9 @@ img{
 				</select><br><br>
 				
 				<input type="text" name="board_title"  placeholder="제목을 입력해 주세요." style="width:100%;"><br><br>
-				
 				<textarea id="content" placeholder="내용을 입력해 주세요." name="board_content" rows="18" cols="100%" style="width:100%";></textarea><br>
-				
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<input id="mem_id" type="hidden" value='<sec:authentication property="principal.username"/>'>
 				<input id="savebutton" type="submit" value="확인">
 				
 			</form>

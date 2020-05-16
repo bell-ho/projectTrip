@@ -29,7 +29,6 @@ public class ReplyMapperTest {
 	public void testInsert() {
 		ReplyVo vo = new ReplyVo();
 		vo.setBoard_no(56L);
-		vo.setMem_no(1);
 		vo.setReply_content("집으로");
 		log.info("vo : "+vo);
 		mapper.insert(vo);
@@ -57,7 +56,6 @@ public class ReplyMapperTest {
 	public void testUpdate() {
 		ReplyVo vo = new ReplyVo();
 		vo.setReply_no(1);
-		vo.setMem_no(1);
 		vo.setReply_content("수정");
 		log.info("수정"+mapper.update(vo));
 	}

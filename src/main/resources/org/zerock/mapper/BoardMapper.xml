@@ -8,18 +8,18 @@
 	<!-- 자유게시판 -->
 	<select id="getFreeList" resultType="org.zerock.domain.BoardVo">
 	<![CDATA[
-		select board_no , board_title , board_content,  m.mem_id , board_hit , board_regdate , board_replycnt
+		select board_no , board_title , board_content,  m.mem_id , m.mem_nickname , board_hit , board_regdate , board_replycnt
 		from board b , member m
-		where board_kinds = 1 and board_no > 0
+		where board_kinds = 1 and m.mem_id = b.mem_id and board_no > 0
 		]]>
 	</select>
 
 	<!-- 후기게시판 -->
 	<select id="getTripList" resultType="org.zerock.domain.BoardVo">
 	<![CDATA[
- 		select board_no , board_title , board_content, m.mem_id , board_hit , board_regdate , board_replycnt
+ 		select board_no , board_title , board_content, m.mem_id , mem_nickname , board_hit , board_regdate , board_replycnt
  		from board b , member m
-		where board_kinds = 0 and board_no > 0
+		where m.mem_id = b.mem_id and board_kinds = 0 and board_no > 0
 		]]>
 	</select>
 
@@ -34,19 +34,21 @@
 		board_no,
 		board_kinds,
 		board_title,
-		board_content
+		board_content,
+		mem_id
 		)
 		values (
 		#{board_no},
 		#{board_kinds},
 		#{board_title},
-		#{board_content}
+		#{board_content},
+		#{mem_id}
 		)
 	</insert>
 
 	<select id="read" resultType="org.zerock.domain.BoardVo">
 		select * from board b , member m
-		where board_no > 0 and board_no = #{board_no}
+		where b.mem_id = m.mem_id and board_no = #{board_no}
 	</select>
 
 	<delete id="delete">

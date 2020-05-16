@@ -106,4 +106,4 @@ list(1)
 	<!-- /.col-lg-9 -->
 </div>
 <!-- /.container -->
-<%@include file="includes/footer.jsp"%>
+<%@include file="includes/footer.jsp"%>-

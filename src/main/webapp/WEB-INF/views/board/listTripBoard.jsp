@@ -138,7 +138,7 @@ $(document).ready(function(){
 			                     <b>[<c:out value="${board.board_replycnt }"/>]</b>
 		                     </td>
 		                     <td style="display:none;">${board.board_content }</td>
-		                     <td>${board.mem_id}</td>
+		                     <td>${board.mem_nickname}</td>
 		                     <td>${board.board_hit}</td>
 		                     <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></td>
 						</tr>

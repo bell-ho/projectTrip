@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,8 +46,15 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="/board/listFreeBoard">게시판</a></li>
 					<li class="nav-item"><a class="nav-link" href="/photoAll?pageNum=1&amount=16&keyword=">갤러리</a></li>
-					<li class="nav-item"><a id="login" class="nav-link" href="#">로그인</a></li>
-					<li class="nav-item"><a class="nav-link" href="/insertMember">회원가입</a></li>
+					<sec:authentication property="principal" var="pinfo"/>
+						<sec:authorize access="isAnonymous()">
+							<li class="nav-item"><a id="login" class="nav-link" href="#">로그인</a></li>
+							<li class="nav-item"><a class="nav-link" href="/insertMember">회원가입</a></li>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<li class="nav-item"><a id="mypage" class="nav-link" href="">마이페이지</a></li>							
+							<li class="nav-item"><a id="logout" class="nav-link" href="">로그아웃</a></li>													
+						</sec:authorize>
 				</ul>
 			</div>
 		</div>
@@ -65,12 +74,11 @@
 						<form class="form-signin" action="/login" method="post">
 							<h2 class="form-signin-heading" style='text-align: center;'>로
 								그 인</h2>
-							<label for="inputEmail" class="sr-only">Email address</label> <input
-								type="text" id="username" class="form-control"
-								placeholder="Email address" required autofocus> <label
-								for="inputPassword" class="sr-only">Password</label> <input
-								type="password" id="inputPassword" class="form-control"
-								placeholder="Password" required>
+							<label for="inputEmail" class="sr-only">아이디</label>
+							 <input type="text" name="username" class="form-control" placeholder="아이디" required autofocus>
+							 <label for="inputPassword" class="sr-only">비밀번호</label> 
+							 <input type="password" name="password" class="form-control" placeholder="비밀번호" required>
+							 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							<div class="warning">
 								<p></p>
 							</div>
@@ -87,9 +95,51 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" id="btnJoin" class="btn btn-primary">회원가입</button>
+					<button type="button" id="/insertMember" class="btn btn-primary">회원가입</button>
 					<button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
 				</div>
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//로그인 클릭시 모달화면을 보여준다 
+		$("#login").on("click", function(e) {
+			e.preventDefault();
+			$("#loginModal").modal("show");
+		})
+		var naverLogin = new naver.LoginWithNaverId({
+			clientId : "EKiDjT4kUdP1IUtlpmKj",
+			callbackUrl : "http://localhost:8080",
+			isPopup : false, /* 팝업을 통한 연동처리 여부 */
+			loginButton : {
+				color : "green",
+				type : 3,
+				height : 40
+			}
+		/* 로그인 버튼의 타입을 지정 */
+		});
+		/* 설정정보를 초기화하고 연동을 준비 */
+		naverLogin.init();
+		//로그인화면 창 보여주기 끝
+		$("#logout").on("click",function(e){
+			e.preventDefault();
+			var form = $("<form></from>")
+			form.attr("method","post")
+			form.attr("action","/logout")
+			form.append('<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />')
+			$("body").append(form)
+			form.submit();
+		})
+		$("#mypage").on("click",function(e){
+			e.preventDefault();
+			var form = $("<form></from>")
+			form.attr("method","post")
+			form.attr("action","/mypage")
+			form.append('<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />')
+			$("body").append(form)
+			form.submit();
+		})
+		
+	})
+</script>

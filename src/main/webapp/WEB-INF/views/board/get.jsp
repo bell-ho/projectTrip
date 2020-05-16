@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@include file="../includes/header.jsp"%>
 <!-- 설정 파일 -->
 <style type="text/css">
@@ -121,15 +122,25 @@ $(document).ready(function(){
 			$.each(reply,function(idx,item){	
 				str = '<li class="left clearfix">'
 				str += '<div class="header">'
-				str += "<img src='https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg' id='user'>"
-				str += "<strong class='primary-font'>"+item.mem_id+"</strong>"
-				str += "<string class='reply_regdate'>"+displayTime(item.reply_date)
-				if(item.mem_id=='${board.mem_id}'){
-					str +=	"<br><samll class = 'text-muted'>"
-					str += "<form id='replyform' action='../reply/${board.board_no}/"+item.reply_no+"'name ="+item.reply_no+" >&emsp;"+
-					"<button class='btn btn-sm' id='update'>수정</button><button class='btn btn-sm' type='submit' id='delete'>삭제</button></samll></form></string>"
+				if(item.mem_img == null){
+					str += "<img src='https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg' id='user'>"
+				}else{
+					str += "<img src='"+item.mem_img+"' id='user'>"
 				}
+				str += "<strong class='primary-font'>"+item.mem_nickname+"</strong>"
 				str +="<small class='pull-right text-muted'>&emsp;&emsp;&emsp;"+item.reply_content+"</small>"
+				str += "<string class='reply_regdate'>"+displayTime(item.reply_date)
+				str += '<sec:authorize access="isAuthenticated()">'
+				if("<sec:authentication property="principal.username"/>" == '${board.mem_id}' || "<sec:authentication property="principal.username"/>" == item.mem_id ){
+					str +=	"<br><samll class = 'text-muted'>"
+					str += "<form id='replyform' action='../reply/${board.board_no}/"+item.reply_no+"' name="+item.reply_no+" >&emsp;"
+					str += "<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />"
+					str +=	"<button class='btn btn-sm' type='submit' id='delete'>삭제</button>"
+				}if("<sec:authentication property="principal.username"/>" == item.mem_id){
+					str += "<button class='btn btn-sm' id='update'>수정</button>"
+				}
+				str +='</sec:authorize>'
+				str +='</samll></form></string>'
 				str +='</div></li>'
 				$("#chat").append(str);
 				$(document).on("click","#delete",function(e){
@@ -157,7 +168,6 @@ $(document).ready(function(){
 	showReply(1);
 })
 </script>
-
 <!-- Page Content -->
 <div class="container">
 	<div class="row">
@@ -177,10 +187,15 @@ $(document).ready(function(){
 				<div class="panel-body">
 					<h2 id='title'>
 						<c:out value="${board.board_title}" />
+						<sec:authentication property="principal" var="pinfo"/>
+						<sec:authorize access="isAuthenticated()">
+						<c:if test="${board.mem_id eq pinfo.username }">
 						<a id="Boarddelete" class="btn btn-sm btn-primary" href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
 						<a class="btn btn-sm btn-primary" id="Boardmodify" href="/board/modifyBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">수정</a> 
+						</c:if>
+						</sec:authorize>
 					</h2>
-					<label>작성자 : <c:out value="${board.mem_id}" />
+					<label>작성자 : <c:out value="${board.mem_nickname}" />
 					</label> 
 					<label style="float: right;">작성일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${board.board_regdate }" /></label> <br>
 					<hr>
@@ -198,8 +213,12 @@ $(document).ready(function(){
 							<form action="../reply/insert" method="post">
 								<input type="hidden" name='board_no' value='<c:out value="${board.board_no }"></c:out>'>
 								<input type="hidden" name='mem_no' value='<c:out value="1"></c:out>'>
+								<input id="mem_id" type="hidden" value='pinfo.username'>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								<textarea rows="2" cols="100%" class="form" name='reply_content'></textarea>
-								<button id='addReplyBtn' class='btn btn-primary'>등록</button>
+								<sec:authorize access="isAuthenticated()">
+									<button id='addReplyBtn' class='btn btn-primary'>등록</button>
+								</sec:authorize>
 							</form>
 						</div>
 						<div class="panel-footer"></div>
@@ -227,6 +246,7 @@ $(document).ready(function(){
 						<form id="replyUpdate" class="form-signin" method="post" action="/reply/${board.board_no }/update">
 							<input type="hidden" name="reply_no">
 							<input type="hidden" name="mem_no" value="1">
+							<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />
 							<textarea id="replyUpdateText" name="reply_content" rows="3" cols="60%"></textarea>
 						</form>
 					</div>

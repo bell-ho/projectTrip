@@ -76,39 +76,4 @@ public class HomeController {
 		return "detail";
 	}
 
-	@RequestMapping("/detail1")
-	public void detail1() {
-
-	}
-
-
-	@RequestMapping("/board")
-	public void board() {
-
-	}
-
-	@RequestMapping("/insertMember")
-	public void insertMember() {
-
-	}
-
-	@RequestMapping("/photo1")
-	public void phto1() {
-
-	}
-
-	@RequestMapping("/mypage")
-	public void mypage() {
-
-	}
-
-	@RequestMapping(value = "/test" ,  method = {RequestMethod.GET, RequestMethod.POST})
-	public void from1() {
-
-	}
-
-	@RequestMapping("/test2")
-	public void from2() {
-
-	}
 }

@@ -13,8 +13,7 @@ public class BoardVo {
 	private Date board_updatedate; //오타수정 db에서도 수정
 	private int board_hit;
 	private String board_content;
-	private int mem_no;
 	private String mem_id;
-	
+	private String mem_nickname;
 	private int board_replycnt;
 }
