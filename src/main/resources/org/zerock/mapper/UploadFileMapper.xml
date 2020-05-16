@@ -55,6 +55,7 @@
 			uploadfile where rn > (#{pageNum} -1 ) * #{amount} order by file_no desc
 		]]>
 	</select>
+	
 	<select id="totalAll" resultType="int">
 		select count(*)from uploadfile f , board b
 		where b.board_no =
@@ -64,6 +65,7 @@
 		</if>
 		order by file_no desc
 	</select>
+	
 	<select id="totalTrip" resultType="int">
 		select count(*)from uploadfile f , board b
 		where b.board_no =

@@ -49,6 +49,13 @@ public class BoardController {
 		model.addAttribute("list", service.getTripList());
 		model.addAttribute("title", title.split(" ")[0]);
 	}
+	
+	@GetMapping("/listMyBoard") // 내가 쓴 글 게시판
+	public void Mylist(Model model,String mem_nickname) {
+		log.info("list");
+		model.addAttribute("list", service.getMyList(mem_nickname));
+		
+	}
 
 	@GetMapping("/registerBoard")
 	public void register() {

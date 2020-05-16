@@ -22,6 +22,15 @@
 		where m.mem_id = b.mem_id and board_kinds = 0 and board_no > 0
 		]]>
 	</select>
+	
+	<!-- 내가 쓴글 게시판 -->
+	<select id="getMyList" resultType="org.zerock.domain.BoardVo">
+	<![CDATA[
+ 		select board_no , board_title , board_content, m.mem_id , mem_nickname , board_hit , board_regdate , board_replycnt
+ 		from board b , member m
+		where m.mem_id = b.mem_id and m.mem_nickname=#{mem_nickname} and board_no > 0
+		]]>
+	</select>
 
 	<insert id="insertSelectkey">
 

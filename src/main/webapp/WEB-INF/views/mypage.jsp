@@ -59,15 +59,17 @@
 					<hr>
 					<h5>이메일 : ${member.mem_email }</h5>
 					<hr>
+					
 					<form action="" method="post">
 						<h5>프로필 사진 변경 : <input name="file" type="file" multiple>
 						<input id="mem_imgUpdate" class="btn btn-primary" type="submit" value="변경"></h5>
 					</form>
+					
 					<hr>
 					<p class="card-text">
 						
 					</p>
-					<a href="/board/listTripBoard?title=${member.mem_nickname }" target="_blank" class="btn btn-primary btn-sm">나의 여행 후기 글보기</a>
+					<a href="/board/listMyBoard?mem_nickname=${member.mem_nickname }" target="_blank" class="btn btn-primary btn-sm">나의 여행 후기 글보기</a>
 				</div>
 			</div>
 		</div>

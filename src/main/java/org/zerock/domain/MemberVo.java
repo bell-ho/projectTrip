@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class MemberVo   {
-	private int mem_no;
 	private String mem_id;
 	private String mem_password;
 	private String mem_email;

@@ -10,4 +10,6 @@ public interface MemberMapper {
 	public int insert(MemberVo vo);
 	
 	public List<MemberVo> getAll();
+	
+	public int updateMember(String mem_id);
 }

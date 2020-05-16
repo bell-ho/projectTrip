@@ -73,4 +73,10 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getTripList();
 	}
 
+	@Override
+	public List<BoardVo> getMyList(String mem_nickname) {
+		// TODO Auto-generated method stub
+		return mapper.getMyList(mem_nickname);
+	}
+
 }

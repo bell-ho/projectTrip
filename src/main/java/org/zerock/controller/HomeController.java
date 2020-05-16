@@ -64,8 +64,9 @@ public class HomeController {
 	}
 
 	@RequestMapping("/trip/{key}")
-	public String trip(@PathVariable("key") String key, Model model) {
+	public String trip(@PathVariable("name") String name,@PathVariable("key") String key, Model model) {
 		model.addAttribute("key", key.substring(0, 2));
+		model.addAttribute("vo", service.getTest(name));
 		return "trip";
 	}
 

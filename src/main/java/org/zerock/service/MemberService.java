@@ -11,4 +11,5 @@ public interface MemberService {
 	public MemberVo get(String mem_id);
 	
 	public List<MemberVo> getAll();
+	
 }

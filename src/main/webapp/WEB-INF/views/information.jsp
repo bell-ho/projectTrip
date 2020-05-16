@@ -10,7 +10,7 @@
 		<div class="col-lg-3">
 			<h1 class="my-4">${vo.name }</h1>
 			<div class="list-group">
-				<a href="/information" class="list-group-item active">기본정보</a>
+				<a href="/information/${vo.name }" class="list-group-item active">기본정보</a>
 				<a href="/trip/${vo.name }" class="list-group-item">관광명소 보러가기</a> 
 				<a href="/board/listTripBoard?title=${vo.name }" class="list-group-item">여행 후기 보러가기 </a>
 				<a href="/photo/${vo.name }?pageNum=1&amount=16&keyword=" class="list-group-item">${vo.name } 갤러리</a>

@@ -18,7 +18,7 @@ $(document).ready(function(){
 			$("#PasswordCheckFrom").empty();
 			$("#PasswordCheckFrom").attr("class","text-danger")
 			$("#PasswordCheckFrom").append("비밀번호가 다릅니다.")
-			$("#submit").attr("disabled","disabled")
+// 			$("#submit").attr("disabled","disabled")
 		}else{
 			$("#PasswordCheckFrom").empty();
 		}
