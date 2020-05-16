@@ -11,4 +11,7 @@
 	insert into member(mem_id , mem_password , mem_email , mem_nickname , mem_img  , role)
 	values(#{mem_id} , #{mem_password}, #{mem_email}, #{mem_nickname}, #{mem_img}, #{role})
 </insert>
+<select id="getAll" resultMap="org.zerock.domain.MemberVo">
+	select * from member;
+</select>
 </mapper>

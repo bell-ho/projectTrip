@@ -66,15 +66,12 @@ public class ReplyController {
 	public String delete(@PathVariable("board_no") int board_no , @PathVariable("reply_no") int reply_no) {
 		log.info("delete" + reply_no);
 		int result = service.delete(reply_no);
-		System.out.println(result);
 		return "redirect:/board/get?board_no="+board_no;
 	}
 	@PostMapping(value = "/{board_no}/update")
 	public String update(@PathVariable("board_no") int board_no , ReplyVo vo) {
 		log.info("update" + vo);
 		int result = service.update(vo);
-		System.out.println(result);
-		
 		return "redirect:/board/get?board_no="+board_no;
 	}
 }

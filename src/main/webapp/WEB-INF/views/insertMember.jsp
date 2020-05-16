@@ -11,6 +11,20 @@ footer {
 	height: 100px;
 }
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#PasswordCheck").on("keyup",function(){
+		if($("#mem_password").val() != $("#PasswordCheck").val()){
+			$("#PasswordCheckFrom").empty();
+			$("#PasswordCheckFrom").attr("class","text-danger")
+			$("#PasswordCheckFrom").append("비밀번호가 다릅니다.")
+			$("#submit").attr("disabled","disabled")
+		}else{
+			$("#PasswordCheckFrom").empty();
+		}
+	})
+})
+</script>
 <!-- Page Content -->
 <div class="container">
 	<div>
@@ -35,9 +49,12 @@ footer {
 						<label for="Password">비밀번호</label> 
 						<input type="text" class="form-control" name="mem_password" id="mem_password" placeholder="비밀번호를 입력해주세요">
 					</div>
-					<div class="form-group">
+					<div class="form-group" >
 						<label for="PasswordCheck">비밀번호 확인</label> 
 						<input type="text" class="form-control" id="PasswordCheck" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요">
+						<div id="PasswordCheckFrom">
+							
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="name">닉네임</label> 
@@ -57,8 +74,7 @@ footer {
 						</div>
 					</div>
 					<div class="form-group text-center">
-						<input type="submit" id="" class="btn btn-primary">회원가입<i class="fa fa-check spaceLeft"></i>
-<!-- 						<button type="re" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button> -->
+						<input type="submit" id="submit" class="btn btn-primary">회원가입<i class="fa fa-check spaceLeft"></i>
 					</div>
 				</form>
 			</div>

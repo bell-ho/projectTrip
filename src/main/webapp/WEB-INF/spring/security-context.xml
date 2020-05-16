@@ -9,12 +9,12 @@
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 	</bean>
 	<security:http pattern="/resources/**" security="none" />
+	<security:http pattern="/ajax/**" security="none" />
 	<security:http>
-		<security:intercept-url pattern="/" access="permitAll"/>		
+		<security:intercept-url pattern="/**" access="permitAll"/>		
 		<security:intercept-url pattern="/board/registerBoard" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/board/modifyBoard" access="hasRole('ROLE_MEMBER')"/>
-		<security:intercept-url pattern="/insertMember" access="permitAll"/>
-		<security:form-login login-page="/MytripLogin" />
+		<security:form-login login-page="/MytripLogin"/>
 		<security:logout logout-url="/logout" logout-success-url="/" invalidate-session="true"/>
 		<security:headers>
            <security:frame-options disabled="true"></security:frame-options>

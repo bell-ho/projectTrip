@@ -1,5 +1,7 @@
 package org.zerock.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,12 @@ public class MemberServiceIempl implements MemberService{
 	public MemberVo get(String mem_id) {
 		// TODO Auto-generated method stub
 		return mapper.get(mem_id);
+	}
+
+	@Override
+	public List<MemberVo> getAll() {
+		// TODO Auto-generated method stub
+		return mapper.getAll();
 	}
 
 }

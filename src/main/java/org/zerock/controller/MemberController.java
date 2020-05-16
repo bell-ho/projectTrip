@@ -58,12 +58,16 @@ public class MemberController {
 	}
 	
 	@GetMapping("/insertMember")
-	public void insertMemberform() {
-		System.out.println("회원가입 폼으로 이동함");
+	public void insertMemberform(Model model) {
+		model.addAttribute("member", service.getAll());
 	}
 	
 	@PostMapping("/mypage")
 	public void mypage(Principal principal , Model model) {
+		model.addAttribute("member",service.get(principal.getName()));
+	}
+	@GetMapping("/member/delete")
+	public void deletefrom(Principal principal , Model model) {
 		model.addAttribute("member",service.get(principal.getName()));
 	}
 	
