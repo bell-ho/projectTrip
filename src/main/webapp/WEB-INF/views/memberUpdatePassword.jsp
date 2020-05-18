@@ -23,13 +23,27 @@
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#mypageFrom").on("click",function(e){
+		e.preventDefault();
+		var form = $("<form></from>")
+		form.attr("method","post")
+		form.attr("action","/mypage")
+		form.append('<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />')
+		$("body").append(form)
+		form.submit();
+	})
+})
+</script>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
 			<h1 class="my-4">메뉴</h1>
 			<div class="list-group">
-				<a href="#" class="list-group-item">기본정보</a> 
-				<a href="/member/delete" class="list-group-item active">비밀번호 변경</a>
+				<a href="/mypage" id="mypageFrom" class="list-group-item">기본정보</a> 
+				<a href="/memberUpdatePassword" class="list-group-item active">비밀번호 변경</a>
+				<a href="/memberDelete" class="list-group-item ">회원 탈퇴</a>
 				<a href="/"	class="list-group-item">홈으로</a>
 			</div>
 		</div>

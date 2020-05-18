@@ -21,4 +21,12 @@
 	update member set mem_password = #{new_mem_password} , mem_nickname = #{mem_nickname} , mem_email = #{mem_email}	
 	where mem_id=#{mem_id}
 </update>
+<update id="memupdate">
+	update member set  mem_nickname = #{mem_nickname} , mem_email = #{mem_email}	
+	where mem_id=#{mem_id}
+</update>
+<update id="memimgupdate">
+	update member set  mem_img=#{mem_img}	
+	where mem_id=#{mem_id}
+</update>
 </mapper>

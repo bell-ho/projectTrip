@@ -1,11 +1,14 @@
 package org.zerock.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Principal;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.Cookie;
@@ -17,12 +20,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 import org.zerock.domain.MemberVo;
 import org.zerock.service.MemberService;
+
+import com.google.gson.Gson;
+
 import lombok.Setter;
+import oracle.jdbc.proxy.annotation.Post;
+import oracle.net.aso.g;
 
 @Controller
 public class MemberController {
@@ -104,6 +113,57 @@ public class MemberController {
 			}
 		}
 		return"redirect:/";
+	}
+	
+	@PostMapping(value = "/ajax/getnickname" , produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public String getnickname() {
+		Gson g = new Gson();
+		return g.toJson(service.getAll());
+	}
+	
+	@PostMapping("/memupdate")
+	public String memnickupdate(MemberVo vo , Model model) {
+		System.out.println(vo);
+		System.out.println("닉변은 여기로");
+		if(service.memupdate(vo)>=1) {
+			model.addAttribute("result","seccess");
+		}else {
+			model.addAttribute("result","error");
+		}
+		return "redirect:main";
+	}
+	@PostMapping("/mem_imgupdate")
+	public String mem_imgupdate(Model model , MemberVo vo , MultipartHttpServletRequest mut , HttpServletRequest request) throws IOException {
+		MultipartFile uplod = mut.getFile("file");
+		String path = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
+		System.out.println(path);
+		File file = new File(path);
+        //디렉토리 존재하지 않을경우 디렉토리 생성
+        if(!file.exists()) {
+            file.mkdirs();
+        }
+        String ext = uplod.getOriginalFilename().substring(uplod.getOriginalFilename().lastIndexOf("."));
+        String realname = UUID.randomUUID().toString()+ext;
+        System.out.println(realname);
+        ///////////////// 서버에 파일쓰기 /////////////////
+        InputStream is = uplod.getInputStream();
+        OutputStream os=new FileOutputStream(path + realname);
+        int numRead;
+        byte b[] = new byte[(int)uplod.getSize()];
+        while((numRead = is.read(b,0,b.length)) != -1){
+            os.write(b,0,numRead);
+        }
+        if(is != null)  is.close();
+        os.flush();
+        os.close();
+        vo.setMem_img("http://localhost:8080/resources/img/"+realname);
+        System.out.println(vo);
+        if(service.memimgupdate(vo) < 1) {
+        	model.addAttribute("result","error");
+        }
+        model.addAttribute("result","seccess");
+		return "redirect:main";
 	}
 	
 }

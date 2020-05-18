@@ -14,4 +14,8 @@ public interface MemberMapper {
 	public int delete(MemberVo vo);
 	
 	public int update(MemberVo vo);
+	
+	public int memupdate(MemberVo vo);
+	
+	public int memimgupdate(MemberVo vo);
 }
