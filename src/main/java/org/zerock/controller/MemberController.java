@@ -47,15 +47,20 @@ public class MemberController {
         InputStream is = uplod.getInputStream();
         OutputStream os=new FileOutputStream(path + realname);
         int numRead;
+        
         byte b[] = new byte[(int)uplod.getSize()];
+        
         while((numRead = is.read(b,0,b.length)) != -1){
             os.write(b,0,numRead);
         }
+        
         if(is != null)  is.close();
         os.flush();
         os.close();
+        
         vo.setMem_img("http://localhost:8080/resources/img/"+realname);
         service.insert(vo);
+        
         return "main";
 	}
 	

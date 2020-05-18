@@ -72,9 +72,11 @@ public class BoardController {
 		List<String> fname = new ArrayList<String>();
 		Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
+		
 		while (matcher.find()) {
 			fname.add(matcher.group(1));
 		}
+		
 		for (String fileName : fname) {
 			UploadFileVo uploadVo = new UploadFileVo();
 			uploadVo.setMem_id(principal.getName());
@@ -82,6 +84,7 @@ public class BoardController {
 			uploadVo.setFile_name(fileName);
 			uploadFileService.insert(uploadVo);
 		}
+		
 		if (board.getBoard_kinds() == 1) { // 1ÀÌ ÀÚÀ¯
 			return "redirect:/board/listFreeBoard";
 		} else {

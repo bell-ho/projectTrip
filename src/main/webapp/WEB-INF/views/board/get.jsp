@@ -127,18 +127,22 @@ $(document).ready(function(){
 				}else{
 					str += "<img src='"+item.mem_img+"' id='user'>"
 				}
+				
 				str += "<strong class='primary-font'>"+item.mem_nickname+"</strong>"
 				str +="<small class='pull-right text-muted'>&emsp;&emsp;&emsp;"+item.reply_content+"</small>"
 				str += "<string class='reply_regdate'>"+displayTime(item.reply_date)
 				str += '<sec:authorize access="isAuthenticated()">'
+					
 				if("<sec:authentication property="principal.username"/>" == '${board.mem_id}' || "<sec:authentication property="principal.username"/>" == item.mem_id ){
 					str +=	"<br><samll class = 'text-muted'>"
 					str += "<form id='replyform' action='../reply/${board.board_no}/"+item.reply_no+"' name="+item.reply_no+" >&emsp;"
 					str += "<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />"
 					str +=	"<button class='btn btn-sm' type='submit' id='delete'>삭제</button>"
+						
 				}if("<sec:authentication property="principal.username"/>" == item.mem_id){
 					str += "<button class='btn btn-sm' id='update'>수정</button>"
 				}
+				
 				str +='</sec:authorize>'
 				str +='</samll></form></string>'
 				str +='</div></li>'
@@ -212,7 +216,7 @@ $(document).ready(function(){
 						<div class="panel-body insertreply">
 							<form action="../reply/insert" method="post">
 								<input type="hidden" name='board_no' value='<c:out value="${board.board_no }"></c:out>'>
-								<input type="hidden" name='mem_no' value='<c:out value="1"></c:out>'>
+<%-- 								<input type="hidden" name='mem_no' value='<c:out value="1"></c:out>'> --%>
 								<input id="mem_id" type="hidden" value='pinfo.username'>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								<textarea rows="2" cols="100%" class="form" name='reply_content'></textarea>
