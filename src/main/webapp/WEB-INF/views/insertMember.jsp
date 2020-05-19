@@ -52,10 +52,6 @@ $(document).ready(function(){
 			$("#PasswordCheckFrom").empty();
 			$("#PasswordCheckFrom").attr("class","text-danger")
 			$("#PasswordCheckFrom").append("비밀번호가 다릅니다.")
-<<<<<<< HEAD
-// 			$("#submit").attr("disabled","disabled")
-=======
->>>>>>> refs/remotes/origin/seo
 		}else{
 			$("#PasswordCheckFrom").empty();
 		}
