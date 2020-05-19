@@ -18,14 +18,17 @@ $(function(){
 function list(page) {
 	$.ajax({
 		url :'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?serviceKey'+
-			'=ilqxDvc7FBGBNe7wXY4c5AipSyWcUaApekp9a0NKlurwayKHfKGYyKXUKAUcMW/5YF5i97dd355widhAAllD8Q=='+
+			'=ilqxDvc7FBGBNe7wXY4c5AipSyWcUaApekp9a0NKlurwayKHfKGYyKXUKAUcMW/5YF5i97dd355widhAAllD8Q'+
 			'&MobileApp=AppTest&MobileOS=ETC&pageNo='+page+'&numOfRows=4&listYN=Y&arrange=P&contentTypeId=12&'+
 			'keyword=${key}&_type=json'
 		 , 
 	success:function(data){
+		console.log(data);
 		info = data.response.body.items.item
 		count = data.response.body.totalCount //총수 나누니 보여줄 데이터수 = 보여질 총 페이지
-		//console.log(count);
+		console.log("총 데이터 : "+count);
+		console.log(count);
+		
 		$.each(info,function(idx,item){
 			var str = '<div class="col-lg-6 mb-4">'
 			str += '<div class="card h-100">'
@@ -40,9 +43,14 @@ function list(page) {
 		var totalPage = Math.ceil(count/4);    // 총 페이지 수
 		var pageGroup = Math.ceil(page/5);    // 페이지 그룹
 		var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
-        if(last > totalPage)
+        if(last > totalPage){
             last = totalPage;
+        }
+        console.log("last : "	+last);
         var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+        if(first < 0){
+			first = 1;
+        }
         var next = last+1;
         var prev = first-1;
 		var pingingView = $("#paging");
@@ -52,7 +60,7 @@ function list(page) {
         if(prev > 0)
             str += "<li class='page-item'><a class = 'page-link ' href=# id='prev'>Previous</a></li> ";
         
-        for(var i=first; i <= last; i++){
+        for(var i=first; i < last; i++){
             if(i == page){
             	str += "<li class='page-item active'><a class = 'page-link ' href='#' id=" + i + ">" + i + "</a></li> ";
             }else{

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@include file="../includes/header.jsp"%>
 
 <style type="text/css">
@@ -68,7 +69,7 @@ $(document).ready(function($) {
     	"dom" : '<"top"l>rt<"bottom"fpi>',
     	order:  [[0,'desc']]
         });
-        $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard' >새글작성</a>"));
+        $("#example_length").append($("<sec:authorize access='isAuthenticated()'><a href='/board/registerBoard' id='registerBoard' >새글작성</a>	</sec:authorize>"));
         $("#example_length").append("개씩 보기");
 } );
 
