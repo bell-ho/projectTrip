@@ -116,7 +116,7 @@ $(document).ready(function(){
 					</div>
 					<div class="form-group" >
 						<label for="PasswordCheck">비밀번호 확인</label> 
-						<input type=""password"" class="form-control" id="PasswordCheck" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required="required">
+						<input type="password" class="form-control" id="PasswordCheck" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required="required">
 						<div id="PasswordCheckFrom"></div>
 					</div>
 					<div class="form-group">
