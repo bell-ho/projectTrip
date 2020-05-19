@@ -63,11 +63,27 @@ $(document).ready(function(){
 			}
 		}})
 	})
+	
 	$("#emailUpdate").on("click",function(e){
 		e.preventDefault();
-		alert("3");
-
+		$("#header").empty();
+		$("#body").empty();
+		$("#header").append("<h2>이메일 변경</h2>")
+		$("#body").append('<label class="control-label">이메일</label>');
+		$("#body").append('<input type="email" class="form-control" name ="mem_email" id="mem_email" value="${member.mem_email }" />');
+		$("#body").append('<label class="control-label">비밀번호</label>');
+		$("#body").append('<input type="text" class="form-control" name="mem_password" />');
+		$("#body").append('<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />');
+		$("#body").append('<input type="hidden" name="mem_nickname" value="${member.mem_nickname}" />');
+		$("#body").append('<input type="hidden" name="mem_id" value="${member.mem_id }" />');
+		$("#update").modal("show");
+		$("#updatebtn").on("click",function(e){
+			$("#modalForm").submit();
+		})
+		
 	})
+	
+	
 	
 		
 })

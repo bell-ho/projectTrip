@@ -43,35 +43,37 @@ public class MemberController {
 	@PostMapping("/insertMember")
 	public String insertMember(MemberVo vo , MultipartHttpServletRequest mut , HttpServletRequest request) throws IOException {
 		MultipartFile uplod = mut.getFile("file");
-		String path = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
-		System.out.println(path);
-		File file = new File(path);
-        //디렉토리 존재하지 않을경우 디렉토리 생성
-        if(!file.exists()) {
-            file.mkdirs();
-        }
-        String ext = uplod.getOriginalFilename().substring(uplod.getOriginalFilename().lastIndexOf("."));
-        String realname = UUID.randomUUID().toString()+ext;
-        System.out.println(realname);
-        ///////////////// 서버에 파일쓰기 /////////////////
-        InputStream is = uplod.getInputStream();
-        OutputStream os=new FileOutputStream(path + realname);
-        int numRead;
-        
-        byte b[] = new byte[(int)uplod.getSize()];
-        
-        while((numRead = is.read(b,0,b.length)) != -1){
-            os.write(b,0,numRead);
-        }
-        
-        if(is != null)  is.close();
-        os.flush();
-        os.close();
-        
-        vo.setMem_img("http://localhost:8080/resources/img/"+realname);
-        service.insert(vo);
-        
-        return "main";
+		System.out.println("기본이미지 테스트");
+		if(uplod.getSize()<=0) {
+			vo.setMem_img("https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg");
+			service.insert(vo);
+			return "redirect:main";
+		}else {
+			String path = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
+			System.out.println(path);
+			File file = new File(path);
+	        //디렉토리 존재하지 않을경우 디렉토리 생성
+	        if(!file.exists()) {
+	            file.mkdirs();
+	        }
+	        String ext = uplod.getOriginalFilename().substring(uplod.getOriginalFilename().lastIndexOf("."));
+	        String realname = UUID.randomUUID().toString()+ext;
+	        System.out.println(realname);
+	        ///////////////// 서버에 파일쓰기 /////////////////
+	        InputStream is = uplod.getInputStream();
+	        OutputStream os=new FileOutputStream(path + realname);
+	        int numRead;
+	        byte b[] = new byte[(int)uplod.getSize()];
+	        while((numRead = is.read(b,0,b.length)) != -1){
+	            os.write(b,0,numRead);
+	        }
+	        if(is != null)  is.close();
+	        os.flush();
+	        os.close();
+	        vo.setMem_img("http://localhost:8080/resources/img/"+realname);
+	        service.insert(vo);
+	        return "redirect:main";
+		}
 	}
 	
 	@GetMapping("/insertMember")
@@ -131,7 +133,6 @@ public class MemberController {
 	@PostMapping("/memupdate")
 	public String memnickupdate(MemberVo vo , Model model) {
 		System.out.println(vo);
-		System.out.println("닉변은 여기로");
 		if(service.memupdate(vo)>=1) {
 			model.addAttribute("result","seccess");
 		}else {
@@ -142,38 +143,33 @@ public class MemberController {
 	@PostMapping("/mem_imgupdate")
 	public String mem_imgupdate(Model model , MemberVo vo , MultipartHttpServletRequest mut , HttpServletRequest request) throws IOException {
 		MultipartFile uplod = mut.getFile("file");
-		if(uplod.getSize()<0) {
-			vo.setMem_img("https://as2.ftcdn.net/jpg/02/34/61/79/500_F_234617921_p1AGQkGyEl8CSzwuUI74ljn6IZXqMUf2.jpg");
-			service.insert(vo);
-		}else {
-			String path = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
-			System.out.println(path);
-			File file = new File(path);
-	        //디렉토리 존재하지 않을경우 디렉토리 생성
-	        if(!file.exists()) {
-	            file.mkdirs();
-	        }
-	        String ext = uplod.getOriginalFilename().substring(uplod.getOriginalFilename().lastIndexOf("."));
-	        String realname = UUID.randomUUID().toString()+ext;
-	        System.out.println(realname);
-	        ///////////////// 서버에 파일쓰기 /////////////////
-	        InputStream is = uplod.getInputStream();
-	        OutputStream os=new FileOutputStream(path + realname);
-	        int numRead;
-	        byte b[] = new byte[(int)uplod.getSize()];
-	        while((numRead = is.read(b,0,b.length)) != -1){
-	            os.write(b,0,numRead);
-	        }
-	        if(is != null)  is.close();
-	        os.flush();
-	        os.close();
-	        vo.setMem_img("http://localhost:8080/resources/img/"+realname);
-	        System.out.println(vo);
-	        if(service.memimgupdate(vo) < 1) {
-	        	model.addAttribute("result","error");
-	        }
-	        model.addAttribute("result","seccess");
-		}
+		String path = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
+		System.out.println(path);
+		File file = new File(path);
+        //디렉토리 존재하지 않을경우 디렉토리 생성
+        if(!file.exists()) {
+            file.mkdirs();
+        }
+        String ext = uplod.getOriginalFilename().substring(uplod.getOriginalFilename().lastIndexOf("."));
+        String realname = UUID.randomUUID().toString()+ext;
+        System.out.println(realname);
+        ///////////////// 서버에 파일쓰기 /////////////////
+        InputStream is = uplod.getInputStream();
+        OutputStream os=new FileOutputStream(path + realname);
+        int numRead;
+        byte b[] = new byte[(int)uplod.getSize()];
+        while((numRead = is.read(b,0,b.length)) != -1){
+            os.write(b,0,numRead);
+        }
+        if(is != null)  is.close();
+        os.flush();
+        os.close();
+        vo.setMem_img("http://localhost:8080/resources/img/"+realname);
+        System.out.println(vo);
+        if(service.memimgupdate(vo) < 1) {
+        	model.addAttribute("result","error");
+        }
+        model.addAttribute("result","seccess");
 		return "redirect:main";
 	}
 	

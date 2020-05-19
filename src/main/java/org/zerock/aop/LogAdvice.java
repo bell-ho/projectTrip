@@ -9,7 +9,7 @@ import lombok.extern.log4j.Log4j;
 @Aspect 
 @Log4j
 @Component
-public class LogAdvice {
+public class LogAdvice { 
 
 	@Before("execution(* org.zerock.service.AopService*.*(..))")
 	public void logBefore() {
