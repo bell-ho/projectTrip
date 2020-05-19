@@ -17,6 +17,7 @@
 				<a href="/" class="list-group-item">홈으로</a>
 			</div>
 		</div>
+		
 		<!-- /.col-lg-3 -->
 		<div class="col-lg-9">
 			<h1 class="mt-4 mb-3">기본정보</h1>
