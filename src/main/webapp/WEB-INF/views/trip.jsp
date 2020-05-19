@@ -82,9 +82,19 @@ list(1)
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
+		<c:if test="${key eq '서울' }">
+			<h1 class="my-4">${key }특별시</h1>
+		</c:if>
+		<c:if test="${key ne '서울' }">
 			<h1 class="my-4">${key }도</h1>
+		</c:if>
 			<div class="list-group">
+			<c:if test="${key ne '서울' }">
 				<a href="/information/${key }도" class="list-group-item">기본정보</a>
+			</c:if>
+			<c:if test="${key eq '서울' }">
+				<a href="/information/${key }특별시" class="list-group-item">기본정보</a>
+			</c:if>
 				<a href="/trip/${key }도" class="list-group-item active">관광명소 보러가기</a> 
 				<a href="/board/listTripBoard/?title=${key }도" class="list-group-item">여행 후기 보러가기 </a>
 				<a href="/photo/${key }?pageNum=1&amount=16&keyword=" class="list-group-item">${key }도 갤러리</a>
@@ -96,7 +106,12 @@ list(1)
 			<h1 class="mt-4 mb-3">관광명소</h1>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="/main">지역선택</a></li>
+				<c:if test="${key eq '서울' }">
+				<li class="breadcrumb-item"><a href="/information/${key }특별시">${key }특별시</a></li>
+				</c:if>
+				<c:if test="${key ne '서울' }">
 				<li class="breadcrumb-item"><a href="/information/${key }도">${key }도</a></li>
+				</c:if>
 				<li class="breadcrumb-item active">관광명소</li>
 			</ol>
 			<div class="row text-center text-lg-left" id='info'></div>

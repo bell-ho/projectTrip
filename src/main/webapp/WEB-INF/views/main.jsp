@@ -8,6 +8,14 @@
 	height: 168.57px;
 }
 </style>
+<script type="text/javascript">
+if("${result}" =="seccess"){
+	alert("변경되었습니다");
+}
+if("${result}" =="error"){
+	alert("잘못된 비밀번호");
+}
+</script>
 <header>
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel">

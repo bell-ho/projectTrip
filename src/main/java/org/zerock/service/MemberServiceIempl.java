@@ -75,4 +75,19 @@ public class MemberServiceIempl implements MemberService{
 		
 	}
 
+	@Override
+	public int memupdate(MemberVo vo) {
+		if(encoder.matches(vo.getMem_password(), mapper.get(vo.getMem_id()).getMem_password())) {
+			vo.setMem_password(encoder.encode(vo.getMem_password()));
+			return mapper.memupdate(vo);
+		}
+		return 0;
+	}
+
+	@Override
+	public int memimgupdate(MemberVo vo) {
+		// TODO Auto-generated method stub
+		return mapper.memimgupdate(vo);
+	}
+
 }

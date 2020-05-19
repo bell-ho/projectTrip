@@ -19,6 +19,7 @@ import org.zerock.service.LocalsubService;
 import org.zerock.service.UploadFileService;
 
 import lombok.Setter;
+import oracle.net.aso.l;
 
 /**
  * Handles requests for the application home page.
@@ -76,5 +77,17 @@ public class HomeController {
 		System.out.println(contentid);
 		return "detail";
 	}
+	@RequestMapping("main")
+	public void detail(String result , Model model ) {
+		List<LocalsubVo> list = service.list();
+		model.addAttribute("list", list);
+		model.addAttribute("result", result);
+		
+	}
+	@RequestMapping("/test")
+	public void test() {
+		
+	}
+	
 
 }
