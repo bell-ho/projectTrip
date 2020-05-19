@@ -39,6 +39,7 @@ public class MemberController {
 	@Setter(onMethod_=@Autowired)
 	private MemberService service;
 	
+	
 	@PostMapping("/insertMember")
 	public String insertMember(MemberVo vo , MultipartHttpServletRequest mut , HttpServletRequest request) throws IOException {
 		MultipartFile uplod = mut.getFile("file");
