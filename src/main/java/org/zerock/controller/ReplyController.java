@@ -29,17 +29,11 @@ public class ReplyController {
 //	/reply/insert를post방식으로 요청 
 	@PostMapping(value = "/insert")
 	public String insert(ReplyVo vo , Principal principal) {
-		log.info("insert Vo = " + vo);
 		
 		vo.setMem_id(principal.getName());
-		
 		log.info("insert Vo = " + vo);
-		
 		int result = service.insert(vo);
-		
 		log.info("결과  = " + result);
-		
-//		result == 1 ? "success" : "error";
 		
 		return "redirect:/board/get?board_no="+vo.getBoard_no();
 	}
@@ -47,10 +41,9 @@ public class ReplyController {
 //	/reply/page/board_no/page 를요청하면 json 타입으로 응답 매개변수는 @pathVariable로 받아온다 
 	@GetMapping(value = "/page/{board_no}/{replyPage}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	@ResponseBody
-	public List<ReplyVo> getListWithPaging(@PathVariable("replyPage") int page, @PathVariable("board_no") Long board_no) {
-		log.info("getListWithPaging");
-		Criteria cri = new Criteria(page, 10);
-		List<ReplyVo> list = service.getListWithPaging(cri, board_no);
+	public List<ReplyVo> getList(@PathVariable("replyPage") int page, @PathVariable("board_no") Long board_no) {
+		log.info("getList");
+		List<ReplyVo> list = service.getList(board_no);
 		log.info(list);
 		return list;
 	}

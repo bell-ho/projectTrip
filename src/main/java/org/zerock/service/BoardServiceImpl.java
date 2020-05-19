@@ -20,8 +20,10 @@ public class BoardServiceImpl implements BoardService {
 
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
+
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper replyMapper;
+
 	@Setter(onMethod_ = @Autowired)
 	private UploadFileMapper uploadMapper;
 
@@ -78,7 +80,7 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return mapper.getMyList(mem_nickname);
 	}
-	
+
 	@Override
 	public int deleteMember(String mem_id) {
 		// TODO Auto-generated method stub

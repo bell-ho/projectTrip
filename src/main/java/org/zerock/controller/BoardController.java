@@ -49,12 +49,11 @@ public class BoardController {
 		model.addAttribute("list", service.getTripList());
 		model.addAttribute("title", title.split(" ")[0]);
 	}
-	
+
 	@GetMapping("/listMyBoard") // 내가 쓴 글 게시판
-	public void Mylist(Model model,String mem_nickname) {
+	public void Mylist(Model model, String mem_nickname) {
 		log.info("list");
 		model.addAttribute("list", service.getMyList(mem_nickname));
-		
 	}
 
 	@GetMapping("/registerBoard")
@@ -62,21 +61,24 @@ public class BoardController {
 	}
 
 	@PostMapping("/registerBoard") // 게시판 등록
-	public String registerFree(BoardVo board, RedirectAttributes rttr , Principal principal) {
-//		System.out.println("로그인정보를 가지고온다"+principal.getName());
+	public String registerFree(BoardVo board, RedirectAttributes rttr, Principal principal) {
+		// System.out.println("로그인정보를 가지고온다"+principal.getName());
+
 		board.setMem_id(principal.getName());
 		log.info("register: " + board);
 		service.register(board);
+
 		rttr.addFlashAttribute("result", board.getBoard_no());
+
 		// 파일 처리
 		List<String> fname = new ArrayList<String>();
 		Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
-		
+
 		while (matcher.find()) {
 			fname.add(matcher.group(1));
 		}
-		
+
 		for (String fileName : fname) {
 			UploadFileVo uploadVo = new UploadFileVo();
 			uploadVo.setMem_id(principal.getName());
@@ -84,7 +86,7 @@ public class BoardController {
 			uploadVo.setFile_name(fileName);
 			uploadFileService.insert(uploadVo);
 		}
-		
+
 		if (board.getBoard_kinds() == 1) { // 1이 자유
 			return "redirect:/board/listFreeBoard";
 		} else {
@@ -107,18 +109,22 @@ public class BoardController {
 	}
 
 	@PostMapping("/modifyBoard")
-	public String modify(BoardVo board, RedirectAttributes rttr , Principal principal) {
+	public String modify(BoardVo board, RedirectAttributes rttr, Principal principal) {
 		board.setMem_id(principal.getName());
 		log.info("modify:" + board);
+
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "succeess");
+
 			if (uploadFileService.deleteFileAll(board.getBoard_no()) >= 1) {
 				List<String> fname = new ArrayList<String>();
 				Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");// 설정
 				Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
+
 				while (matcher.find()) {
 					fname.add(matcher.group(1));
 				}
+
 				for (String fileName : fname) {
 					UploadFileVo uploadVo = new UploadFileVo();
 					uploadVo.setBoard_no(board.getBoard_no());
@@ -138,6 +144,7 @@ public class BoardController {
 	public String remove(@RequestParam("board_kinds") int board_kinds, @RequestParam("board_no") Long board_no,
 			RedirectAttributes rttr) {
 		log.info("remove...." + board_no);
+		
 		if (service.remove(board_no) && board_kinds == 1) {
 			rttr.addFlashAttribute("result", "success");
 			return "redirect:/board/listFreeBoard";
