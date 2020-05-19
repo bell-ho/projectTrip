@@ -9,8 +9,7 @@ import org.zerock.domain.ReplyVo;
 public interface ReplyMapper {
 	public int insert(ReplyVo vo); //¥Ò±€ ¿€º∫
 	
-	public List<ReplyVo> getListWithPaging(@Param("cri") Criteria  cri,		// ¥Ò±€ ∏ÆΩ∫∆Æ
-										@Param("board_no") Long board_no); 
+	public List<ReplyVo> getList(@Param("board_no") Long board_no); 
 	
 	public int delete(int reply_no); //¥Ò±€ ªË¡¶
 	

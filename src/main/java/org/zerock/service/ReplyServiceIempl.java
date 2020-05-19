@@ -59,10 +59,10 @@ public class ReplyServiceIempl implements ReplyService {
 	}
 
 	@Override
-	public List<ReplyVo> getListWithPaging(Criteria cri, Long board_no) {
+	public List<ReplyVo> getList(Long board_no) {
 		// TODO Auto-generated method stub
-		log.info("Reply getListWithPaging");
-		return mapper.getListWithPaging(cri, board_no);
+		log.info("Reply getList");
+		return mapper.getList(board_no);
 	}
 	
 	@Override

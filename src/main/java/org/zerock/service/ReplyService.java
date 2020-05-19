@@ -15,7 +15,7 @@ public interface ReplyService {
 	
 	public int update(ReplyVo vo); // 댓글 수정
 	
-	public List<ReplyVo> getListWithPaging(Criteria cri , Long board_no); //게시글의 댓글 가지고 오기
+	public List<ReplyVo> getList(Long board_no); //게시글의 댓글 가지고 오기
 	
 	public int deleteReplyAll(Long board_no);
 	

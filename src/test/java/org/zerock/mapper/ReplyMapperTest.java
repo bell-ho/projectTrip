@@ -36,11 +36,11 @@ public class ReplyMapperTest {
 	}
 	
 //	@Test //특정 게시물 번호의 댓글 가지고오기
-	public void testList() {
-		Criteria cri = new Criteria();
-		List<ReplyVo> replies = mapper.getListWithPaging(cri, 1L);
-		replies.forEach(reply->log.info(reply));
-	}
+//	public void testList() {
+//		Criteria cri = new Criteria();
+//		List<ReplyVo> replies = mapper.getListWithPaging(cri, 1L);
+//		replies.forEach(reply->log.info(reply));
+//	}
 	
 //	@Test //댓글 삭제 테스트
 	public void testDelete() {
