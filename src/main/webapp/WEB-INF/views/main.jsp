@@ -122,7 +122,7 @@ if("${result}" =="error"){
 					<a href="#"><img class="card-img-top" src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
-							<a href="information/${info.name}">${info.name }${result}</a>
+							<a href="information/${info.name}">${info.name }</a>
 						</h4>
 						<p class="card-text" style="text-align: center;">${info.name }</p>
 					</div>

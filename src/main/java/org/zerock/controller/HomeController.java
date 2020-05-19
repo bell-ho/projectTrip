@@ -67,7 +67,7 @@ public class HomeController {
 	@RequestMapping("/trip/{key}")
 	public String trip(@PathVariable("key") String key, Model model) {
 		model.addAttribute("key", key.substring(0, 2));
-		return "trip";
+		return "trip"; 	
 	}
 
 	@RequestMapping("/detail/{key}/{contentid}")
@@ -81,6 +81,10 @@ public class HomeController {
 		List<LocalsubVo> list = service.list();
 		model.addAttribute("list", list);
 		model.addAttribute("result", result);
+		
+	}
+	@RequestMapping("/test")
+	public void test() {
 		
 	}
 	

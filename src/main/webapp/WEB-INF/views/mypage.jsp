@@ -63,6 +63,11 @@ $(document).ready(function(){
 			}
 		}})
 	})
+	$("#emailUpdate").on("click",function(e){
+		e.preventDefault();
+		alert("3");
+
+	})
 	
 		
 })
