@@ -68,7 +68,7 @@ $(document).ready(function($) {
     	"dom" : '<"top"l>rt<"bottom"fpi>',
     	order:  [[0,'desc']]
         });
-        $("#example_length").append($("<a href='/board/registerBoard' id='registerBoard'>새글작성</a>"));
+        $("#example_length").append($("<sec:authorize access='isAuthenticated()'><a href='/board/registerBoard' id='registerBoard'>새글작성</a></sec:authorize>"));
         $("#example_length").append("개씩 보기");
         table.search('${title}').draw();
       
