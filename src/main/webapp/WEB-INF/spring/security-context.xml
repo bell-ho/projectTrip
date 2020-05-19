@@ -7,7 +7,7 @@
 	
 	<bean id="bcryptPasswordEncoder" 
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-	</bean>
+	</bean> 
 	<security:http pattern="/resources/**" security="none" />
 	<security:http pattern="/ajax/**" security="none" />
 	<security:http>
