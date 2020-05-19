@@ -108,12 +108,8 @@ $(document).ready(function(){
 					<hr>
 					<h5>이메일 : ${member.mem_email } <button class="btn btn-primary" id="emailUpdate">변경</button></h5>
 					<hr>
-<<<<<<< HEAD
-					
-					<form action="" method="post">
-=======
+
 					<form action="/mem_imgupdate" method="post" enctype="multipart/form-data">
->>>>>>> refs/remotes/origin/seo
 						<h5>프로필 사진 변경 : <input name="file" type="file" multiple>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						<input type="hidden" name="mem_id" value="${member.mem_id}" />
@@ -124,11 +120,7 @@ $(document).ready(function(){
 					<p class="card-text">
 						
 					</p>
-<<<<<<< HEAD
-					<a href="/board/listMyBoard?mem_nickname=${member.mem_nickname }" target="_blank" class="btn btn-primary btn-sm">나의 여행 후기 글보기</a>
-=======
 					<a href="/board/listTripBoard?title=${member.mem_nickname }" class="btn btn-primary btn-sm">나의 여행 후기 글보기</a>
->>>>>>> refs/remotes/origin/seo
 				</div>
 			</div>
 		</div>
