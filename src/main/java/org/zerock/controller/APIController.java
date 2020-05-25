@@ -20,7 +20,7 @@ public class APIController {
 	public static String detail(@PathVariable("contentid") int contentid) throws IOException {
 		System.out.println("1");
 	        StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon"); /*URL*/
-	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=ilqxDvc7FBGBNe7wXY4c5AipSyWcUaApekp9a0NKlurwayKHfKGYyKXUKAUcMW/5YF5i97dd355widhAAllD8Q=="); /*Service Key*/
+	        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=HRtSF9l%2B9iDrX9QOfocSYjGRaMCKHOEwwQFTB9xyHjkyVWTjZw7%2FwOISNztL%2FPonOqC4nkA813iICxLfaAz1UA%3D%3D");
 	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*한 페이지 결과 수*/
 	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*현재 페이지 번호*/
 	        urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS(아이폰),AND(안드로이드),WIN(원도우폰),ETC*/
@@ -37,7 +37,6 @@ public class APIController {
 		System.out.println(url);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Content-type", "application/json");
 		System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {

@@ -33,7 +33,7 @@ public class Scheduler {
             String file_name = info.getName().toString();//담긴파일의 이름을 구해온다 
             List<UploadFileVo> list =servce.get(); // 서비스를 이용해 uploadfile DB에있는 값을 가지고 온다
             //System.out.println("파일이름가지고옴"+file_name);
-            for(int i= 0 ; i<= list.size()-1 ; i++){ // upload 파일을 반복문으로 돌린다 
+            for(int i= 0 ; i<= list.size() ; i++){ // upload 파일을 반복문으로 돌린다 
                //System.out.println("비교중");
                int vo_index = list.get(i).getFile_name().lastIndexOf("/")+1;
                //DB에서 가지온 값은 http://localhost:8080/resources/upload/2020\05\11/28019ece-463b-4acc-b579-3f5b2de7b69d.png

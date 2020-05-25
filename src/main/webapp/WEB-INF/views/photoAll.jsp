@@ -10,6 +10,9 @@ img{
 #ul{
 	float: right;
 }
+#div{
+	min-height: 761px;
+}
 </style>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -23,7 +26,7 @@ $(document).ready(function() {
 	})
 </script>
 <!-- Page Content -->
-<div class="container">
+<div class="container" id="div">
 	<div class="row">
 <div class="col-lg-3">
 			<h1 class="my-4">메뉴</h1>

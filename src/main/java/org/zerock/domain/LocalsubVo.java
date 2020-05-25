@@ -8,5 +8,6 @@ public class LocalsubVo {
 	private String info;
 	private String detail;
 	private String img;
+	private String mainimg;
 	
 }
