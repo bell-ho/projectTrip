@@ -76,6 +76,7 @@ public class HomeController {
 		System.out.println(contentid);
 		return "detail";
 	}
+	
 	@RequestMapping("main")
 	public void detail(String result , Model model ) {
 		List<LocalsubVo> list = service.list();

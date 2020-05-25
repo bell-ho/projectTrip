@@ -6,16 +6,24 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.resource.HttpResource;
 import org.zerock.domain.BoardVo;
 import org.zerock.domain.UploadFileVo;
+import org.zerock.mapper.BoardMapper;
 import org.zerock.service.BoardService;
 import org.zerock.service.ReplyService;
 import org.zerock.service.UploadFileService;
@@ -96,10 +104,10 @@ public class BoardController {
 
 	@GetMapping("/get")
 	public void get(@RequestParam("board_no") Long board_no, Model model) {
-		log.info("/get");
 		log.info("/get : " + board_no);
-		model.addAttribute("board", service.get(board_no));
 
+//		service.updateBoardhit(board_no);
+		model.addAttribute("board", service.get(board_no));
 	}
 
 	@GetMapping("/modifyBoard")
@@ -144,7 +152,7 @@ public class BoardController {
 	public String remove(@RequestParam("board_kinds") int board_kinds, @RequestParam("board_no") Long board_no,
 			RedirectAttributes rttr) {
 		log.info("remove...." + board_no);
-		
+
 		if (service.remove(board_no) && board_kinds == 1) {
 			rttr.addFlashAttribute("result", "success");
 			return "redirect:/board/listFreeBoard";

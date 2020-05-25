@@ -48,6 +48,7 @@ $(document).ready(function(){
 		$("#body").append('<input type="hidden" name="mem_id" value="${member.mem_id }" />');
 		$("#update").modal("show");
 	})
+	
 	$("#updatebtn").on("click",function(e){
 		var result = "success";
 		e.preventDefault();

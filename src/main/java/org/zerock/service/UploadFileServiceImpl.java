@@ -71,6 +71,5 @@ public class UploadFileServiceImpl implements UploadFileService {
 		return mapper.deleteMember(mem_id);
 	}
 
-	
 
 }

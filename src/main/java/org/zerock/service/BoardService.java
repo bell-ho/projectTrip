@@ -22,4 +22,5 @@ public interface BoardService {
 	
 	public int deleteMember(String mem_id);
 	
+//	public int updateBoardhit(Long board_no);
 }

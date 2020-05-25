@@ -117,8 +117,8 @@ function displayTime(timeValue){
 //24시간이 지나면 계산을 통해 날자표현식으로 변경해준다
 $(document).ready(function(){
 	var str;
-	var showReply = function(replyPage){ 
-		$.ajax({url:"/reply/page/"+${board.board_no}+"/"+replyPage,  success:function(reply){
+	var showReply = function(){ 
+		$.ajax({url:"/reply/"+${board.board_no},  success:function(reply){
 			$.each(reply,function(idx,item){	
 				str = '<li class="left clearfix">'
 				str += '<div class="header">'
@@ -142,11 +142,12 @@ $(document).ready(function(){
 				}if("<sec:authentication property="principal.username"/>" == item.mem_id){
 					str += "<button class='btn btn-sm' id='update'>수정</button>"
 				}
-				
+					
 				str +='</sec:authorize>'
 				str +='</samll></form></string>'
 				str +='</div></li>'
 				$("#chat").append(str);
+				
 				$(document).on("click","#delete",function(e){
 					e.preventDefault();
 					$(this).parent().attr("method","post").submit();
@@ -157,19 +158,19 @@ $(document).ready(function(){
 			$(document).on("click","#update",function(e){
 				e.preventDefault();
 				var reply_no = $(this).parent().attr("name");
-				alert(reply_no);
 				$.ajax({url:"../reply/${board.board_no}/"+reply_no , success:function(reply){
 					console.log(reply);
 					$("#replyUpdateText").val(reply.reply_content);
 					$('input[name=reply_no]').attr("value",reply_no);
 					$("#replyModfiy").modal("show");
+					
 					$("#btnupdate").click(function(){
 						$("#replyUpdate").submit();		
 					})
 				}})
 			})
 		}
-	showReply(1);
+	showReply();
 })
 </script>
 <!-- Page Content -->
@@ -193,10 +194,12 @@ $(document).ready(function(){
 						<c:out value="${board.board_title}" />
 						<sec:authentication property="principal" var="pinfo"/>
 						<sec:authorize access="isAuthenticated()">
+						
 						<c:if test="${board.mem_id eq pinfo.username }">
 						<a id="Boarddelete" class="btn btn-sm btn-primary" href="/board/removeBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">삭제</a>
 						<a class="btn btn-sm btn-primary" id="Boardmodify" href="/board/modifyBoard?board_no=${board.board_no }&board_kinds=${board.board_kinds}">수정</a> 
 						</c:if>
+						
 						</sec:authorize>
 					</h2>
 					<label>작성자 : <c:out value="${board.mem_nickname}" />
@@ -216,7 +219,6 @@ $(document).ready(function(){
 						<div class="panel-body insertreply">
 							<form action="../reply/insert" method="post">
 								<input type="hidden" name='board_no' value='<c:out value="${board.board_no }"></c:out>'>
-<%-- 								<input type="hidden" name='mem_no' value='<c:out value="1"></c:out>'> --%>
 								<input id="mem_id" type="hidden" value='pinfo.username'>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								<textarea rows="2" cols="100%" class="form" name='reply_content'></textarea>
@@ -249,7 +251,6 @@ $(document).ready(function(){
 					<div class="container">
 						<form id="replyUpdate" class="form-signin" method="post" action="/reply/${board.board_no }/update">
 							<input type="hidden" name="reply_no">
-							<input type="hidden" name="mem_no" value="1">
 							<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />
 							<textarea id="replyUpdateText" name="reply_content" rows="3" cols="60%"></textarea>
 						</form>

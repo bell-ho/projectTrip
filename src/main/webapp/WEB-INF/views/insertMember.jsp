@@ -104,7 +104,9 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="Email">이메일 주소</label>
 						<input type="email" class="form-control" name="mem_email"id="mem_email" placeholder="이메일 주소를 입력해주세요" required="required">
+						
 						<button id="emailBtn">인증</button>
+						
 						<div id="emailnumForm" class="mailnum">
 							<input type="number"  name="emailnum" id="emailnum" placeholder="인증번호" required="required">
 							<button type="button" id="emailOk">인증</button>
@@ -134,9 +136,9 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label>약관 동의</label>
 						<div data-toggle="buttons">
-							<textarea rows="3" cols="100%"></textarea>
-							에 동의합니다. <span class="fa fa-check"></span> <input id="agree"
-								type="checkbox" autocomplete="off" checked>
+							<textarea rows="3" cols="100%">약관동의서</textarea>
+							에 동의합니다. <span class="fa fa-check"></span> 
+							<input id="agree" type="checkbox" autocomplete="off" checked>
 						</div>
 					</div>
 					<div class="form-group text-center">
@@ -149,4 +151,3 @@ $(document).ready(function(){
 	</div>
 
 </div>
-<%@include file="includes/footer.jsp"%>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -32,8 +31,7 @@
 <body>
 
 	<!-- Navigation -->
-	<nav
-		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="/">MY TRIP</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
@@ -46,12 +44,17 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="/board/listFreeBoard">게시판</a></li>
 					<li class="nav-item"><a class="nav-link" href="/photoAll?pageNum=1&amount=16&keyword=">갤러리</a></li>
+					
 					<sec:authentication property="principal" var="pinfo"/>
+					
 						<sec:authorize access="isAnonymous()">
+											<!-- 익명이라면 -->
 							<li class="nav-item"><a id="login" class="nav-link" href="#">로그인</a></li>
 							<li class="nav-item"><a class="nav-link" href="/insertMember">회원가입</a></li>
 						</sec:authorize>
+						
 						<sec:authorize access="isAuthenticated()">
+											<!-- 인증이 되었다면 -->
 							<li class="nav-item"><a id="mypage" class="nav-link" href="">마이페이지</a></li>							
 							<li class="nav-item"><a id="logout" class="nav-link" href="">로그아웃</a></li>													
 						</sec:authorize>
@@ -131,6 +134,7 @@
 			$("body").append(form)
 			form.submit();
 		})
+		
 		$("#mypage").on("click",function(e){
 			e.preventDefault();
 			var form = $("<form></from>")

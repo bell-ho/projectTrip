@@ -39,9 +39,9 @@ public class ReplyController {
 	}
 
 //	/reply/page/board_no/page 를요청하면 json 타입으로 응답 매개변수는 @pathVariable로 받아온다 
-	@GetMapping(value = "/page/{board_no}/{replyPage}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	@GetMapping(value = "/{board_no}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	@ResponseBody
-	public List<ReplyVo> getList(@PathVariable("replyPage") int page, @PathVariable("board_no") Long board_no) {
+	public List<ReplyVo> getList(@PathVariable("board_no")Long board_no) {
 		log.info("getList");
 		List<ReplyVo> list = service.getList(board_no);
 		log.info(list);

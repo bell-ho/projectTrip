@@ -34,11 +34,12 @@ public class BoardServiceImpl implements BoardService {
 		mapper.insertSelectkey(board);
 	}
 
-	// ÀÚÀ¯
+	@Transactional
 	@Override
 	public BoardVo get(Long BOARD_NO) {
 		// TODO Auto-generated method stub
 		log.info("get....." + BOARD_NO);
+		mapper.updateBoardhit(BOARD_NO);
 		return mapper.read(BOARD_NO);
 	}
 
@@ -86,5 +87,11 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return mapper.deleteMember(mem_id);
 	}
+
+//	@Override
+//	public int updateBoardhit(Long board_no) {
+//		// TODO Auto-generated method stub
+//		return mapper.updateBoardhit(board_no);
+//	}
 
 }

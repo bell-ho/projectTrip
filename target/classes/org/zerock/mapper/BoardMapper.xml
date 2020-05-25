@@ -84,5 +84,8 @@
 		delete from board where mem_id = #{mem_id}
 	</delete>
 
+	<update id="updateBoardhit" parameterType="Long">
+		update board set board_hit = board_hit +1 where board_no = #{board_no}
+	</update>
 
 </mapper>
