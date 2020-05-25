@@ -24,8 +24,8 @@
 
 <!-- Custom styles for this template -->
 <link href="/resources/main/css/modern-business.css" rel="stylesheet">
-
-
+<style type="text/css">
+</style>
 </head>
 
 <body>

@@ -51,7 +51,7 @@ public class Scheduler {
 
 			// System.out.println("파일이름가지고옴"+file_name);
 
-			for (int i = 0; i <= list.size() - 1; i++) {
+			for (int i = 0; i <= list.size(); i++) {
 				// uploadfile을 반복문으로 돌린다
 
 				// System.out.println("비교중");
@@ -82,4 +82,5 @@ public class Scheduler {
 			}
 		} // 다시 info를 하나 만들어서 꺼내온다
 	}
+
 }

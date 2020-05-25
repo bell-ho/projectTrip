@@ -7,6 +7,9 @@
 .card-img-top {
 	height: 168.57px;
 }
+.mainimg{
+	margin: 0 40px;
+}
 </style>
 <script type="text/javascript">
 if("${result}" =="seccess"){
@@ -120,7 +123,8 @@ if("${result}" =="error"){
 				<div class="card h-100">
 					<p></p>
 					<p></p>
-					<a href="information/${info.name} "><img class="card-img-top" src="https://image.flaticon.com/icons/svg/1885/1885090.svg" alt=""></a>
+
+					<a href="#" class="mainimg"><img class="card-img-top" src="${info.mainimg }" ></a>
 					<div class="card-body">
 						<h4 class="card-title" style="text-align: center;">
 							<a href="information/${info.name}">${info.name }</a>

@@ -26,6 +26,9 @@
 #registerBoard{
 	float:right;
 }
+#div{
+	min-height: 761px;
+}
 </style>
 <!-- Page Content -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -102,7 +105,7 @@ $(document).ready(function(){
 
 <style type="text/css">
 </style>
-<div class="container">
+<div class="container" id="div">
 	<div class="row">
 		<div class="col-lg-3">
 			<h1 class="my-4">후기 게시판</h1>

@@ -19,12 +19,14 @@ import org.zerock.service.LocalsubService;
 import org.zerock.service.UploadFileService;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 import oracle.net.aso.l;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@Log4j
 public class HomeController {
 	@Setter(onMethod_ = @Autowired)
 	private LocalsubService service;
@@ -43,6 +45,7 @@ public class HomeController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		List<LocalsubVo> list = service.list();
 		String formattedDate = dateFormat.format(date);
+		log.info(list);
 		model.addAttribute("serverTime", formattedDate);
 		model.addAttribute("list", list);
 		return "main";

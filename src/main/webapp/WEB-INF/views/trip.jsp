@@ -18,7 +18,7 @@ $(function(){
 function list(page) {
 	$.ajax({
 		url :'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?serviceKey'+
-			'=ilqxDvc7FBGBNe7wXY4c5AipSyWcUaApekp9a0NKlurwayKHfKGYyKXUKAUcMW/5YF5i97dd355widhAAllD8Q'+
+			'=HRtSF9l%2B9iDrX9QOfocSYjGRaMCKHOEwwQFTB9xyHjkyVWTjZw7%2FwOISNztL%2FPonOqC4nkA813iICxLfaAz1UA%3D%3D'+
 			'&MobileApp=AppTest&MobileOS=ETC&pageNo='+page+'&numOfRows=4&listYN=Y&arrange=P&contentTypeId=12&'+
 			'keyword=${key}&_type=json'
 		 , 
