@@ -1,26 +1,26 @@
 package org.zerock.service;
 
-import java.util.List;
-
 import org.zerock.domain.BoardVo;
+
+import java.util.List;
 
 public interface BoardService {
 
-	public void register(BoardVo board);
+    void register(BoardVo board);
 
-	public BoardVo get(Long board_no);
+    BoardVo get(Long board_no);
 
-	public boolean modify(BoardVo board);
+    boolean modify(BoardVo board);
 
-	public boolean remove(Long board_no);
+    boolean remove(Long board_no);
 
-	public List<BoardVo> getFreeList();
+    List<BoardVo> getFreeList();
 
-	public List<BoardVo> getTripList();
+    List<BoardVo> getTripList();
 
-	public List<BoardVo> getMyList(String mem_nickname);
-	
-	public int deleteMember(String mem_id);
-	
-//	public int updateBoardhit(Long board_no);
+    List<BoardVo> getMyList(String mem_nickname);
+
+    int deleteMember(String mem_id);
+
+    int updateBoardhit(Long board_no);
 }

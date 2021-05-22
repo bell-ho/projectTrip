@@ -108,17 +108,16 @@ $(document).ready(function(){
 		<div class="col-lg-3">
 			<h1 class="my-4">자유 게시판</h1>
 			<div class="list-group">
-					<a href="/" class="list-group-item">홈으로</a>
+				<a href="/" class="list-group-item">홈으로</a>
 				<a href="/board/listFreeBoard" class="list-group-item active">자유게시판</a> 
-				<a href="/board/listTripBoard?title=" class="list-group-item">후기게시판</a> 
+				<a href="/board/listTripBoard" class="list-group-item">후기게시판</a>
 				<a href="/photoAll?pageNum=1&amount=16&keyword=" class="list-group-item">갤러리</a> 
 			</div>
 		</div>
 		<div class="col-lg-9">
 			<br> <br> <br> <br>
 			
-			<table id="example" class="table table-bordered table-hover"
-				style="height: 100%; width: 100%;">
+			<table id="example" class="table table-bordered table-hover" style="height: 100%; width: 100%;">
 				<thead>
 					<tr>
 						<th>글번호</th>
@@ -134,7 +133,7 @@ $(document).ready(function(){
 						<tr>
 							 <td>${board.board_no }</td>
 		                     <td>
-			                     <a href="get?board_no=${board.board_no }">${board.board_title }</a>
+			                     <a href="/board/get?board_no=${board.board_no }">${board.board_title }</a>
 			                     <b>[<c:out value="${board.board_replycnt }"/>]</b>
 		                     </td>
 		                      <td style="display:none;">${board.board_content }</td>

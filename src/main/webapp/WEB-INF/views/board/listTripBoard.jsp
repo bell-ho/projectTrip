@@ -74,7 +74,7 @@ $(document).ready(function($) {
         $("#example_length").append($("<sec:authorize access='isAuthenticated()'><a href='/board/registerBoard' id='registerBoard'>새글작성</a></sec:authorize>"));
         $("#example_length").append("개씩 보기");
         table.search('${title}').draw();
-      
+
 } );
 
 $(document).ready(function(){
@@ -119,8 +119,7 @@ $(document).ready(function(){
 		<div class="col-lg-9">
 			<br> <br> <br> <br>
 			
-			<table id="example" class="table table-bordered table-hover"
-				style="height: 100%; width: 100%;">
+			<table id="example" class="table table-bordered table-hover" style="height: 100%; width: 100%;">
 				<thead>
 					<tr>
 						<th>글번호</th>
@@ -137,7 +136,7 @@ $(document).ready(function(){
 						<tr>
 							 <td>${board.board_no }</td>
 		                     <td>
-			                     <a href="get?board_no=${board.board_no }">${board.board_title }</a>
+			                     <a href="/board/get?board_no=${board.board_no }">${board.board_title }</a>
 			                     <b>[<c:out value="${board.board_replycnt }"/>]</b>
 		                     </td>
 		                     <td style="display:none;">${board.board_content }</td>
@@ -153,9 +152,6 @@ $(document).ready(function(){
 	</div>
 	<!-- row end -->
 </div>
-<script type="text/javascript">
-	
-</script>
 <!-- /.container -->
 
 <!-- modal 추가 -->

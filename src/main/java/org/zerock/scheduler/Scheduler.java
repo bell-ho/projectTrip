@@ -14,8 +14,8 @@ import org.zerock.service.UploadFileService;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-@Log4j 
-@Component
+@Log4j
+//@Component
 public class Scheduler {
 	@Setter(onMethod_ = @Autowired)
 	private UploadFileService servce;

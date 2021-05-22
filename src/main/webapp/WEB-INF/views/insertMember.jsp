@@ -20,6 +20,7 @@ var mail = false
 var id = false
 var nickname = false
 $(document).ready(function(){
+
 	$("#mem_id").on("keyup",function(){
 		$.ajax({url:"/ajax/getnickname" , type: "post", success:function(data){
 			$("#idFrom").empty();
@@ -57,7 +58,7 @@ $(document).ready(function(){
 		}
 	})
 	
-	$("#emailBtn").on("click",function(e){
+	/*$("#emailBtn").on("click",function(e){
 		e.preventDefault();
 		var mail = $("#mem_email").val();
 		var mem_email = {"mem_email":mail};
@@ -81,7 +82,8 @@ $(document).ready(function(){
 			alert("메일을 입력해 주세요")
 			$("#emailBtn").attr("class"," ");
 		}
-	})	
+	})	*/
+
 })
 </script>
 <!-- Page Content -->
@@ -101,17 +103,19 @@ $(document).ready(function(){
 						<input type="text" class="form-control" name="mem_id" id="mem_id" placeholder="이름을 입력해 주세요" required="required">
 						<div id="idFrom"></div>
 					</div>
+
 					<div class="form-group">
 						<label for="Email">이메일 주소</label>
 						<input type="email" class="form-control" name="mem_email"id="mem_email" placeholder="이메일 주소를 입력해주세요" required="required">
 						
-						<button id="emailBtn">인증</button>
+<%--						<button id="emailBtn">인증</button>--%>
 						
-						<div id="emailnumForm" class="mailnum">
+						<%--<div id="emailnumForm" class="mailnum">
 							<input type="number"  name="emailnum" id="emailnum" placeholder="인증번호" required="required">
 							<button type="button" id="emailOk">인증</button>
-						</div>
+						</div>--%>
 					</div>
+
 					<div class="form-group">
 						<label for="Password">비밀번호</label> 
 						<input type="password" class="form-control" name="mem_password" id="mem_password" placeholder="비밀번호를 입력해주세요" required="required">
