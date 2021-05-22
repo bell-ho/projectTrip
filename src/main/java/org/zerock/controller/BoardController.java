@@ -45,20 +45,20 @@ public class BoardController {
 	@Setter(onMethod_ = @Autowired)
 	private UploadFileService uploadFileService;
 
-	@GetMapping("/listFreeBoard") // ÀÚÀ¯°Ô½ÃÆÇ
+	@GetMapping("/listFreeBoard") // ììœ ê²Œì‹œíŒ
 	public void Freelist(Model model) {
 		log.info("list");
 		model.addAttribute("list", service.getFreeList());
 	}
 
-	@GetMapping("/listTripBoard") // ¿©ÇàÈÄ±â°Ô½ÃÆÇ
+	@GetMapping("/listTripBoard") // ì—¬í–‰í›„ê¸°ê²Œì‹œíŒ
 	public void Triplist(Model model, String title) {
 		log.info("list");
 		model.addAttribute("list", service.getTripList());
 		model.addAttribute("title", title.split(" ")[0]);
 	}
 
-	@GetMapping("/listMyBoard") // ³»°¡ ¾´ ±Û °Ô½ÃÆÇ
+	@GetMapping("/listMyBoard") // ë‚´ê°€ ì“´ ê¸€ ê²Œì‹œíŒ
 	public void Mylist(Model model, String mem_nickname) {
 		log.info("list");
 		model.addAttribute("list", service.getMyList(mem_nickname));
@@ -68,9 +68,9 @@ public class BoardController {
 	public void register() {
 	}
 
-	@PostMapping("/registerBoard") // °Ô½ÃÆÇ µî·Ï
+	@PostMapping("/registerBoard") // ê²Œì‹œíŒ ë“±ë¡
 	public String registerFree(BoardVo board, RedirectAttributes rttr, Principal principal) {
-		// System.out.println("·Î±×ÀÎÁ¤º¸¸¦ °¡Áö°í¿Â´Ù"+principal.getName());
+		// System.out.println("ë¡œê·¸ì¸ì •ë³´ë¥¼ ê°€ì§€ê³ ì˜¨ë‹¤"+principal.getName());
 
 		board.setMem_id(principal.getName());
 		log.info("register: " + board);
@@ -78,7 +78,7 @@ public class BoardController {
 
 		rttr.addFlashAttribute("result", board.getBoard_no());
 
-		// ÆÄÀÏ Ã³¸®
+		// íŒŒì¼ ì²˜ë¦¬
 		List<String> fname = new ArrayList<String>();
 		Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
@@ -95,7 +95,7 @@ public class BoardController {
 			uploadFileService.insert(uploadVo);
 		}
 
-		if (board.getBoard_kinds() == 1) { // 1ÀÌ ÀÚÀ¯
+		if (board.getBoard_kinds() == 1) { // 1ì´ ììœ 
 			return "redirect:/board/listFreeBoard";
 		} else {
 			return "redirect:/board/listTripBoard?title=";
@@ -126,7 +126,7 @@ public class BoardController {
 
 			if (uploadFileService.deleteFileAll(board.getBoard_no()) >= 1) {
 				List<String> fname = new ArrayList<String>();
-				Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");// ¼³Á¤
+				Pattern nonValidPattern = Pattern.compile("<img[^>] *src=[\"']?([^>\"']+)[\"']?[^>]*>");// ì„¤ì •
 				Matcher matcher = nonValidPattern.matcher(board.getBoard_content());
 
 				while (matcher.find()) {
@@ -141,7 +141,7 @@ public class BoardController {
 				}
 			}
 		}
-		if (board.getBoard_kinds() == 1) { // 1ÀÌ ÀÚÀ¯
+		if (board.getBoard_kinds() == 1) { // 1ì´ ììœ 
 			return "redirect:/board/listFreeBoard";
 		} else {
 			return "redirect:/board/listTripBoard";
